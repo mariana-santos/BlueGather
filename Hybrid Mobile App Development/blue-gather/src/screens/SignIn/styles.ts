@@ -21,12 +21,10 @@ export const Touchable = styled.TouchableOpacity`
 
 export const RegisterText = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
-  color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.GRAY[30]};
   font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.REGULAR};
 `;
 
-export const RegisterTextBold = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
-  color: ${({ theme }) => theme.COLORS.WHITE};
+export const RegisterTextBold = styled(RegisterText)`
   font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.BOLD};
 `;

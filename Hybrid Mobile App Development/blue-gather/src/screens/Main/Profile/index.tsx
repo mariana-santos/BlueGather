@@ -21,7 +21,7 @@ import theme from '@theme/index';
 
 // Component import
 import {
-  DecreasingContainer,
+  WavesContainer,
   Input,
   Button,
   DefaultComponent,
@@ -102,7 +102,7 @@ export function Profile({
           key="default-component-profile"
         />
 
-        <DecreasingContainer>
+        <WavesContainer>
           <AvatarWrapper>
             <UserAvatar
               imageSource={imageSource}
@@ -160,7 +160,7 @@ export function Profile({
               />
             </LogoutButtonWrapper>
           </Fieldset>
-        </DecreasingContainer>
+        </WavesContainer>
       </ScrollableContent>
     </WrapperPage>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Article, House, IconProps, User, Folders } from 'phosphor-react-native';
+import { Article, House, IconProps, User } from 'phosphor-react-native';
 import {
   createBottomTabNavigator,
   BottomTabNavigationOptions,
@@ -11,7 +11,6 @@ import { useRoute } from '@react-navigation/native';
 import theme from '@theme/index';
 
 // Hook import
-import { useQuoteProposal } from '@hooks/useQuoteProposal';
 import { useAuth } from '@hooks/useAuth';
 import { QuoteProvider } from '@hooks/useQuote';
 
@@ -24,8 +23,6 @@ import { MainNavigationRoutes } from '@routes/index';
 // Pages import
 import { Home } from './Home';
 import { Profile } from './Profile';
-import { NavigatorScreenParams } from '@react-navigation/native';
-
 
 // Interfaces
 export type MainRoutes = {
@@ -36,7 +33,6 @@ export type MainRoutes = {
 export const Main: React.FC<
   BottomTabScreenProps<MainNavigationRoutes, 'Main'>
 > = ({ navigation }) => {
-  const { proposal, setLastRouteNavigated } = useQuoteProposal();
   const { user } = useAuth();
 
   const Tab = createBottomTabNavigator<MainRoutes>();

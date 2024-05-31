@@ -14,7 +14,7 @@ import theme from '@theme/index';
 import {
   Button,
   CustomSlider,
-  DecreasingContainer,
+  WavesContainer,
   DefaultComponent,
   WrapperPage,
 } from '@components/index';
@@ -110,7 +110,7 @@ export const Step3: React.FC<
           key="default-component-quote-details"
         />
 
-        <DecreasingContainer scrollable>
+        <WavesContainer scrollable>
           <LightText>
             A nota de cada item está relacionada à sua importancia, onde 1
             significa <LightBoldText> pouco importante</LightBoldText> e 3
@@ -146,7 +146,7 @@ export const Step3: React.FC<
             onValueChange={(value: number) => handleSetPriorities(value, 'price')}
           />
           <Label>{priorities.price.label}</Label>
-        </DecreasingContainer>
+        </WavesContainer>
       </ScrollableContent>
 
       <Button

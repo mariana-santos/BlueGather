@@ -24,6 +24,7 @@ import {
   storageAuthTokenGet,
   storageAuthTokenSave,
 } from '@storage/storageAuthToken';
+import { UserQuery } from '@dtos/user';
 
 interface AuthProps {
   usuario: User;
@@ -33,7 +34,9 @@ interface AuthProps {
 interface AuthContextData {
   user: User;
   handleSignIn: (data: SignInProps) => Promise<void>;
-  sigInLoading: boolean;
+  handleSignUp: (data: UserQuery) => Promise<void>
+  signInLoading: boolean;
+  signUpLoading: boolean;
   handleUpdateUser: (user: User) => Promise<void>;
   updateLoading: boolean;
 
@@ -57,7 +60,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   // State
   const [user, setUser] = useState<User>({} as User);
-  const [sigInLoading, setSignInLoading] = useState(false);
+  const [signInLoading, setSignInLoading] = useState(false);
+  const [signUpLoading, setSignUpLoading] = useState(false);
   const [updateLoading, setUpdateLoading] = useState(false);
 
   const handleSignIn = useCallback(async ({ email, password }: SignInProps) => {
@@ -92,6 +96,45 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }, []);
 
+
+  const handleSignUp = useCallback(async (userData: UserQuery) => {
+    try {
+      setSignUpLoading(true);
+
+      const values = Object.values(userData);
+      const insufficientInformation = values.some(
+        value =>
+          typeof value === 'undefined' ||
+          typeof value === undefined ||
+          typeof value === null,
+      );
+
+      if (insufficientInformation) {
+        throw new Error('Um ou mais atributos estão vazios.');
+      }
+
+      const body = userData;
+
+      await api.post('/usuarios', body);
+
+      return Toast.show({
+        type: 'success',
+        text1: 'Bem vindo!',
+        text2: 'Estamos ansiosos para te ajudar a fazer a diferença. 😀',
+      });
+    } catch (error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Erro',
+        text2: 'Não foi possível cadastrar esta conta.',
+      });
+
+      throw error;
+    } finally {
+      setSignUpLoading(true);
+    }
+  }, []);
+
   async function registryToken() {
     const token = await storageAuthTokenGet();
 
@@ -122,8 +165,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         email: finalUserData.email,
         senha: finalUserData.senha,
         urlImagem: finalUserData.urlImagem,
-        cnpj: finalUserData.cnpj,
-        isFornecedor: finalUserData.isFornecedor,
       };
 
       console.log(body);
@@ -176,9 +217,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       value={{
         user,
         handleSignIn,
-        sigInLoading,
+        signInLoading,
         handleUpdateUser,
         updateLoading,
+        handleSignUp,
+        signUpLoading,
 
         handleSignOut,
       }}

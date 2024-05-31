@@ -4,7 +4,7 @@ import { CompositeScreenProps, StackActions } from '@react-navigation/native';
 // Component import
 import { 
   WrapperPage, 
-  DecreasingContainer, 
+  WavesContainer, 
   Button,
   UserInfo
 } from '@components/index';
@@ -47,11 +47,11 @@ export function Home({
   return (
     <WrapperPage>
       <ScrollableContent>
-        <DecreasingContainer scrollable>
+        <WavesContainer scrollable>
           <Fragment>
             <Title>Suas cotações</Title>
           </Fragment>
-        </DecreasingContainer>
+        </WavesContainer>
       </ScrollableContent>
     </WrapperPage>
   );

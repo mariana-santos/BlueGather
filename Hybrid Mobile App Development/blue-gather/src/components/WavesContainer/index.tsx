@@ -12,7 +12,7 @@ interface Props extends ScrollViewProps {
   scrollable?: boolean;
 }
 
-export function DecreasingContainer({
+export function WavesContainer({
   children,
   scrollable = false,
   ...rest

@@ -8,20 +8,14 @@ interface Props extends TouchableOpacityProps {
   label: string;
   size?: 'SM' | 'MD' | 'LG' | 'XL' | 'XXL';
   icon?: React.ReactNode;
-  bottom?: boolean;
   backgroundColor?: string;
-  type?: 'primary' | 'secondary'
-  iconFirst?: boolean;
 }
 
 export function Button({
   label,
-  size = 'MD',
+  size = 'LG',
   icon,
-  bottom = false,
-  backgroundColor = theme.COLORS.PRIMARY,
-  type = 'primary',
-  iconFirst = false,
+  backgroundColor = theme.COLORS.BLUE[50],
   ...rest
 }: Props) {
   return (
@@ -29,12 +23,11 @@ export function Button({
       {...rest}
       size={size}
       activeOpacity={0.7}
-      bottom={bottom}
       backgroundColor={backgroundColor}
-      type={type}
-      iconFirst={iconFirst}
     >
-      <ButtonText size={size} type={type}>{label}</ButtonText>
+      <ButtonText size={size}>
+        {label}
+      </ButtonText>
       {icon && icon}
     </ButtonContainer>
   );

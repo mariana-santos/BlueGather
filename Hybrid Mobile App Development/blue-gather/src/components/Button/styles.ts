@@ -3,10 +3,7 @@ import styled from 'styled-components/native';
 
 interface Props {
   size: 'SM' | 'MD' | 'LG' | 'XL' | 'XXL';
-  type: 'primary' | 'secondary';
-  bottom?: boolean;
   backgroundColor?: string;
-  iconFirst?: boolean;
 }
 
 export const ButtonContainer = styled.TouchableOpacity<Props>`
@@ -26,42 +23,19 @@ export const ButtonContainer = styled.TouchableOpacity<Props>`
   padding: ${({ size }) => (size === 'SM' ? '8px 12px' : size === 'MD' ? '12px' : '16px')};
 
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
-
-  ${props =>
-    props.bottom &&
-    css`
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    `}
-
-  ${props =>
-    props.type == "secondary" &&
-    css`
-      background: transparent;
-      flex-direction: column;
-      gap: 5px;
-    `
-  }
-
-  ${props =>
-    props.iconFirst && `flex-direction: column-reverse;`
-  }
 `;
 
 export const ButtonText = styled.Text<Props>`
   font-size: ${({ theme, size }) => theme.FONT_SIZE[size]}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.BOLD};
+  text-transform: uppercase;
   text-align: center;
 
-  color: ${({ type, theme }) =>
-    type === "primary" ? theme.COLORS.WHITE : theme.COLORS.PRIMARY_LIGHTER};
+  color: ${({ theme }) => theme.COLORS.WHITE };
 
   ${({ disabled, theme }) =>
     disabled &&
     css`
-      color: ${theme.COLORS.GRAY_300};
+      color: ${theme.COLORS.GRAY[30]};
     `}
 `;

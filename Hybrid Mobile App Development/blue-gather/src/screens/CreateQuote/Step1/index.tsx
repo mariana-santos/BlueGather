@@ -21,7 +21,7 @@ import theme from '@theme/index';
 import {
   Button,
   CustomDropdown,
-  DecreasingContainer,
+  WavesContainer,
   DefaultComponent,
   Input,
   WrapperPage,
@@ -113,7 +113,7 @@ export const Step1: React.FC<
           key="default-component-quote-details"
         />
 
-        <DecreasingContainer>
+        <WavesContainer>
           <Fieldset>
             <Controller
               control={control}
@@ -162,7 +162,7 @@ export const Step1: React.FC<
               )}
             />
           </Fieldset>
-        </DecreasingContainer>
+        </WavesContainer>
       </ScrollableContent>
 
       <CustomModal

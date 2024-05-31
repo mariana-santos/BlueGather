@@ -21,7 +21,7 @@ import { Step4FormSchema } from '@validations/QuoteDetails';
 // Component import
 import {
   Button,
-  DecreasingContainer,
+  WavesContainer,
   DefaultComponent,
   Input,
   Loading,
@@ -120,7 +120,7 @@ export const Step4: React.FC<
           key="default-component-quote-details"
         />
 
-        <DecreasingContainer>
+        <WavesContainer>
           <Message productPrices={productPrices} />
 
           <Fieldset>
@@ -155,7 +155,7 @@ export const Step4: React.FC<
               }
             />
           )}
-        </DecreasingContainer>
+        </WavesContainer>
       </ScrollableContent>
 
       <Button

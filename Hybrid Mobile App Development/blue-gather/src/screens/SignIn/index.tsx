@@ -17,7 +17,7 @@ import theme from '@theme/index';
 
 // Component import
 import {
-  DecreasingContainer,
+  WavesContainer,
   Input,
   Button,
   DefaultComponent,
@@ -43,7 +43,7 @@ export function SignIn({
   navigation,
 }: NativeStackScreenProps<MainNavigationRoutes, 'SignIn'>) {
   // Hook
-  const { handleSignIn, sigInLoading } = useAuth();
+  const { handleSignIn, signInLoading } = useAuth();
   const {
     control,
     handleSubmit,
@@ -72,12 +72,12 @@ export function SignIn({
     <WrapperPage>
       <ScrollableContent>
         <DefaultComponent
-          highlightProps={{ title: 'Acesse sua conta', subtitle: 'Bem vindo!' }}
-          statusBarProps={{ backgroundColor: theme.COLORS.GRAY_700 }}
+          highlightProps={{ title: 'Acesse sua conta', subtitle: 'Bem vindo de volta! Preencha seus dados para continuar' }}
+          statusBarProps={{ backgroundColor: theme.COLORS.GRAY[50] }}
           key="default-component-sing-in"
         />
 
-        <DecreasingContainer>
+        <WavesContainer>
           <Content>
             <Fieldset>
               <Controller
@@ -86,6 +86,7 @@ export function SignIn({
                 render={({ field: { value, onChange } }) => (
                   <Input
                     value={value}
+                    required
                     onChangeText={onChange}
                     label="E-mail"
                     autoCapitalize="none"
@@ -106,6 +107,7 @@ export function SignIn({
                     value={value}
                     onChangeText={onChange}
                     label="Senha"
+                    required
                     placeholder="********"
                     secureTextEntry
                     autoCapitalize="none"
@@ -116,7 +118,7 @@ export function SignIn({
             </Fieldset>
 
             <Button
-              label={sigInLoading ? 'Carregando...' : 'Entrar'}
+              label={signInLoading ? 'Carregando...' : 'Entrar'}
               onPress={handleSubmit(onSubmit)}
             />
 
@@ -125,7 +127,7 @@ export function SignIn({
               <RegisterTextBold>Criar uma conta</RegisterTextBold>
             </Touchable>
           </Content>
-        </DecreasingContainer>
+        </WavesContainer>
       </ScrollableContent>
     </WrapperPage>
   );

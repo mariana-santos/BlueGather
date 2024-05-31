@@ -20,7 +20,7 @@ import { Step2FormSchema } from '@validations/QuoteDetails';
 import {
   Button,
   CustomDropdown,
-  DecreasingContainer,
+  WavesContainer,
   DefaultComponent,
   Input,
   WrapperPage,
@@ -125,7 +125,7 @@ export const Step2: React.FC<
           key="default-component-quote-details"
         />
 
-        <DecreasingContainer scrollable>
+        <WavesContainer scrollable>
           <Fieldset>
             <Controller
               control={control}
@@ -195,7 +195,7 @@ export const Step2: React.FC<
               }}
             />
           </Fieldset>
-        </DecreasingContainer>
+        </WavesContainer>
       </ScrollableContent>
 
       <CustomModal

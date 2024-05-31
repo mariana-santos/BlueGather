@@ -1,2 +1,2 @@
-export { Step2FormSchema, Step5FormSchema } from './SignUp/index';
+export { SignUpFormSchema } from './SignUp';
 export { SignInFormSchema } from './SignIn';

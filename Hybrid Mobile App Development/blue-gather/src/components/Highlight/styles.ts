@@ -8,7 +8,7 @@ export const Container = styled.View`
 export const Subtitle = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.REGULAR};
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
 `;
 
 export const Flex = styled.View`
@@ -19,11 +19,11 @@ export const Flex = styled.View`
 export const Title = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.XXL}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
-  color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.GRAY[50]};
 `;
 
 export const HighlightedText = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.XXL}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
-  color: ${({ theme }) => theme.COLORS.PRIMARY_LIGHT};
+  color: ${({ theme }) => theme.COLORS.PURPLE[40]};
 `;

@@ -24,7 +24,7 @@ export const Container = styled.ImageBackground<{ scrollable?: boolean }>`
           min-height: 600px;
         `
       : css`
-          min-height: ${windowHeight - 285}px;
+          min-height: ${windowHeight - 210}px;
         `}
 
   background-color: ${({ theme }) => theme.COLORS.BLUE[3]};

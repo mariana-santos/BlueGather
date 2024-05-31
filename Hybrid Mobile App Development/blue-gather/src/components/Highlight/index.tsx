@@ -17,14 +17,13 @@ export function Highlight({
 }: Props) {
   return (
     <Container style={{ paddingHorizontal: noPadding ? 0 : 30 }}>
-      <Subtitle>{subtitle}</Subtitle>
-
       <Flex>
         <Title>
           {title.replace(highlightedText ?? '', '')}
           <HighlightedText>{highlightedText}</HighlightedText>
         </Title>
       </Flex>
+      <Subtitle>{subtitle}</Subtitle>
     </Container>
   );
 }

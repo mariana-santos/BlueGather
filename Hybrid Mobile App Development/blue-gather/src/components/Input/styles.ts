@@ -7,34 +7,54 @@ export const InputWrapper = styled.View`
   align-items: start;
 `;
 
+export const LabelWrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 2px;
+`;
+
+export const Helpers = styled.View`
+  margin-bottom: 12px;
+`;
+
 export const Label = styled.Text`
-  color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
   font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
-
-  margin-bottom: 12px;
-
   text-align: left;
 `;
 
+export const Label2 = styled(Label)`
+  color: ${({ theme }) => theme.COLORS.GRAY[30]};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XS}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.REGULAR};
+  text-align: left;
+`;
+
+export const Required = styled(Label)`
+  color: ${({ theme }) => theme.COLORS.FEEDBACK.RED};
+`;
+
 export const InputContainer = styled.TextInput<{ isInvalid: boolean }>`
-  background-color: ${({ theme }) => theme.COLORS.GRAY_500};
-  color: ${({ theme }) => theme.COLORS.GRAY_200};
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.REGULAR};
 
   padding: 14px 12px;
 
-  border: 1px solid ${({ theme }) => theme.COLORS.GRAY_500};
+  border: 1px solid ${({ theme }) => theme.COLORS.GRAY[10]};
   border-radius: 8px;
 
   ${props =>
     props.isInvalid &&
     css`
-      border: 1px solid ${({ theme }) => theme.COLORS.RED};
+      border: 1px solid ${({ theme }) => theme.COLORS.FEEDBACK.RED};
     `};
 `;
 
 export const ErrorMessage = styled.Text`
-  color: ${({ theme }) => theme.COLORS.RED};
+  color: ${({ theme }) => theme.COLORS.FEEDBACK.RED};
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
 

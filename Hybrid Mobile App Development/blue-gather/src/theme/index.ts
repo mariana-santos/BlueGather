@@ -27,7 +27,7 @@ export default {
       50: '#2D2C2C',
     },
     FEEDBACK: {
-      red: '#B35050',
+      RED: '#B35050',
     },
     WHITE: '#FFFFFF',
   },
@@ -50,6 +50,6 @@ export default {
     MD: 16,
     LG: 18,
     XL: 25,
-    XXL: 30,
+    XXL: 35,
   },
 };

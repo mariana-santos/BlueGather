@@ -1,13 +1,12 @@
 // Style import
-import { Container, Logo, BackButton, BackIcon, Empty } from './styles';
+import { Container, BackButton, BackIcon, Empty } from './styles';
 
 export interface Props {
   goBack?: () => void;
-  showLogo?: boolean;
   noPadding?: boolean;
 }
 
-export function Header({ goBack, showLogo = true, noPadding = false }: Props) {
+export function Header({ goBack, noPadding = false }: Props) {
   return (
     <Container style={{
       paddingHorizontal: noPadding ? 0 : 30 
@@ -15,9 +14,6 @@ export function Header({ goBack, showLogo = true, noPadding = false }: Props) {
       <BackButton onPress={goBack}>
         {typeof goBack === 'function' && <BackIcon />}
       </BackButton>
-
-      {showLogo && <Logo />}
-
       <Empty />
     </Container>
   );

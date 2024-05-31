@@ -69,13 +69,16 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setSignInLoading(true);
 
       const body = { email, senha: password };
-      const { data } = await api.post<AuthProps>('usuarios/login', body);
+
+      const { data } = await api.post<AuthProps>('/usuario/login', body);
 
       const token = `Bearer ${data.token}`;
 
       if (!data.usuario || !token) throw new Error();
 
       setUser(data.usuario);
+
+      navigate("Main");
 
       await storageAuthTokenSave({ token });
       await storageUserSave(data.usuario);
@@ -115,7 +118,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       const body = userData;
 
-      await api.post('/usuarios', body);
+      await api.post('/usuario', body);
+
+      navigate("Main");
 
       return Toast.show({
         type: 'success',
@@ -166,8 +171,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         senha: finalUserData.senha,
         urlImagem: finalUserData.urlImagem,
       };
-
-      console.log(body);
 
       const { data } = await api.put(`/usuarios/${userId}`, body);
 

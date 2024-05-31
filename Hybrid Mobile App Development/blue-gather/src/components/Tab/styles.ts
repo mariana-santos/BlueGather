@@ -6,6 +6,6 @@ export const TabText = styled(Text)`
   margin-bottom: 2px;
 
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
-  font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.SEMIBOLD};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
   color: ${({ theme }) => theme.COLORS.WHITE};
 `;

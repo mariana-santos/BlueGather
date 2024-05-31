@@ -4,6 +4,7 @@ export interface User {
   email: string;
   senha: string;
   urlImagem?: string;
+  cpf: string;
 }
 
 export interface UserQuery {
@@ -11,4 +12,5 @@ export interface UserQuery {
   email: string;
   senha: string;
   urlImagem?: string;
+  cpf: string;
 }

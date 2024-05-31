@@ -18,14 +18,19 @@ import { MainNavigationRoutes } from '@routes/index';
 // Validation import
 import { SignUpFormSchema } from '@validations/index';
 
-
 // Style import
 import { ScrollableContent, Fieldset } from '@global/styles/index';
+
+// Hook import
 import { useAuth } from '@hooks/useAuth';
+
+// Util import
+import { toMaskedCPF, unMask } from '@utils/masks';
 
 interface SignUpForm {
   nome: string;
   email: string;
+  cpf: string;
   senha: string;
 }
 
@@ -45,15 +50,23 @@ export const SignUp: React.FC<
 
   const onSubmit: SubmitHandler<SignUpForm> = async data => {
     try {
-      const { email, nome, senha } = data;
-      await handleSignUp({ email, nome, senha });
+      const { cpf } = data;
+      const cleanCPF = unMask(cpf);
+
+      Object.assign(data, { urlImagem: "", cpf: cleanCPF })
+
+      await handleSignUp(data);
       resetField("email");
       resetField("senha");
+      resetField("nome");
+      resetField("cpf");
+      
     } catch (error) {
+      console.error(error);
       Toast.show({
         type: 'error',
         text1: 'Erro',
-        text2: 'Dados inválidos',
+        text2: 'Não foi possível cadastrar a sua conta',
       });
     }
   };
@@ -109,6 +122,24 @@ export const SignUp: React.FC<
           <Fieldset>
             <Controller
               control={control}
+              name="cpf"
+              render={({ field: { value, onChange } }) => (
+                <Input
+                  value={value}
+                  onChangeText={text => onChange(toMaskedCPF(text))}
+                  label="CPF"
+                  keyboardType="numeric"
+                  placeholder="Digite seu CPF"
+                  required
+                  error={errors.cpf?.message}
+                />
+              )}
+            />
+          </Fieldset>
+
+          <Fieldset>
+            <Controller
+              control={control}
               name="senha"
               render={({ field: { value, onChange } }) => (
                 <Input
@@ -134,14 +165,13 @@ export const SignUp: React.FC<
             />
           </Fieldset>
 
-          <Button style={{ paddingVertical: 25 }}
+          <Button style={{ paddingVertical: 50, marginBottom: 50 }}
             label="Continuar"
             onPress={handleSubmit(onSubmit)}
           />
           
         </WavesContainer>
       </ScrollableContent>
-
 
     </WrapperPage>
   );

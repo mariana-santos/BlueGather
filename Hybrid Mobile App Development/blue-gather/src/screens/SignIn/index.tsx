@@ -72,7 +72,10 @@ export function SignIn({
     <WrapperPage>
       <ScrollableContent>
         <DefaultComponent
-          highlightProps={{ title: 'Acesse sua conta', subtitle: 'Bem vindo de volta! Preencha seus dados para continuar' }}
+          highlightProps={{ 
+            title: 'Acesse sua conta', 
+            subtitle: 'Bem vindo de volta! Preencha seus dados para continuar'
+          }}
           statusBarProps={{ backgroundColor: theme.COLORS.GRAY[50] }}
           key="default-component-sing-in"
         />

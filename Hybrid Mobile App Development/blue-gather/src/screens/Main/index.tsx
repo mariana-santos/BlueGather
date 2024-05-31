@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
-import { Article, House, IconProps, User } from 'phosphor-react-native';
+import React from 'react';
+import { House, IconProps, User } from 'phosphor-react-native';
 import {
   createBottomTabNavigator,
   BottomTabNavigationOptions,
   BottomTabScreenProps,
 } from '@react-navigation/bottom-tabs';
-import { useRoute } from '@react-navigation/native';
 
 // Theme import
 import theme from '@theme/index';

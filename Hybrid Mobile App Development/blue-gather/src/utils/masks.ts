@@ -20,9 +20,9 @@ export function toMaskedPhone(value: string) {
   }
 }
 
-export function toMaskedCNPJ(value: string) {
+export function toMaskedCPF(value: string) {
   try {
-    return MaskService.toMask('cnpj', value);
+    return MaskService.toMask('cpf', value);
   } catch (error) {
     throw error;
   }

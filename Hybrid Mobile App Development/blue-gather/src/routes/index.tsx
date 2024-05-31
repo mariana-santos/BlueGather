@@ -31,7 +31,7 @@ export default function Routes() {
   // Navigator instance
   const Stack = createNativeStackNavigator<MainNavigationRoutes>();
 
-  const logged = user?.cnpj;
+  const logged = user?.email;
 
   const initialMainRoute = useMemo<keyof MainNavigationRoutes>(() => {
     if (logged) return 'Main';

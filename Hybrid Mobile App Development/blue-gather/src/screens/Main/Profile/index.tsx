@@ -27,6 +27,7 @@ import {
   DefaultComponent,
   UserAvatar,
   WrapperPage,
+  FloatingMenu
 } from '@components/index';
 
 // Style import
@@ -156,12 +157,14 @@ export function Profile({
                 size="MD"
                 icon={<SignOut color={theme.COLORS.WHITE} weight="bold" />}
                 onPress={handleSignOut}
-                backgroundColor={theme.COLORS.RED_DARK}
+                backgroundColor={theme.COLORS.FEEDBACK.RED}
               />
             </LogoutButtonWrapper>
           </Fieldset>
         </WavesContainer>
       </ScrollableContent>
+
+      <FloatingMenu />
     </WrapperPage>
   );
 }

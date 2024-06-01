@@ -22,6 +22,7 @@ import { MainNavigationRoutes } from '@routes/index';
 // Pages import
 import { Home } from './Home';
 import { Profile } from './Profile';
+import { NativeStackNavigationOptions, NativeStackScreenProps, createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Interfaces
 export type MainRoutes = {
@@ -30,68 +31,24 @@ export type MainRoutes = {
 };
 
 export const Main: React.FC<
-  BottomTabScreenProps<MainNavigationRoutes, 'Main'>
+  NativeStackScreenProps<MainNavigationRoutes, 'Main'>
 > = ({ navigation }) => {
   const { user } = useAuth();
 
-  const Tab = createBottomTabNavigator<MainRoutes>();
+  const Stack = createNativeStackNavigator<MainRoutes>();
 
-  // const { GRAY_100, GRAY_300 } = theme.COLORS;
-
-  const screenOptions: BottomTabNavigationOptions = {
+  const screenOptions: NativeStackNavigationOptions = {
     headerShown: false,
-    // tabBarActiveBackgroundColor: theme.COLORS.PRIMARY_LOW_OPACITY,
-    tabBarLabelPosition: "beside-icon",
-    tabBarStyle: {
-      borderTopWidth: 0,
-      height: 70,
-      // backgroundColor: theme.COLORS.GRAY_800,
-    },
-    tabBarItemStyle: { 
-      marginVertical: 15,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: 20,
-      width: "auto",
-      flexGrow: 1
-    },
-    tabBarLabelStyle: {
-      fontSize: theme.FONT_SIZE.MD,
-      fontFamily: theme.FONT_FAMILY.PT_SANS_NARROW.BOLD,
-      color: theme.COLORS.WHITE
-    },
+    gestureEnabled: true,
+    animation: 'fade',
   };
-
-  function iconProps(focused: boolean): IconProps {
-    return {
-      // color: focused ? GRAY_100 : GRAY_300,
-      size: theme.FONT_SIZE.XL,
-      weight: 'fill',
-    };
-  }
 
   return (
     <QuoteProvider>
-      <Tab.Navigator initialRouteName="Home" screenOptions={screenOptions}>
-        <Tab.Screen
-          name="Home"
-          component={Home}
-          options={{
-            tabBarIcon: ({ focused }) => <House {...iconProps(focused)} />,
-            tabBarLabel: ({ focused }) => focused && <Text label="Início" />,
-          }}
-        />
-        
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            tabBarIcon: ({ focused }) => <User {...iconProps(focused)} />,
-            tabBarLabel: ({ focused }) => focused && <Text label="Perfil" />,
-          }}
-        />
-      </Tab.Navigator>
+      <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile" component={Profile} />
+      </Stack.Navigator>
     </QuoteProvider>
   );
 };

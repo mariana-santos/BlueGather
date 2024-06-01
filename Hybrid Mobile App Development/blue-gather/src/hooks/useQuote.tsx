@@ -6,9 +6,6 @@ import React, {
   useState,
 } from 'react';
 
-// Service import
-import GlobalRequestService from '@services/global-request';
-
 // Type import
 import {
   QuoteQuery,
@@ -85,11 +82,6 @@ const QuoteProvider: React.FC<QuoteProviderProps> = ({
   async function fetchDepartmentsAndTags() {
     try {
       setLoading(true);
-
-      const [departments, tags] = await Promise.all([
-        GlobalRequestService.getDepartments(),
-        GlobalRequestService.getTags(),
-      ]);
 
       setDepartments(departments);
       setTags(tags);

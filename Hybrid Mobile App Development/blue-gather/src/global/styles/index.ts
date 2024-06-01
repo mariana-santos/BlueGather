@@ -6,11 +6,11 @@ export const ScrollableContent = styled.ScrollView`
   width: 100%;
   height: 100%;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+  background-color: ${({ theme }) => theme.COLORS.GRAY[5]};
 `;
 
 export const AlertText = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
   font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.REGULAR};
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
 

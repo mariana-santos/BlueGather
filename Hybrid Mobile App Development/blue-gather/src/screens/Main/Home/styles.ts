@@ -1,35 +1,49 @@
-import { Flex } from '@global/styles';
+import { Dimensions } from 'react-native';
+import MapView, { Callout } from 'react-native-maps';
 import styled from 'styled-components/native';
 
-export const Header = styled.View`
-  justify-content: space-between;
-  align-items: center;
+const windowHeight = Dimensions.get('window').height;
+
+export const Map = styled(MapView)`
+  flex: 1;
+  height: ${windowHeight}px;
+`;
+
+export const Content = styled.ScrollView`
+  width: 100%;
+  height: 100%
+`;
+
+export const EventIcon = styled.Image`
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: solid 1px ${({ theme }) => theme.COLORS.PURPLE[50]}
+`;
+
+export const EventInfo = styled(Callout)`
+  flex: 1;
+  position: relative;
+  max-width: 200px;
   display: flex;
-  flex-direction: row;
-  gap: 0;
-  margin: 30px 0;
+  flex-direction: column;
 `;
 
-export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.WHITE};
+export const EventWrapper = styled.View`
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+`;
+
+export const EventTitle = styled.Text`
+  color: ${({ theme }) => theme.COLORS.PURPLE[50]};
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;  
-  margin-top: 30px;  
-  margin-bottom: 10px;
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
 `;
 
-export const QuotesWrapper = styled.View`
-  background-color: ${({ theme }) => theme.COLORS.GRAY_500};
-  padding: 16px;
-  border-radius: 10px;
-`;
 
-export const Actions = styled(Flex)`
-  margin-top: 20px;
+export const EventSubtitle = styled.Text`
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.OPEN_SANS.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
 `;
-
-export const NotificationButton = styled.TouchableOpacity`
-  position: absolute;
-  top: -10px;
-  right: 30px;
-`

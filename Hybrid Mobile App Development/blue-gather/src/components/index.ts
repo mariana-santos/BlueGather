@@ -15,6 +15,7 @@ export { UserAvatar } from './UserAvatar';
 export { WrapperPage } from './WrapperPage';
 export { Text } from './Tab';
 export { UserInfo } from './UserInfo'
+export { FloatingMenu } from './FloatingMenu'
 
 // Type export
 export type { Props as HeaderProps } from './Header';

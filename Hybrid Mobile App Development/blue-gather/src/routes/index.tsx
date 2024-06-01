@@ -71,6 +71,5 @@ export default function Routes() {
         {MainNavigation}
       </AuthProvider>
     </NavigationContainer>
-
   );
 }

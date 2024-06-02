@@ -29,7 +29,7 @@ const style = StyleSheet.create({
 
 export const StatusBar: React.FC<Props> = ({
   noForce,
-  backgroundColor = theme.COLORS.GRAY_700,
+  backgroundColor = theme.COLORS.BLUE[0],
   dark,
   ...rest
 }) => {

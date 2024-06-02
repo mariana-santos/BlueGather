@@ -25,9 +25,7 @@ export function Button({
       activeOpacity={0.7}
       backgroundColor={backgroundColor}
     >
-      <ButtonText size={size}>
-        {label}
-      </ButtonText>
+      <ButtonText size={size}>{label}</ButtonText>
       {icon && icon}
     </ButtonContainer>
   );

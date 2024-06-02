@@ -3,7 +3,10 @@ import {
   NativeStackNavigationProp,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-import { NavigationContainer, NavigatorScreenParams } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
 
 // Hook import
 import { AuthProvider, useAuth } from '@hooks/useAuth';
@@ -11,13 +14,11 @@ import { AuthProvider, useAuth } from '@hooks/useAuth';
 // Screen import
 import { SignIn } from '@screens/SignIn';
 import { SignUp } from '@screens/SignUp';
-import { CreateQuote } from '@screens/CreateQuote';
 import { Main, MainRoutes } from '@screens/Main';
 
 export type MainNavigationRoutes = {
   SignIn: undefined;
   SignUp: undefined;
-  CreateQuote: undefined;
   Main: NavigatorScreenParams<MainRoutes> | undefined;
 };
 
@@ -31,7 +32,7 @@ export default function Routes() {
   // Navigator instance
   const Stack = createNativeStackNavigator<MainNavigationRoutes>();
 
-  const logged = user?.email;
+  const logged = true;
 
   const initialMainRoute = useMemo<keyof MainNavigationRoutes>(() => {
     if (logged) return 'Main';
@@ -57,7 +58,6 @@ export default function Routes() {
           </Fragment>
         )}
 
-        <Stack.Screen name="CreateQuote" component={CreateQuote} />
         <Stack.Screen name="Main" component={Main} />
       </Stack.Navigator>
     );
@@ -67,9 +67,7 @@ export default function Routes() {
 
   return (
     <NavigationContainer>
-      <AuthProvider>
-        {MainNavigation}
-      </AuthProvider>
+      <AuthProvider>{MainNavigation}</AuthProvider>
     </NavigationContainer>
   );
 }

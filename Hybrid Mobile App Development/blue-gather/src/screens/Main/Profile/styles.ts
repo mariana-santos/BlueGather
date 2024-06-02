@@ -1,22 +1,23 @@
 import styled from 'styled-components/native';
 
-export const Fieldset = styled.View`
-  width: 100%;
-
-  margin-bottom: 25px;
-`;
-
 export const AvatarWrapper = styled.View`
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 30px;
+  margin: 30px 0;
+  padding: 0 30px;
 `;
 
-export const LogoutButtonWrapper = styled.View`
-  margin-top: 16px;
+export const Text = styled.Text<{ large?: boolean }>`
+  font-size: ${({ theme, large }) =>
+    large ? theme.FONT_SIZE.XL : theme.FONT_SIZE.SM}px;
 
-  padding-top: 15px;
-  border-top-width: 2px;
-  border-top-color: ${({ theme }) => theme.COLORS.GRAY_500};
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
+`;
+
+export const MedalsContainer = styled.View`
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 `;

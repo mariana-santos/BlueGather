@@ -2,16 +2,22 @@ import styled, { css } from 'styled-components/native';
 
 type Props = {
   active?: boolean;
-}
+};
 
-export const Item = styled.Pressable<Props>`
-  padding: 10px 20px;
-  border-radius: 50px;
+export const Item = styled.TouchableOpacity<Props>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  ${({ active, theme }) => 
-    active && css`
+  height: 50px;
+  width: 55px;
+
+  border-radius: 25px;
+
+  ${({ active, theme }) =>
+    active &&
+    css`
       background: ${theme.COLORS.BLUE[20]};
-      border: solid 1px ${theme.COLORS.BLUE[30]};
-    `
-  }
+      border: solid 1px ${theme.COLORS.BLUE[50]};
+    `}
 `;

@@ -57,8 +57,8 @@ export function SignIn({
     try {
       const { email, senha } = data;
       await handleSignIn({ email, password: senha });
-      resetField("email");
-      resetField("senha");
+      resetField('email');
+      resetField('senha');
     } catch (error) {
       Toast.show({
         type: 'error',
@@ -72,11 +72,11 @@ export function SignIn({
     <WrapperPage>
       <ScrollableContent>
         <DefaultComponent
-          highlightProps={{ 
-            title: 'Acesse sua conta', 
-            subtitle: 'Bem vindo de volta! Preencha seus dados para continuar'
+          highlightProps={{
+            title: 'Acesse sua conta',
+            subtitle: 'Bem vindo de volta! Preencha seus dados para continuar',
           }}
-          statusBarProps={{ backgroundColor: theme.COLORS.GRAY[50] }}
+          statusBarProps={{ backgroundColor: theme.COLORS.BLUE[0] }}
           key="default-component-sing-in"
         />
 

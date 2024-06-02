@@ -1,14 +1,12 @@
 import React from 'react';
 
-// Hook import
-import { QuoteProvider } from '@hooks/useQuote';
-
 // Type import
 import { MainNavigationRoutes } from '@routes/index';
 
 // Pages import
 import { Home } from './Home';
 import { Profile } from './Profile';
+import { CreateEvent } from './CreateEvent';
 import {
   NativeStackNavigationOptions,
   NativeStackScreenProps,
@@ -19,6 +17,7 @@ import {
 export type MainRoutes = {
   Home: undefined;
   Profile: undefined;
+  CreateEvent: undefined;
 };
 
 export const Main: React.FC<
@@ -33,11 +32,10 @@ export const Main: React.FC<
   };
 
   return (
-    <QuoteProvider>
-      <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Profile" component={Profile} />
-      </Stack.Navigator>
-    </QuoteProvider>
+    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="CreateEvent" component={CreateEvent} />
+    </Stack.Navigator>
   );
 };

@@ -12,7 +12,7 @@ export function FloatingMenu() {
 
   const [notShowFloatingMenu, setNotShowFloatingMenu] = useState(false);
 
-  const screensWithoutFloatingMenu: (keyof MainRoutes)[] = ['Profile'];
+  const screensWithoutFloatingMenu: (keyof MainRoutes)[] = ['CreateEvent'];
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('state', () => {
@@ -31,7 +31,7 @@ export function FloatingMenu() {
     <Container>
       <Menu>
         <MenuItem icon="calendar" screen="Home" />
-        <MenuItem icon="map-pin" screen="Home" />
+        <MenuItem icon="map-pin" screen="CreateEvent" />
         <MenuItem icon="user" screen="Profile" />
       </Menu>
     </Container>

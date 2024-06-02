@@ -16,9 +16,7 @@ import {
   EventSubtitle,
   EventTitle,
   EventWrapper,
-  Label,
   Map,
-  SearchInputContainer,
 } from './styles';
 
 // Type import

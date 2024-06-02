@@ -51,6 +51,18 @@ export const InputContainer = styled.TextInput<{ isInvalid: boolean }>`
     css`
       border: 1px solid ${({ theme }) => theme.COLORS.FEEDBACK.RED};
     `};
+
+  ${props =>
+    !props.editable &&
+    css`
+      opacity: 0.6;
+    `};
+
+  ${props =>
+    props.multiline &&
+    css`
+      vertical-align: top;
+    `};
 `;
 
 export const ErrorMessage = styled.Text`

@@ -17,8 +17,10 @@ export const Text = styled.Text<{ size: 'sm' | 'md' | 'lg' }>`
     return theme.FONT_SIZE.SM;
   }}px;
 
+  font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
+
   color: ${({ theme, size }) =>
-    size === 'lg' ? theme.COLORS.GRAY[50] : theme.COLORS.GRAY[40]};
+    size === 'lg' ? theme.COLORS.GRAY[40] : theme.COLORS.GRAY[50]};
 `;
 
 export const MedalsContainer = styled.View`

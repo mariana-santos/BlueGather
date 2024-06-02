@@ -1,10 +1,7 @@
 import * as yup from 'yup';
 
 export const Step1FormSchema = yup.object().shape({
-  idsTags: yup
-    .array()
-    .of(yup.number().required())
-    .min(1, 'Selecione uma tag.')
-    .required('Selecione uma tag.'),
-  idDepartamento: yup.number().required('Departamento obrigatório.'),
+  local: yup.string().required('O local é obrigatório.'),
+  title: yup.string().required('O título do evento é obrigatório.'),
+  description: yup.string().required('A descrição do evento é obrigatória.'),
 });

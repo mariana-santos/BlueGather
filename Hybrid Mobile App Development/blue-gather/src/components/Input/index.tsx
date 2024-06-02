@@ -5,7 +5,16 @@ import { TextInputProps } from 'react-native';
 import theme from '@theme/index';
 
 // Style import
-import { InputWrapper, Label, InputContainer, ErrorMessage, Helpers, Label2, Required, LabelWrapper } from './styles';
+import {
+  InputWrapper,
+  Label,
+  InputContainer,
+  ErrorMessage,
+  Helpers,
+  Label2,
+  Required,
+  LabelWrapper,
+} from './styles';
 
 // Interface
 interface Props extends TextInputProps {
@@ -15,12 +24,13 @@ interface Props extends TextInputProps {
   required?: boolean;
 }
 
-export function Input({ 
-  label, 
+export function Input({
+  label,
   label2,
-  required, 
-  error, 
-  ...rest 
+  required,
+  error,
+  editable = true,
+  ...rest
 }: Props) {
   const isInvalid = Boolean(error);
   const placeholderTextColor = isInvalid
@@ -29,22 +39,23 @@ export function Input({
 
   return (
     <InputWrapper>
-      {Boolean(label) &&
+      {Boolean(label) && (
         <Helpers>
           <LabelWrapper>
             <Label>{label}</Label>
             {required && <Required>*</Required>}
           </LabelWrapper>
 
-          {label2 && <Label2>{label}</Label2>}
-        </Helpers> 
-      }
+          {label2 && <Label2>{label2}</Label2>}
+        </Helpers>
+      )}
 
       <InputContainer
         {...rest}
         placeholderTextColor={placeholderTextColor}
         underlineColorAndroid="transparent"
         isInvalid={isInvalid}
+        editable={editable}
       />
 
       {isInvalid && <ErrorMessage>{error}</ErrorMessage>}

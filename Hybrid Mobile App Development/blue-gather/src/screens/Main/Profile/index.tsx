@@ -14,7 +14,7 @@ import {
 } from '@components/index';
 
 // Style import
-import { AvatarWrapper, MedalsContainer, Text } from './styles';
+import { AvatarWrapper, Content, MedalsContainer, Text } from './styles';
 import { ScrollableContent } from '@global/styles/index';
 import { Medal } from './Medal';
 
@@ -45,21 +45,26 @@ export function Profile() {
             handleSetAvatar={setAvatar}
             size="MD"
           />
+
+          <Text size="lg">Natan Cruz</Text>
         </AvatarWrapper>
 
         <WavesContainer>
-          <Text large>Minhas contribuições</Text>
+          <Content>
+            <Text size="lg">Minhas contribuições</Text>
 
-          <Text>
-            Obrigada por todo o seu apoio na nossa causa de amenizar os estragos
-            no oceano! Aqui estão suas medalhas provando que você é um herói! :)
-          </Text>
+            <Text size="sm">
+              Obrigada por todo o seu apoio na nossa causa de amenizar os
+              estragos no oceano! Aqui estão suas medalhas provando que você é
+              um herói! :)
+            </Text>
 
-          <MedalsContainer>
-            <Medal />
-            <Medal />
-            <Medal />
-          </MedalsContainer>
+            <MedalsContainer>
+              <Medal />
+              <Medal />
+              <Medal />
+            </MedalsContainer>
+          </Content>
         </WavesContainer>
       </ScrollableContent>
 

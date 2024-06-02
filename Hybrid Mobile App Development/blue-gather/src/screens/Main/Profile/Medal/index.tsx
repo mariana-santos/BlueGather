@@ -1,3 +1,4 @@
+import { Text } from '../styles';
 import { Container, Image, IconPic } from './styles';
 
 // Asset import
@@ -11,6 +12,9 @@ export function Medal() {
     <Container>
       <Image source={{ uri: mock_url }} />
       <IconPic source={waves} />
+
+      <Text size="lg">Praia grande</Text>
+      <Text size="sm">26/10/23</Text>
     </Container>
   );
 }

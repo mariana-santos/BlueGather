@@ -9,9 +9,9 @@ A BlueGather é uma plataforma concebida para facilitar a organização e coorde
 Com a BlueGather, as organizações e comunidades podem colaborar de forma eficaz para proteger nosso planeta, unindo-se em ações práticas e impactantes.
 
 <details>
-## Documentação das Classes
+<summary><strong>Documentação das Classes</strong></summary>
 <details>
-<summary><strong>Avaliacao</strong></summary>
+<summary>Avaliacao</summary>
 Representa uma avaliação feita por um usuário avaliador em relação a um evento.
 
 **Atributos:**
@@ -22,7 +22,7 @@ Representa uma avaliação feita por um usuário avaliador em relação a um eve
 </details>
 
 <details>
-<summary><strong>Evento</strong></summary>
+<summary>Evento</summary>
 Representa um evento organizado por usuários para ações sociais.
 
 **Atributos:**
@@ -40,7 +40,7 @@ Representa um evento organizado por usuários para ações sociais.
 </details>
 
 <details>
-<summary><strong>Imagem</strong></summary>
+<summary>Imagem</summary>
 Representa as imagens registradas por usuários durante os eventos de ações sociais.
 
 **Atributos:**
@@ -51,7 +51,7 @@ Representa as imagens registradas por usuários durante os eventos de ações so
 </details>
 
 <details>
-<summary><strong>Momento</strong></summary>
+<summary>Momento</summary>
 Representa os possíveis momentos (das imagens) passíveis de cadastro.
 
 **Atributos:**
@@ -60,7 +60,7 @@ Representa os possíveis momentos (das imagens) passíveis de cadastro.
 </details>
 
 <details>
-<summary><strong>Status</strong></summary>
+<summary>Status</summary>
 Representa os possíveis status (dos eventos) passíveis de cadastro.
 
 **Atributos:**
@@ -69,7 +69,7 @@ Representa os possíveis status (dos eventos) passíveis de cadastro.
 </details>
 
 <details>
-<summary><strong>Tipo_Evento</strong></summary>
+<summary>Tipo_Evento</summary>
 Representa os possíveis tipos de evento passíveis de cadastro.
 
 **Atributos:**
@@ -78,7 +78,7 @@ Representa os possíveis tipos de evento passíveis de cadastro.
 </details>
 
 <details>
-<summary><strong>Usuario</strong></summary>
+<summary>Usuario</summary>
 Representa um usuário do sistema.
 
 **Atributos:**

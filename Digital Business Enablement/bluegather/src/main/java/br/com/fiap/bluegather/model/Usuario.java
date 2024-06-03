@@ -76,14 +76,18 @@ public class Usuario implements UserDetails {
     private Set<Evento> eventos = new LinkedHashSet<>();
 
     public Usuario addEvento(Evento evento) {
-        this.eventos.add(evento);
-        if (evento.getVoluntarios().contains(this)) evento.addVoluntario(this);
+        if (!this.eventos.contains(evento)) {
+            this.eventos.add(evento);
+            if (!evento.getVoluntarios().contains(this)) evento.addVoluntario(this);
+        }
         return this;
     }
     
     public Usuario removeEvento(Evento evento) {
-        this.eventos.remove(evento);
-        if (evento.getVoluntarios().contains(this)) evento.removeVoluntario(this);
+        if (this.eventos.contains(evento)) {
+            this.eventos.remove(evento);
+            if (evento.getVoluntarios().contains(this)) evento.removeVoluntario(this);
+        }
         return this;
     }
 

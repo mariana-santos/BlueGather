@@ -109,14 +109,18 @@ public class Evento {
     private Set<Usuario> voluntarios = new LinkedHashSet<>();
 
     public Evento addVoluntario(Usuario voluntario) {
-        this.voluntarios.add(voluntario);
-        if (voluntario.getEventos().contains(this)) voluntario.addEvento(this);
+        if (!this.voluntarios.contains(voluntario)) {
+            this.voluntarios.add(voluntario);
+            if (!voluntario.getEventos().contains(this)) voluntario.addEvento(this);
+        }
         return this;
     }
     
     public Evento removeVoluntario(Usuario voluntario) {
-        this.voluntarios.remove(voluntario);
-        if (voluntario.getEventos().contains(this)) voluntario.removeEvento(this);
+        if (this.voluntarios.contains(voluntario)) {
+            this.voluntarios.remove(voluntario);
+            if (voluntario.getEventos().contains(this)) voluntario.removeEvento(this);
+        }
         return this;
     }
     

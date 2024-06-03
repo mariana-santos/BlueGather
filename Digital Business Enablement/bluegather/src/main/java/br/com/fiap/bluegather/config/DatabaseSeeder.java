@@ -11,7 +11,9 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.text.SimpleDateFormat;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Configuration
 @Profile("dev")
@@ -119,6 +121,9 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento1.setOrganizador(gustavo);
         evento1.setTipoEvento(limpeza);
         evento1.setStatus(finalizado);
+        Set<Usuario> voluntarios1 = new LinkedHashSet<>();
+        voluntarios1.add(gustavo);
+        evento1.setVoluntarios(voluntarios1);
 
         Evento evento2 = new Evento();
         evento2.setTitulo("Passeata Contra a Sacola de Plásticos em Mercados");
@@ -131,6 +136,9 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento2.setOrganizador(natan);
         evento2.setTipoEvento(passeata);
         evento2.setStatus(finalizado);
+        Set<Usuario> voluntarios2 = new LinkedHashSet<>();
+        voluntarios2.add(natan);
+        evento2.setVoluntarios(voluntarios2);
 
         Evento evento3 = new Evento();
         evento3.setTitulo("Limpeza da Praia da Enseada - Guarujá");
@@ -155,6 +163,9 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento4.setOrganizador(gustavo);
         evento4.setTipoEvento(resgate);
         evento4.setStatus(finalizado);
+        Set<Usuario> voluntarios4 = new LinkedHashSet<>();
+        voluntarios4.add(gustavo);
+        evento2.setVoluntarios(voluntarios4);
 
         Evento evento5 = new Evento();
         evento5.setTitulo("Coleta de Lixo Reciclável da Favela da Rocinha");
@@ -167,6 +178,9 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento5.setOrganizador(mariana);
         evento5.setTipoEvento(coleta);
         evento5.setStatus(aberto);
+        Set<Usuario> voluntarios5 = new LinkedHashSet<>();
+        voluntarios5.add(mariana);
+        evento2.setVoluntarios(voluntarios5);
 
         // Instanciando Objetos - Momento
         Momento antes = new Momento();

@@ -150,6 +150,7 @@ public class EventoService {
         entity.setStatus(statusService.findEntityById(dto.getIdStatus()));
 
         Set<Usuario> newUsuarios = new LinkedHashSet<>();
+        newUsuarios.add(usuarioService.findEntityById(dto.getIdOrganizador()));
         if (dto.getIdsVoluntarios() != null) {
             dto.getIdsVoluntarios().forEach(id -> {
                 Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado com ID: " + id));

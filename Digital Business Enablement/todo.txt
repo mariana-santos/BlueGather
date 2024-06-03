@@ -1,2 +1,0 @@
-- Ajustar Relacionamento N para N entre Evento e Usuario (Dando erro ao atualizar duas vezes e não estava usando o remove, entender melhor o que está errado e refazer)
-- Criar métodos específicos de cada classe (buscar por id de usuario em evento, etc.)

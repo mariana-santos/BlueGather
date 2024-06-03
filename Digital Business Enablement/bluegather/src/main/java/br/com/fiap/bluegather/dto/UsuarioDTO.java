@@ -18,7 +18,6 @@ public class UsuarioDTO {
     @NotNull(message = "O campo nome não pode estar vazio.")
     private String nome;
 
-    @NotNull(message = "O campo urlImagem não pode estar vazio.")
     private String urlImagem;
 
     @Email(message = "Endereço de e-mail inválido.")

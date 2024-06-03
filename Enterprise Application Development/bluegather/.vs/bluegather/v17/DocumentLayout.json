@@ -1,0 +1,309 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\context\\bluegathercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:context\\bluegathercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\services\\avaliacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:services\\avaliacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\repositories\\avaliacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:repositories\\avaliacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\models\\avaliacaomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:models\\avaliacaomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\dtos\\avaliacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:dtos\\avaliacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\avaliacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\avaliacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\configurations\\avaliacaoconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:configurations\\avaliacaoconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\eventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\imagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\imagemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\momentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\momentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\tipoeventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\tipoeventocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-03T20:44:45.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-03T20:38:36.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AvaliacaoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Repositories\\AvaliacaoRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\AvaliacaoRepository.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Repositories\\AvaliacaoRepository.cs",
+              "RelativeToolTip": "Repositories\\AvaliacaoRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:38:27.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AvaliacaoModel.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Models\\AvaliacaoModel.cs",
+              "RelativeDocumentMoniker": "Models\\AvaliacaoModel.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Models\\AvaliacaoModel.cs",
+              "RelativeToolTip": "Models\\AvaliacaoModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:38:22.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AvaliacaoDto.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Dtos\\AvaliacaoDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\AvaliacaoDto.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Dtos\\AvaliacaoDto.cs",
+              "RelativeToolTip": "Dtos\\AvaliacaoDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:38:18.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BlueGatherContext.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Context\\BlueGatherContext.cs",
+              "RelativeDocumentMoniker": "Context\\BlueGatherContext.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Context\\BlueGatherContext.cs",
+              "RelativeToolTip": "Context\\BlueGatherContext.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAADwv2MAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:38:08.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AvaliacaoConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Configurations\\AvaliacaoConfiguration.cs",
+              "RelativeDocumentMoniker": "Configurations\\AvaliacaoConfiguration.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Configurations\\AvaliacaoConfiguration.cs",
+              "RelativeToolTip": "Configurations\\AvaliacaoConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:37:57.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-03T20:37:52.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AvaliacaoController.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\AvaliacaoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AvaliacaoController.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\AvaliacaoController.cs",
+              "RelativeToolTip": "Controllers\\AvaliacaoController.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAkwHQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:22.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAADwvw0AAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:32:09.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EventoController.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\EventoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EventoController.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\EventoController.cs",
+              "RelativeToolTip": "Controllers\\EventoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:21.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AvaliacaoService.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Services\\AvaliacaoService.cs",
+              "RelativeDocumentMoniker": "Services\\AvaliacaoService.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Services\\AvaliacaoService.cs",
+              "RelativeToolTip": "Services\\AvaliacaoService.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAkwHwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:01.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ImagemController.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\ImagemController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ImagemController.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\ImagemController.cs",
+              "RelativeToolTip": "Controllers\\ImagemController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:20.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MomentoController.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\MomentoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MomentoController.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\MomentoController.cs",
+              "RelativeToolTip": "Controllers\\MomentoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:19.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "StatusController.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\StatusController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StatusController.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\StatusController.cs",
+              "RelativeToolTip": "Controllers\\StatusController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:18.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TipoEventoController.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\TipoEventoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TipoEventoController.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\TipoEventoController.cs",
+              "RelativeToolTip": "Controllers\\TipoEventoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:14.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:36:12.274Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

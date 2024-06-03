@@ -92,3 +92,40 @@ Representa um usuário do sistema.
 - `is_fornecedor` (NUMBER(1)): Indicador se a entidade é fornecedora (0 = não, 1 = sim).
 </details>
 </details>
+
+<details>
+<summary><strong>Documentação da API</strong></summary>
+<br>
+
+Aqui estão exemplos de como interagir com a API usando os métodos HTTP (GET, POST, PUT, DELETE):
+
+Observação: Todos os Métodos estão protegidos pelo Spring Security e são necessários o envio do TOKEN com o prefixo Bearer através do Header da requisição.
+
+Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o qual retorna o token necessário para acesso aos outros endpoints)
+
+<details>
+<summary>Usuario</summary>
+</details>
+
+</details>
+
+<details>
+<summary><strong>Códigos de Status das Requisições</strong></summary>
+<br>
+<strong>| Código | Descrição</strong>
+<br>
+| 200 | Requisição bem-sucedida
+<br>
+| 201 | Cadastrado com sucesso
+<br>
+| 204 | A requisição foi bem-sucedida, mas não há conteúdo para retornar.
+<br>
+| 400 | Os campos enviados são inválidos
+<br>
+| 404 | Página não encontrada
+<br>
+| 405 | Método não permitido
+<br>
+| 500 | Erro interno do servidor
+<br>
+</details>

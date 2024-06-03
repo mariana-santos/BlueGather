@@ -8,10 +8,10 @@ A BlueGather é uma plataforma concebida para facilitar a organização e coorde
 
 Com a BlueGather, as organizações e comunidades podem colaborar de forma eficaz para proteger nosso planeta, unindo-se em ações práticas e impactantes.
 
-## Documentação das Classes
-
 <details>
-<summary><strong>Classe `Avaliacao`</strong></summary>
+## Documentação das Classes
+<details>
+<summary><strong>Avaliacao</strong></summary>
 Representa uma avaliação feita por um usuário avaliador em relação a um evento.
 
 **Atributos:**
@@ -22,7 +22,7 @@ Representa uma avaliação feita por um usuário avaliador em relação a um eve
 </details>
 
 <details>
-<summary><strong>Classe `Evento`</strong></summary>
+<summary><strong>Evento</strong></summary>
 Representa um evento organizado por usuários para ações sociais.
 
 **Atributos:**
@@ -40,7 +40,7 @@ Representa um evento organizado por usuários para ações sociais.
 </details>
 
 <details>
-<summary><strong>Classe `Imagem`</strong></summary>
+<summary><strong>Imagem</strong></summary>
 Representa as imagens registradas por usuários durante os eventos de ações sociais.
 
 **Atributos:**
@@ -51,7 +51,7 @@ Representa as imagens registradas por usuários durante os eventos de ações so
 </details>
 
 <details>
-<summary><strong>Classe `Momento`</strong></summary>
+<summary><strong>Momento</strong></summary>
 Representa os possíveis momentos (das imagens) passíveis de cadastro.
 
 **Atributos:**
@@ -60,7 +60,7 @@ Representa os possíveis momentos (das imagens) passíveis de cadastro.
 </details>
 
 <details>
-<summary><strong>Classe `Status`</strong></summary>
+<summary><strong>Status</strong></summary>
 Representa os possíveis status (dos eventos) passíveis de cadastro.
 
 **Atributos:**
@@ -69,7 +69,7 @@ Representa os possíveis status (dos eventos) passíveis de cadastro.
 </details>
 
 <details>
-<summary><strong>Classe `Tipo_Evento`</strong></summary>
+<summary><strong>Tipo_Evento</strong></summary>
 Representa os possíveis tipos de evento passíveis de cadastro.
 
 **Atributos:**
@@ -78,7 +78,7 @@ Representa os possíveis tipos de evento passíveis de cadastro.
 </details>
 
 <details>
-<summary><strong>Classe `Usuario`</strong></summary>
+<summary><strong>Usuario</strong></summary>
 Representa um usuário do sistema.
 
 **Atributos:**
@@ -89,4 +89,5 @@ Representa um usuário do sistema.
 - `imagem_usuario` (VARCHAR2(255)): URL da imagem da pessoa.
 - `cnpj_pj` (CHAR(18)): CNPJ da pessoa jurídica.
 - `is_fornecedor` (NUMBER(1)): Indicador se a entidade é fornecedora (0 = não, 1 = sim).
+</details>
 </details>

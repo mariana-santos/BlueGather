@@ -1,13 +1,15 @@
 package br.com.fiap.bluegather.controller;
 
 import br.com.fiap.bluegather.dto.EventoDTO;
+import br.com.fiap.bluegather.dto.EventoResponse;
 import br.com.fiap.bluegather.service.EventoService;
 
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,18 +25,20 @@ import jakarta.validation.Valid;
 public class EventoController {
 
     @Autowired
+    @Lazy
     private EventoService eventoService;
 
     @GetMapping
-    public ResponseEntity<Page<EventoDTO>> listAll(@PageableDefault(size = 100, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+    public List<EventoResponse> listAll() {
         log.info("(" + getClass().getSimpleName() + ") - Buscando todos(as)");
-        return ResponseEntity.ok(eventoService.listAll(pageable));
+        Set<EventoResponse> eventos = eventoService.getAllEventoResponses();
+        return eventos.stream().collect(Collectors.toList());
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<EventoDTO> findById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public EventoResponse getEventoById(@PathVariable Long id) {
         log.info("(" + getClass().getSimpleName() + ") - Exibindo por ID: " + id);
-        return ResponseEntity.ok(eventoService.findById(id));
+        return eventoService.getEventoResponseById(id);
     }
 
     @PostMapping

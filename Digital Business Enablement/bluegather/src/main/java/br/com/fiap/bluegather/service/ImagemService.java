@@ -1,10 +1,12 @@
 package br.com.fiap.bluegather.service;
 
 import br.com.fiap.bluegather.dto.ImagemDTO;
+import br.com.fiap.bluegather.model.Evento;
 import br.com.fiap.bluegather.model.Imagem;
 import br.com.fiap.bluegather.repository.ImagemRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Service
 public class ImagemService {
@@ -21,6 +24,7 @@ public class ImagemService {
     private ImagemRepository imagemRepository;
 
     @Autowired
+    @Lazy
     private EventoService eventoService;
 
     @Autowired
@@ -61,6 +65,10 @@ public class ImagemService {
     public Imagem findEntityById(Long id) {
         return imagemRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Imagem não encontrado(a) por ID: " + id));
+    }
+
+    public Set<Imagem> findByEvento(Evento evento) {
+        return imagemRepository.findByEvento(evento);
     }
     
     private ImagemDTO convertToDto(Imagem entity) {

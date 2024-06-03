@@ -1,8 +1,11 @@
 package br.com.fiap.bluegather.service;
 
 import br.com.fiap.bluegather.dto.EventoDTO;
+import br.com.fiap.bluegather.dto.EventoResponse;
 import br.com.fiap.bluegather.model.Evento;
+import br.com.fiap.bluegather.model.Imagem;
 import br.com.fiap.bluegather.repository.EventoRepository;
+import br.com.fiap.bluegather.repository.UsuarioRepository;
 import br.com.fiap.bluegather.model.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -31,6 +35,12 @@ public class EventoService {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private ImagemService imagemService;
 
     public Page<EventoDTO> listAll(Pageable pageRequest) {
         Page<Evento> list = eventoRepository.findAll(pageRequest);
@@ -67,6 +77,19 @@ public class EventoService {
     public Evento findEntityById(Long id) {
         return eventoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Evento não encontrado(a) por ID: " + id));
+    }
+
+    public Set<EventoResponse> getAllEventoResponses() {
+        Set<Evento> eventos = new LinkedHashSet<>(eventoRepository.findAll());
+        return eventos.stream()
+                      .map(evento -> convertToEventoResponse(evento, imagemService.findByEvento(evento)))
+                      .collect(Collectors.toSet());
+    }
+
+    public EventoResponse getEventoResponseById(Long id) {
+        Evento evento = findEntityById(id);
+        Set<Imagem> imagens = imagemService.findByEvento(evento);
+        return convertToEventoResponse(evento, imagens);
     }
     
     private EventoDTO convertToDto(Evento entity) {
@@ -120,15 +143,33 @@ public class EventoService {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ID Status não pode ser nulo.");
         }
         entity.setStatus(statusService.findEntityById(dto.getIdStatus()));
-    
-        entity.getVoluntarios().clear();
-    
+
+        Set<Usuario> newUsuarios = new LinkedHashSet<>();
         if (dto.getIdsVoluntarios() != null) {
             dto.getIdsVoluntarios().forEach(id -> {
-                Usuario voluntario = usuarioService.findEntityById(id);
-                entity.addVoluntario(voluntario);
+                Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado com ID: " + id));
+                newUsuarios.add(usuario);
             });
         }
+        entity.setVoluntarios(newUsuarios);
         return entity;
+    }
+
+    private EventoResponse convertToEventoResponse(Evento entity, Set<Imagem> imagens) {
+        return new EventoResponse(
+                entity.getId(),
+                entity.getTitulo(),
+                entity.getLatitude(),
+                entity.getLongitude(),
+                entity.getDataInicio(),
+                entity.getDataFim(),
+                entity.getDescricao(),
+                entity.getUrgencia(),
+                entity.getOrganizador(),
+                entity.getTipoEvento(),
+                entity.getStatus(),
+                entity.getVoluntarios(),
+                imagens
+        );
     }
 }

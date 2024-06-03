@@ -97,7 +97,7 @@ Observação: Todos os Métodos estão protegidos pelo Spring Security e são ne
 
 Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o qual retorna o token necessário para acesso aos outros endpoints)
 
-## /avaliacao</strong>
+## Avaliacao
 
 ### Listar Todos:
 
@@ -235,7 +235,7 @@ Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o q
 
 ### Exibir por ID do Avaliador:
 
-- **Endpoint:** /avaliacao/avaliador{avaliadorId}
+- **Endpoint:** /avaliacao/avaliador/{avaliadorId}
 - **Método:** GET
 - **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
 - **Exemplo de Retorno:**
@@ -265,7 +265,7 @@ Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o q
 - **Exemplo de Body:**
 ```json
 {
-  "idEvento": 1,
+  	"idEvento": 1,
 	"idAvaliador": 2,
 	"nota": 5
 }
@@ -284,12 +284,12 @@ Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o q
 
 ### Atualizar:
 
-- **Endpoint:** /avaliacao/id
+- **Endpoint:** /avaliacao/{id}
 - **Método:** PUT
 - **Exemplo de Body:**
 ```json
 {
-  "idEvento": 1,
+  	"idEvento": 1,
 	"idAvaliador": 2,
 	"nota": 4
 }
@@ -308,14 +308,764 @@ Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o q
 
 ### Deletar:
 
-- **Endpoint:** /avaliacao/id
+- **Endpoint:** /avaliacao/{id}
 - **Método:** DELETE
 - **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
 - **Exemplo de Retorno:** Não é enviado nenhum retorno para esta requisição, apenas o Status Code.
 
 ---
 
-## /usuario</strong>
+## Evento
+
+### Listar Todos:
+
+- **Endpoint:** /evento
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 2,
+		"titulo": "Passeata Contra a Sacola de Plásticos em Mercados",
+		"latitude": "-23.5420",
+		"longitude": "-46.6294",
+		"dataInicio": "2024-08-11 14:00:00",
+		"dataFim": "2024-08-11 17:00:00",
+		"descricao": null,
+		"urgencia": 1,
+		"organizador": {
+			"id": 4,
+			"cpf": "44444444444",
+			"nome": "Natan Cruz",
+			"urlImagem": "https://avatars.githubusercontent.com/u/111809342?v=4",
+			"email": "natancruz@fiap.com.br",
+			"senha": null,
+			"idsEventos": [
+				2
+			]
+		},
+		"tipoEvento": {
+			"id": 2,
+			"nome": "Passeata de Conscientização Ambiental"
+		},
+		"status": {
+			"id": 2,
+			"nome": "Finalizado"
+		},
+		"voluntarios": [
+			{
+				"id": 4,
+				"cpf": "44444444444",
+				"nome": "Natan Cruz",
+				"urlImagem": "https://avatars.githubusercontent.com/u/111809342?v=4",
+				"email": "natancruz@fiap.com.br",
+				"senha": null,
+				"idsEventos": [
+					2
+				]
+			},
+			{
+				"id": 6,
+				"cpf": "66666666666",
+				"nome": "Testando Atualização",
+				"urlImagem": "http://urlparaumaimagem.com/imagem-atualizada.jpg",
+				"email": "usuariotesteatualizado@example.com",
+				"senha": null,
+				"idsEventos": [
+					2
+				]
+			}
+		],
+		"imagens": [
+			{
+				"id": 4,
+				"idEvento": 2,
+				"idMomento": 2,
+				"urlImagem": "https://f.i.uol.com.br/fotografia/2013/06/20/291240-970x600-1.jpeg"
+			}
+		]
+	},
+	{
+		"id": 1,
+		"titulo": "Limpeza da Praia da Enseada - Ubatuba",
+		"latitude": "-23.4898",
+		"longitude": "-45.0952",
+		"dataInicio": "2024-08-10 09:00:00",
+		"dataFim": "2024-08-10 13:00:00",
+		"descricao": "Vamos ajudar a praia da enseada!",
+		"urgencia": 2,
+		"organizador": {
+			"id": 1,
+			"cpf": "11111111111",
+			"nome": "Gustavo Sanches",
+			"urlImagem": "https://avatars.githubusercontent.com/u/111543305?v=4",
+			"email": "gustavosanches@fiap.com.br",
+			"senha": null,
+			"idsEventos": [
+				1,
+				4
+			]
+		},
+		"tipoEvento": {
+			"id": 1,
+			"nome": "Limpeza de Praias"
+		},
+		"status": {
+			"id": 2,
+			"nome": "Finalizado"
+		},
+		"voluntarios": [
+			{
+				"id": 1,
+				"cpf": "11111111111",
+				"nome": "Gustavo Sanches",
+				"urlImagem": "https://avatars.githubusercontent.com/u/111543305?v=4",
+				"email": "gustavosanches@fiap.com.br",
+				"senha": null,
+				"idsEventos": [
+					1,
+					4
+				]
+			}
+		],
+		"imagens": [
+			{
+				"id": 2,
+				"idEvento": 1,
+				"idMomento": 2,
+				"urlImagem": "https://voiceoftheoceans.com/wp-content/uploads/2022/09/27e8fd00-c478-4522-88ad-f356ab1c740d.jpg"
+			},
+			{
+				"id": 1,
+				"idEvento": 1,
+				"idMomento": 1,
+				"urlImagem": "https://hardcore.com.br/wp-content/uploads/sites/21/2021/01/poluicao-plastica-em-bali.jpg"
+			},
+			{
+				"id": 3,
+				"idEvento": 1,
+				"idMomento": 3,
+				"urlImagem": "https://turismo.ubatuba.sp.gov.br/wp-content/uploads/sites/29/2014/10/DSC01621.jpg"
+			}
+		]
+	}
+]
+```
+
+---
+
+### Exibir por ID:
+
+- **Endpoint:** /evento/{id}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 5,
+	"titulo": "Coleta de Lixo Reciclável da Favela da Rocinha",
+	"latitude": "-22.9879",
+	"longitude": "-43.2480",
+	"dataInicio": "2024-08-14 19:00:00",
+	"dataFim": "2024-08-14 21:00:00",
+	"descricao": "Retirada de lixo reciclável de comércios e moradias para reciclagem e limpeza da comunidade",
+	"urgencia": 4,
+	"organizador": {
+		"id": 3,
+		"cpf": "33333333333",
+		"nome": "Mariana Santos",
+		"urlImagem": "https://avatars.githubusercontent.com/u/56116824?v=4",
+		"email": "marianasantos@fiap.com.br",
+		"senha": null,
+		"idsEventos": [
+			5
+		]
+	},
+	"tipoEvento": {
+		"id": 4,
+		"nome": "Coleta de Lixo Reciclável"
+	},
+	"status": {
+		"id": 1,
+		"nome": "Aberto"
+	},
+	"voluntarios": [
+		{
+			"id": 3,
+			"cpf": "33333333333",
+			"nome": "Mariana Santos",
+			"urlImagem": "https://avatars.githubusercontent.com/u/56116824?v=4",
+			"email": "marianasantos@fiap.com.br",
+			"senha": null,
+			"idsEventos": [
+				5
+			]
+		}
+	],
+	"imagens": []
+}
+```
+
+---
+
+### Exibir por Título:
+
+- **Endpoint:** /evento/titulo/{titulo}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 1,
+		"titulo": "Limpeza da Praia da Enseada - Ubatuba",
+		"latitude": "-23.4898",
+		"longitude": "-45.0952",
+		"dataInicio": "2024-08-10 09:00:00",
+		"dataFim": "2024-08-10 13:00:00",
+		"descricao": "Vamos ajudar a praia da enseada!",
+		"urgencia": 2,
+		"idOrganizador": 1,
+		"idTipoEvento": 1,
+		"idStatus": 2,
+		"idsVoluntarios": [
+			1
+		]
+	}
+]
+```
+
+---
+
+### Exibir por Localização:
+
+- **Endpoint:** /evento/localizacao/{raioDistancia}
+- **Método:** GET
+- **Exemplo de Body:**
+```json
+{
+    "latitude": "-23.4898",
+    "longitude": "-45.0952"
+}
+```
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 1,
+		"titulo": "Limpeza da Praia da Enseada - Ubatuba",
+		"latitude": "-23.4898",
+		"longitude": "-45.0952",
+		"dataInicio": "2024-08-10 09:00:00",
+		"dataFim": "2024-08-10 13:00:00",
+		"descricao": "Vamos ajudar a praia da enseada!",
+		"urgencia": 2,
+		"idOrganizador": 1,
+		"idTipoEvento": 1,
+		"idStatus": 2,
+		"idsVoluntarios": [
+			1
+		]
+	},
+	{
+		"id": 3,
+		"titulo": "Limpeza da Praia da Enseada - Guarujá",
+		"latitude": "-23.9868",
+		"longitude": "-46.2275",
+		"dataInicio": null,
+		"dataFim": null,
+		"descricao": "Precisamos de voluntários para limpar!",
+		"urgencia": 5,
+		"idOrganizador": null,
+		"idTipoEvento": 1,
+		"idStatus": 3,
+		"idsVoluntarios": []
+	}
+]
+```
+
+---
+
+### Exibir por Data de Início:
+
+- **Endpoint:** /evento/data/{dataInicio}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 5,
+		"titulo": "Coleta de Lixo Reciclável da Favela da Rocinha",
+		"latitude": "-22.9879",
+		"longitude": "-43.2480",
+		"dataInicio": "2024-08-14 19:00:00",
+		"dataFim": "2024-08-14 21:00:00",
+		"descricao": "Retirada de lixo reciclável de comércios e moradias para reciclagem e limpeza da comunidade",
+		"urgencia": 4,
+		"idOrganizador": 3,
+		"idTipoEvento": 4,
+		"idStatus": 1,
+		"idsVoluntarios": [
+			3
+		]
+	}
+]
+```
+
+---
+
+### Exibir por ID da Urgência:
+
+- **Endpoint:** /evento/urgencia/{urgenciaId}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 3,
+		"titulo": "Limpeza da Praia da Enseada - Guarujá",
+		"latitude": "-23.9868",
+		"longitude": "-46.2275",
+		"dataInicio": null,
+		"dataFim": null,
+		"descricao": "Precisamos de voluntários para limpar!",
+		"urgencia": 5,
+		"idOrganizador": null,
+		"idTipoEvento": 1,
+		"idStatus": 3,
+		"idsVoluntarios": []
+	}
+]
+```
+
+---
+
+### Exibir por ID do Organizador:
+
+- **Endpoint:** /evento/organizador/{organizadorId}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 5,
+		"titulo": "Coleta de Lixo Reciclável da Favela da Rocinha",
+		"latitude": "-22.9879",
+		"longitude": "-43.2480",
+		"dataInicio": "2024-08-14 19:00:00",
+		"dataFim": "2024-08-14 21:00:00",
+		"descricao": "Retirada de lixo reciclável de comércios e moradias para reciclagem e limpeza da comunidade",
+		"urgencia": 4,
+		"idOrganizador": 3,
+		"idTipoEvento": 4,
+		"idStatus": 1,
+		"idsVoluntarios": [
+			3
+		]
+	}
+]
+```
+
+---
+
+### Exibir por ID do Tipo de Evento:
+
+- **Endpoint:** /evento/tipo/{tipoEventoId}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 4,
+		"titulo": "Resgate de Tartarugas",
+		"latitude": "-3.84036",
+		"longitude": "-32.4113",
+		"dataInicio": "2024-08-13 11:00:00",
+		"dataFim": "2024-08-13 19:00:00",
+		"descricao": "Ajudem-nos a salvar as tartarugas",
+		"urgencia": 3,
+		"idOrganizador": 1,
+		"idTipoEvento": 3,
+		"idStatus": 2,
+		"idsVoluntarios": [
+			1
+		]
+	}
+]
+```
+
+---
+
+### Exibir por ID do Status:
+
+- **Endpoint:** /evento/status/{statusId}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 5,
+		"titulo": "Coleta de Lixo Reciclável da Favela da Rocinha",
+		"latitude": "-22.9879",
+		"longitude": "-43.2480",
+		"dataInicio": "2024-08-14 19:00:00",
+		"dataFim": "2024-08-14 21:00:00",
+		"descricao": "Retirada de lixo reciclável de comércios e moradias para reciclagem e limpeza da comunidade",
+		"urgencia": 4,
+		"idOrganizador": 3,
+		"idTipoEvento": 4,
+		"idStatus": 1,
+		"idsVoluntarios": [
+			3
+		]
+	}
+]
+```
+
+---
+
+### Exibir por ID do Voluntário:
+
+- **Endpoint:** /evento/voluntario/{voluntarioId}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 1,
+		"titulo": "Limpeza da Praia da Enseada - Ubatuba",
+		"latitude": "-23.4898",
+		"longitude": "-45.0952",
+		"dataInicio": "2024-08-10 09:00:00",
+		"dataFim": "2024-08-10 13:00:00",
+		"descricao": "Vamos ajudar a praia da enseada!",
+		"urgencia": 2,
+		"idOrganizador": 1,
+		"idTipoEvento": 1,
+		"idStatus": 2,
+		"idsVoluntarios": [
+			1
+		]
+	},
+	{
+		"id": 4,
+		"titulo": "Resgate de Tartarugas",
+		"latitude": "-3.84036",
+		"longitude": "-32.4113",
+		"dataInicio": "2024-08-13 11:00:00",
+		"dataFim": "2024-08-13 19:00:00",
+		"descricao": "Ajudem-nos a salvar as tartarugas",
+		"urgencia": 3,
+		"idOrganizador": 1,
+		"idTipoEvento": 3,
+		"idStatus": 2,
+		"idsVoluntarios": [
+			1
+		]
+	}
+]
+```
+
+---
+
+### Cadastrar:
+
+- **Endpoint:** /evento
+- **Método:** POST
+- **Exemplo de Body:**
+```json
+{
+	"titulo": "Cadastrando Evento",
+	"latitude": "000.000000",
+	"longitude": "000.000000",
+	"dataInicio": "2024-12-31 00:00:00",
+  	"dataFim": "2025-01-01 00:00:00",
+  	"descricao": "Testando",
+  	"urgencia": 2,
+  	"idOrganizador": 5,
+  	"idTipoEvento": 1,
+  	"idStatus": 1,
+	"idsVoluntarios": []
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 6,
+	"titulo": "Cadastrando Evento",
+	"latitude": "000.000000",
+	"longitude": "000.000000",
+	"dataInicio": "2024-12-31 00:00:00",
+	"dataFim": "2025-01-01 00:00:00",
+	"descricao": "Testando",
+	"urgencia": 2,
+	"idOrganizador": 5,
+	"idTipoEvento": 1,
+	"idStatus": 1,
+	"idsVoluntarios": [
+		5
+	]
+}
+```
+
+---
+
+### Atualizar:
+
+- **Endpoint:** /evento/{id}
+- **Método:** PUT
+- **Exemplo de Body:**
+```json
+{
+	"titulo": "Cadastrando Evento",
+	"latitude": "000.000000",
+	"longitude": "000.000000",
+	"dataInicio": "2024-12-31 00:00:00",
+	"dataFim": "2025-01-01 00:00:00",
+  	"descricao": "Testando",
+  	"urgencia": 2,
+  	"idOrganizador": 5,
+  	"idTipoEvento": 1,
+  	"idStatus": 1,
+  	"idsVoluntarios": []
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 6,
+	"titulo": "Cadastrando Evento",
+	"latitude": "000.000000",
+	"longitude": "000.000000",
+	"dataInicio": "2024-12-31 00:00:00",
+	"dataFim": "2025-01-01 00:00:00",
+	"descricao": "Testando",
+	"urgencia": 2,
+	"idOrganizador": 5,
+	"idTipoEvento": 1,
+	"idStatus": 1,
+	"idsVoluntarios": [
+		5
+	]
+}
+```
+
+---
+
+### Deletar:
+
+- **Endpoint:** /evento/{id}
+- **Método:** DELETE
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:** Não é enviado nenhum retorno para esta requisição, apenas o Status Code.
+
+---
+
+## Imagem
+
+### Listar Todos:
+
+- **Endpoint:** /imagem
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"totalPages": 1,
+	"totalElements": 5,
+	"first": true,
+	"last": true,
+	"size": 100,
+	"content": [
+		{
+			"id": 5,
+			"idEvento": 4,
+			"idMomento": 2,
+			"urlImagem": "https://camboriu.news/wp-content/uploads/2020/11/salvar-tartaruga.jpg"
+		},
+		{
+			"id": 4,
+			"idEvento": 2,
+			"idMomento": 2,
+			"urlImagem": "https://f.i.uol.com.br/fotografia/2013/06/20/291240-970x600-1.jpeg"
+		},
+		{
+			"id": 3,
+			"idEvento": 1,
+			"idMomento": 3,
+			"urlImagem": "https://turismo.ubatuba.sp.gov.br/wp-content/uploads/sites/29/2014/10/DSC01621.jpg"
+		},
+		{
+			"id": 2,
+			"idEvento": 1,
+			"idMomento": 2,
+			"urlImagem": "https://voiceoftheoceans.com/wp-content/uploads/2022/09/27e8fd00-c478-4522-88ad-f356ab1c740d.jpg"
+		},
+		{
+			"id": 1,
+			"idEvento": 1,
+			"idMomento": 1,
+			"urlImagem": "https://hardcore.com.br/wp-content/uploads/sites/21/2021/01/poluicao-plastica-em-bali.jpg"
+		}
+	],
+	"number": 0,
+	"sort": {
+		"empty": false,
+		"sorted": true,
+		"unsorted": false
+	},
+	"pageable": {
+		"pageNumber": 0,
+		"pageSize": 100,
+		"sort": {
+			"empty": false,
+			"sorted": true,
+			"unsorted": false
+		},
+		"offset": 0,
+		"paged": true,
+		"unpaged": false
+	},
+	"numberOfElements": 5,
+	"empty": false
+}
+```
+
+---
+
+### Exibir por ID:
+
+- **Endpoint:** /imagem/{id}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 1,
+	"idEvento": 1,
+	"idMomento": 1,
+	"urlImagem": "https://hardcore.com.br/wp-content/uploads/sites/21/2021/01/poluicao-plastica-em-bali.jpg"
+}
+```
+
+---
+
+### Exibir por ID do Evento:
+
+- **Endpoint:** /imagem/evento/{eventoId}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 2,
+		"idEvento": 1,
+		"idMomento": 2,
+		"urlImagem": "https://voiceoftheoceans.com/wp-content/uploads/2022/09/27e8fd00-c478-4522-88ad-f356ab1c740d.jpg"
+	},
+	{
+		"id": 1,
+		"idEvento": 1,
+		"idMomento": 1,
+		"urlImagem": "https://hardcore.com.br/wp-content/uploads/sites/21/2021/01/poluicao-plastica-em-bali.jpg"
+	},
+	{
+		"id": 3,
+		"idEvento": 1,
+		"idMomento": 3,
+		"urlImagem": "https://turismo.ubatuba.sp.gov.br/wp-content/uploads/sites/29/2014/10/DSC01621.jpg"
+	}
+]
+```
+
+---
+
+### Exibir por ID do Momento:
+
+- **Endpoint:** /imagem/momento/{momentoId}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 1,
+		"idEvento": 1,
+		"idMomento": 1,
+		"urlImagem": "https://hardcore.com.br/wp-content/uploads/sites/21/2021/01/poluicao-plastica-em-bali.jpg"
+	}
+]
+```
+
+---
+
+### Cadastrar:
+
+- **Endpoint:** /imagem
+- **Método:** POST
+- **Exemplo de Body:**
+```json
+{
+	"idEvento": 1,
+	"idMomento": 3,
+	"urlImagem": "Testando Cadastro de Imagem"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 6,
+	"idEvento": 1,
+	"idMomento": 3,
+	"urlImagem": "Testando Cadastro de Imagem"
+}
+```
+
+---
+
+### Atualizar:
+
+- **Endpoint:** /imagem/{id}
+- **Método:** PUT
+- **Exemplo de Body:**
+```json
+{
+	"idEvento": 2,
+	"idMomento": 3,
+	"urlImagem": "Testando Atualização de Imagem"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 6,
+	"idEvento": 2,
+	"idMomento": 3,
+	"urlImagem": "Testando Atualização de Imagem"
+}
+```
+
+---
+
+### Deletar:
+
+- **Endpoint:** /imagem/{id}
+- **Método:** DELETE
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:** Não é enviado nenhum retorno para esta requisição, apenas o Status Code.
+
+---
+
+
+## Usuario
 
 ### Listar Todos:
 
@@ -511,7 +1261,7 @@ Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o q
 
 ### Atualizar:
 
-- **Endpoint:** /usuario/id
+- **Endpoint:** /usuario/{id}
 - **Método:** PUT
 - **Exemplo de Body:**
 ```json
@@ -543,7 +1293,7 @@ Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o q
 
 ### Deletar:
 
-- **Endpoint:** /usuario/id
+- **Endpoint:** /usuario/{id}
 - **Método:** DELETE
 - **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
 - **Exemplo de Retorno:** Não é enviado nenhum retorno para esta requisição, apenas o Status Code.

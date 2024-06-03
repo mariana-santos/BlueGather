@@ -10,8 +10,8 @@ Com a BlueGather, as organizações e comunidades podem colaborar de forma efica
 
 ## Documentação das Classes
 
-### Classe `Avaliacao`
-
+<details>
+<summary><strong>Classe `Avaliacao`</strong></summary>
 Representa uma avaliação feita por um usuário avaliador em relação a um evento.
 
 **Atributos:**
@@ -19,11 +19,10 @@ Representa uma avaliação feita por um usuário avaliador em relação a um eve
 - `id_evento` (NUMBER(9)): Identificador único do evento.
 - `id_avaliador` (NUMBER(9)): Identificador único do usuário avaliador.
 - `nota` (NUMBER(1)): Nota dada pelo avaliador ao evento.
+</details>
 
----
-
-### Classe `Evento`
-
+<details>
+<summary><strong>Classe `Evento`</strong></summary>
 Representa um evento organizado por usuários para ações sociais.
 
 **Atributos:**
@@ -38,11 +37,10 @@ Representa um evento organizado por usuários para ações sociais.
 - `id_organizador` (NUMBER(9)): Identificador único do usuário organizador.
 - `id_tipo` (NUMBER(9)): Identificador único do tipo do evento.
 - `id_status` (NUMBER(9)): Identificador único do status.
+</details>
 
----
-
-### Classe `Imagem`
-
+<details>
+<summary><strong>Classe `Imagem`</strong></summary>
 Representa as imagens registradas por usuários durante os eventos de ações sociais.
 
 **Atributos:**
@@ -50,41 +48,37 @@ Representa as imagens registradas por usuários durante os eventos de ações so
 - `id_evento` (NUMBER(9)): Identificador único do evento.
 - `id_momento` (NUMBER(9)): Identificador único do momento da imagem.
 - `url_imagem` (VARCHAR2(255)): URL da imagem.
+</details>
 
----
-
-### Classe `Momento`
-
+<details>
+<summary><strong>Classe `Momento`</strong></summary>
 Representa os possíveis momentos (das imagens) passíveis de cadastro.
 
 **Atributos:**
 - `id` (NUMBER(9)): Identificador único do momento.
 - `nome` (VARCHAR2(255)): Nome do momento.
+</details>
 
----
-
-### Classe `Status`
-
+<details>
+<summary><strong>Classe `Status`</strong></summary>
 Representa os possíveis status (dos eventos) passíveis de cadastro.
 
 **Atributos:**
 - `id` (NUMBER(9)): Identificador único do status.
 - `nome` (VARCHAR2(255)): Nome do status.
+</details>
 
----
-
-### Classe `Tipo_Evento`
-
+<details>
+<summary><strong>Classe `Tipo_Evento`</strong></summary>
 Representa os possíveis tipos de evento passíveis de cadastro.
 
 **Atributos:**
 - `id` (NUMBER(9)): Identificador único do tipo de evento.
 - `nome` (VARCHAR2(255)): Nome do tipo de evento.
+</details>
 
----
-
-### Classe `Usuario`
-
+<details>
+<summary><strong>Classe `Usuario`</strong></summary>
 Representa um usuário do sistema.
 
 **Atributos:**
@@ -95,3 +89,4 @@ Representa um usuário do sistema.
 - `imagem_usuario` (VARCHAR2(255)): URL da imagem da pessoa.
 - `cnpj_pj` (CHAR(18)): CNPJ da pessoa jurídica.
 - `is_fornecedor` (NUMBER(1)): Indicador se a entidade é fornecedora (0 = não, 1 = sim).
+</details>

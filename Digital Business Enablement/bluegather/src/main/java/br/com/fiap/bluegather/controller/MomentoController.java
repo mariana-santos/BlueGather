@@ -3,6 +3,8 @@ package br.com.fiap.bluegather.controller;
 import br.com.fiap.bluegather.dto.MomentoDTO;
 import br.com.fiap.bluegather.service.MomentoService;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -54,5 +56,12 @@ public class MomentoController {
         log.info("(" + getClass().getSimpleName() + ") - Deletando por ID: " + id);
         momentoService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<Set<MomentoDTO>> findByNomeContainingIgnoreCase(@PathVariable String nome) {
+        log.info("(" + getClass().getSimpleName() + ") - Buscando por nome do momento contendo: " + nome);
+        Set<MomentoDTO> list = momentoService.findByNomeContainingIgnoreCase(nome);
+        return ResponseEntity.ok(list);
     }
 }

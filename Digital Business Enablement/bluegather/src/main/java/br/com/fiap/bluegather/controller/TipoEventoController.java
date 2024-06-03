@@ -3,6 +3,8 @@ package br.com.fiap.bluegather.controller;
 import br.com.fiap.bluegather.dto.TipoEventoDTO;
 import br.com.fiap.bluegather.service.TipoEventoService;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -54,5 +56,12 @@ public class TipoEventoController {
         log.info("(" + getClass().getSimpleName() + ") - Deletando por ID: " + id);
         tipoEventoService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<Set<TipoEventoDTO>> findByNomeContainingIgnoreCase(@PathVariable String nome) {
+        log.info("(" + getClass().getSimpleName() + ") - Buscando por nome do tipo evento contendo: " + nome);
+        Set<TipoEventoDTO> list = tipoEventoService.findByNomeContainingIgnoreCase(nome);
+        return ResponseEntity.ok(list);
     }
 }

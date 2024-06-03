@@ -7,6 +7,8 @@ import br.com.fiap.bluegather.dto.LoginResponse;
 import br.com.fiap.bluegather.dto.UsuarioDTO;
 import br.com.fiap.bluegather.service.UsuarioService;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -69,6 +71,13 @@ public class UsuarioController {
         log.info("(" + getClass().getSimpleName() + ") - Deletando por ID: " + id);
         usuarioService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/evento/{eventoId}")
+    public ResponseEntity<Set<UsuarioDTO>> findByEventoId(@PathVariable Long eventoId) {
+        log.info("(" + getClass().getSimpleName() + ") - Buscando usuarios por ID do evento: " + eventoId);
+        Set<UsuarioDTO> list = usuarioService.findByEventoId(eventoId);
+        return ResponseEntity.ok(list);
     }
 
     @PostMapping("/login")

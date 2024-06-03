@@ -165,7 +165,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento4.setStatus(finalizado);
         Set<Usuario> voluntarios4 = new LinkedHashSet<>();
         voluntarios4.add(gustavo);
-        evento2.setVoluntarios(voluntarios4);
+        evento4.setVoluntarios(voluntarios4);
 
         Evento evento5 = new Evento();
         evento5.setTitulo("Coleta de Lixo Reciclável da Favela da Rocinha");
@@ -180,7 +180,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento5.setStatus(aberto);
         Set<Usuario> voluntarios5 = new LinkedHashSet<>();
         voluntarios5.add(mariana);
-        evento2.setVoluntarios(voluntarios5);
+        evento5.setVoluntarios(voluntarios5);
 
         // Instanciando Objetos - Momento
         Momento antes = new Momento();

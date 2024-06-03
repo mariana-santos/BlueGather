@@ -70,6 +70,11 @@ public class UsuarioService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Usuario não encontrado(a) por email: " + email));
         return convertToDto(entity);
     }
+
+    public Set<UsuarioDTO> findByEventoId(Long eventoId) {
+        Set<Usuario> usuarios = usuarioRepository.findByEventosId(eventoId);
+        return usuarios.stream().map(this::convertToDto).collect(Collectors.toSet());
+    }
     
     public UsuarioDTO convertToDto(Usuario entity) {
         UsuarioDTO dto = new UsuarioDTO();

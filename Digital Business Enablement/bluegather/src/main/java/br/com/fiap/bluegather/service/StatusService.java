@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class StatusService {
@@ -55,6 +57,11 @@ public class StatusService {
     public Status findEntityById(Long id) {
         return statusRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Status não encontrado(a) por ID: " + id));
+    }
+
+    public Set<StatusDTO> findByNomeContainingIgnoreCase(String nome) {
+        Set<Status> list = statusRepository.findByNomeContainingIgnoreCase(nome);
+        return list.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
     
     public StatusDTO convertToDto(Status entity) {

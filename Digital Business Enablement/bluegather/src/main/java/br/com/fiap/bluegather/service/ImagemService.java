@@ -16,6 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ImagemService {
@@ -69,6 +70,16 @@ public class ImagemService {
 
     public Set<Imagem> findByEvento(Evento evento) {
         return imagemRepository.findByEvento(evento);
+    }
+
+    public Set<ImagemDTO> findByEventoId(Long eventoId) {
+        Set<Imagem> imagens = imagemRepository.findByEventoId(eventoId);
+        return imagens.stream().map(this::convertToDto).collect(Collectors.toSet());
+    }
+
+    public Set<ImagemDTO> findByMomentoId(Long momentoId) {
+        Set<Imagem> imagens = imagemRepository.findByMomentoId(momentoId);
+        return imagens.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
     
     public ImagemDTO convertToDto(Imagem entity) {

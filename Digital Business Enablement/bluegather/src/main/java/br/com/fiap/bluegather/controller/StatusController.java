@@ -3,6 +3,8 @@ package br.com.fiap.bluegather.controller;
 import br.com.fiap.bluegather.dto.StatusDTO;
 import br.com.fiap.bluegather.service.StatusService;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -54,5 +56,12 @@ public class StatusController {
         log.info("(" + getClass().getSimpleName() + ") - Deletando por ID: " + id);
         statusService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<Set<StatusDTO>> findByNomeContainingIgnoreCase(@PathVariable String nome) {
+        log.info("(" + getClass().getSimpleName() + ") - Buscando por nome do status contendo: " + nome);
+        Set<StatusDTO> list = statusService.findByNomeContainingIgnoreCase(nome);
+        return ResponseEntity.ok(list);
     }
 }

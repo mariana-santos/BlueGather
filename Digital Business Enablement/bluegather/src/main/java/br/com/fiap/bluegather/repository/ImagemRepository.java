@@ -11,4 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ImagemRepository extends JpaRepository<Imagem, Long> {
     Set<Imagem> findByEvento(Evento evento);
+
+    Set<Imagem> findByEventoId(Long eventoId);
+
+    Set<Imagem> findByMomentoId(Long momentoId);
 }

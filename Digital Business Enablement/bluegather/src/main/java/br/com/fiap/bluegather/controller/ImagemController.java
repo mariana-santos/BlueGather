@@ -3,6 +3,8 @@ package br.com.fiap.bluegather.controller;
 import br.com.fiap.bluegather.dto.ImagemDTO;
 import br.com.fiap.bluegather.service.ImagemService;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -54,5 +56,17 @@ public class ImagemController {
         log.info("(" + getClass().getSimpleName() + ") - Deletando por ID: " + id);
         imagemService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/evento/{eventoId}")
+    public ResponseEntity<Set<ImagemDTO>> findByEventoId(@PathVariable Long eventoId) {
+        Set<ImagemDTO> imagens = imagemService.findByEventoId(eventoId);
+        return ResponseEntity.ok(imagens);
+    }
+
+    @GetMapping("/momento/{momentoId}")
+    public ResponseEntity<Set<ImagemDTO>> findByMomentoId(@PathVariable Long momentoId) {
+        Set<ImagemDTO> imagens = imagemService.findByMomentoId(momentoId);
+        return ResponseEntity.ok(imagens);
     }
 }

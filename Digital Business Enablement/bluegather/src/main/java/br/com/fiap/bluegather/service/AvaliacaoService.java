@@ -1,6 +1,7 @@
 package br.com.fiap.bluegather.service;
 
 import br.com.fiap.bluegather.dto.AvaliacaoDTO;
+import br.com.fiap.bluegather.dto.AvaliacaoResumoDTO;
 import br.com.fiap.bluegather.model.Avaliacao;
 import br.com.fiap.bluegather.repository.AvaliacaoRepository;
 
@@ -13,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class AvaliacaoService {
@@ -61,6 +64,29 @@ public class AvaliacaoService {
     public Avaliacao findEntityById(Long id) {
         return avaliacaoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Avaliacao não encontrado(a) por ID: " + id));
+    }
+
+    public Set<AvaliacaoDTO> findByEventoId(Long eventoId) {
+        if (eventoId == null) {
+            throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ID do Evento não pode ser nulo.");
+        }
+        Set<Avaliacao> list = avaliacaoRepository.findByEventoId(eventoId);
+        return list.stream().map(this::convertToDto).collect(Collectors.toSet());
+    }
+
+    public AvaliacaoResumoDTO findAvaliacaoResumoByEventoId(Long eventoId) {
+        if (eventoId == null) {
+            throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ID do Evento não pode ser nulo.");
+        }
+        return avaliacaoRepository.findAvaliacaoResumoByEventoId(eventoId);
+    }
+
+    public Set<AvaliacaoDTO> findByAvaliadorId(Long avaliadorId) {
+        if (avaliadorId == null) {
+            throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ID do Avaliador não pode ser nulo.");
+        }
+        Set<Avaliacao> list = avaliacaoRepository.findByAvaliadorId(avaliadorId);
+        return list.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
     
     public AvaliacaoDTO convertToDto(Avaliacao entity) {

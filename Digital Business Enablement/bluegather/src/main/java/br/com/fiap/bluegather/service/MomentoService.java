@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class MomentoService {
@@ -55,6 +57,11 @@ public class MomentoService {
     public Momento findEntityById(Long id) {
         return momentoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Momento não encontrado(a) por ID: " + id));
+    }
+
+    public Set<MomentoDTO> findByNomeContainingIgnoreCase(String nome) {
+        Set<Momento> list = momentoRepository.findByNomeContainingIgnoreCase(nome);
+        return list.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
     
     public MomentoDTO convertToDto(Momento entity) {

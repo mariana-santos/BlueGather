@@ -1064,6 +1064,418 @@ Os únicos endpoints liberados são o de cadastrar usuário e efetuar login (o q
 
 ---
 
+## Momento
+
+### Listar Todos:
+
+- **Endpoint:** /momento
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"totalPages": 1,
+	"totalElements": 3,
+	"first": true,
+	"last": true,
+	"size": 100,
+	"content": [
+		{
+			"id": 3,
+			"nome": "Depois"
+		},
+		{
+			"id": 2,
+			"nome": "Durante"
+		},
+		{
+			"id": 1,
+			"nome": "Antes"
+		}
+	],
+	"number": 0,
+	"sort": {
+		"empty": false,
+		"sorted": true,
+		"unsorted": false
+	},
+	"pageable": {
+		"pageNumber": 0,
+		"pageSize": 100,
+		"sort": {
+			"empty": false,
+			"sorted": true,
+			"unsorted": false
+		},
+		"offset": 0,
+		"paged": true,
+		"unpaged": false
+	},
+	"numberOfElements": 3,
+	"empty": false
+}
+```
+
+---
+
+### Exibir por ID:
+
+- **Endpoint:** /momento/{id}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 1,
+	"nome": "Antes"
+}
+```
+
+---
+
+### Exibir por Nome:
+
+- **Endpoint:** /momento/nome/{nome}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 3,
+		"nome": "Depois"
+	}
+]
+```
+
+---
+
+### Cadastrar:
+
+- **Endpoint:** /momento
+- **Método:** POST
+- **Exemplo de Body:**
+```json
+{
+	"nome": "Cadastrando Momento"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 4,
+	"nome": "Cadastrando Momento"
+}
+```
+
+---
+
+### Atualizar:
+
+- **Endpoint:** /momento/{id}
+- **Método:** PUT
+- **Exemplo de Body:**
+```json
+{
+	"nome": "Atualizando Momento"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 4,
+	"nome": "Atualizando Momento"
+}
+```
+
+---
+
+### Deletar:
+
+- **Endpoint:** /momento/{id}
+- **Método:** DELETE
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:** Não é enviado nenhum retorno para esta requisição, apenas o Status Code.
+
+---
+
+## Status
+
+### Listar Todos:
+
+- **Endpoint:** /status
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"totalPages": 1,
+	"totalElements": 3,
+	"first": true,
+	"last": true,
+	"size": 100,
+	"content": [
+		{
+			"id": 3,
+			"nome": "Cancelado"
+		},
+		{
+			"id": 2,
+			"nome": "Finalizado"
+		},
+		{
+			"id": 1,
+			"nome": "Aberto"
+		}
+	],
+	"number": 0,
+	"sort": {
+		"empty": false,
+		"sorted": true,
+		"unsorted": false
+	},
+	"pageable": {
+		"pageNumber": 0,
+		"pageSize": 100,
+		"sort": {
+			"empty": false,
+			"sorted": true,
+			"unsorted": false
+		},
+		"offset": 0,
+		"paged": true,
+		"unpaged": false
+	},
+	"numberOfElements": 3,
+	"empty": false
+}
+```
+
+---
+
+### Exibir por ID:
+
+- **Endpoint:** /status/{id}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 1,
+	"nome": "Aberto"
+}
+```
+
+---
+
+### Exibir por Nome:
+
+- **Endpoint:** /status/nome/{nome}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 1,
+		"nome": "Aberto"
+	}
+]
+```
+
+---
+
+### Cadastrar:
+
+- **Endpoint:** /status
+- **Método:** POST
+- **Exemplo de Body:**
+```json
+{
+	"nome": "Cadastrando Status"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 4,
+	"nome": "Cadastrando Status"
+}
+```
+
+---
+
+### Atualizar:
+
+- **Endpoint:** /status/{id}
+- **Método:** PUT
+- **Exemplo de Body:**
+```json
+{
+	"nome": "Atualizando Status"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 4,
+	"nome": "Atualizando Status"
+}
+```
+
+---
+
+### Deletar:
+
+- **Endpoint:** /status/{id}
+- **Método:** DELETE
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:** Não é enviado nenhum retorno para esta requisição, apenas o Status Code.
+
+---
+
+## Tipo Evento
+
+### Listar Todos:
+
+- **Endpoint:** /tipoevento
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"totalPages": 1,
+	"totalElements": 5,
+	"first": true,
+	"last": true,
+	"size": 100,
+	"content": [
+		{
+			"id": 5,
+			"nome": "Protesto"
+		},
+		{
+			"id": 4,
+			"nome": "Coleta de Lixo Reciclável"
+		},
+		{
+			"id": 3,
+			"nome": "Resgate de Animais Marinhos"
+		},
+		{
+			"id": 2,
+			"nome": "Passeata de Conscientização Ambiental"
+		},
+		{
+			"id": 1,
+			"nome": "Limpeza de Praias"
+		}
+	],
+	"number": 0,
+	"sort": {
+		"empty": false,
+		"sorted": true,
+		"unsorted": false
+	},
+	"pageable": {
+		"pageNumber": 0,
+		"pageSize": 100,
+		"sort": {
+			"empty": false,
+			"sorted": true,
+			"unsorted": false
+		},
+		"offset": 0,
+		"paged": true,
+		"unpaged": false
+	},
+	"numberOfElements": 5,
+	"empty": false
+}
+```
+
+---
+
+### Exibir por ID:
+
+- **Endpoint:** /tipoevento/{id}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 1,
+	"nome": "Limpeza de Praias"
+}
+```
+
+---
+
+### Exibir por Nome:
+
+- **Endpoint:** /tipoevento/nome/{nome}
+- **Método:** GET
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:**
+```json
+[
+	{
+		"id": 3,
+		"nome": "Resgate de Animais Marinhos"
+	}
+]
+```
+
+---
+
+### Cadastrar:
+
+- **Endpoint:** /tipoevento
+- **Método:** POST
+- **Exemplo de Body:**
+```json
+{
+	"nome": "Cadastrando TipoEvento"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 6,
+	"nome": "Cadastrando TipoEvento"
+}
+```
+
+---
+
+### Atualizar:
+
+- **Endpoint:** /tipoevento/{id}
+- **Método:** PUT
+- **Exemplo de Body:**
+```json
+{
+	"nome": "Atualizando TipoEvento"
+}
+```
+- **Exemplo de Retorno:**
+```json
+{
+	"id": 6,
+	"nome": "Atualizando TipoEvento"
+}
+```
+
+---
+
+### Deletar:
+
+- **Endpoint:** /tipoevento/{id}
+- **Método:** DELETE
+- **Exemplo de Body:** Não é necessário o envio de body para esta requisição.
+- **Exemplo de Retorno:** Não é enviado nenhum retorno para esta requisição, apenas o Status Code.
+
+---
 
 ## Usuario
 

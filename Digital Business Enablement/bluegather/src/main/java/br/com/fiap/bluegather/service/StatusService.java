@@ -57,14 +57,14 @@ public class StatusService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Status não encontrado(a) por ID: " + id));
     }
     
-    private StatusDTO convertToDto(Status entity) {
+    public StatusDTO convertToDto(Status entity) {
         StatusDTO dto = new StatusDTO();
         dto.setId(entity.getId());
         dto.setNome(entity.getNome());
         return dto;
     }
 
-    private Status convertToEntity(StatusDTO dto) {
+    public Status convertToEntity(StatusDTO dto) {
         if (Objects.isNull(dto)) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - StatusDTO não pode ser nulo.");
         }

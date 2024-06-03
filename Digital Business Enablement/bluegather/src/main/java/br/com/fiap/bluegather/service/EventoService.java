@@ -2,6 +2,10 @@ package br.com.fiap.bluegather.service;
 
 import br.com.fiap.bluegather.dto.EventoDTO;
 import br.com.fiap.bluegather.dto.EventoResponse;
+import br.com.fiap.bluegather.dto.ImagemDTO;
+import br.com.fiap.bluegather.dto.StatusDTO;
+import br.com.fiap.bluegather.dto.TipoEventoDTO;
+import br.com.fiap.bluegather.dto.UsuarioDTO;
 import br.com.fiap.bluegather.model.Evento;
 import br.com.fiap.bluegather.model.Imagem;
 import br.com.fiap.bluegather.repository.EventoRepository;
@@ -16,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -92,7 +97,7 @@ public class EventoService {
         return convertToEventoResponse(evento, imagens);
     }
     
-    private EventoDTO convertToDto(Evento entity) {
+    public EventoDTO convertToDto(Evento entity) {
         EventoDTO dto = new EventoDTO();
         dto.setId(entity.getId());
         dto.setTitulo(entity.getTitulo());
@@ -114,7 +119,7 @@ public class EventoService {
         return dto;
     }
 
-    private Evento convertToEntity(EventoDTO dto) {
+    public Evento convertToEntity(EventoDTO dto) {
         if (Objects.isNull(dto)) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - EventoDTO não pode ser nulo.");
         }
@@ -155,7 +160,23 @@ public class EventoService {
         return entity;
     }
 
-    private EventoResponse convertToEventoResponse(Evento entity, Set<Imagem> imagens) {
+    public EventoResponse convertToEventoResponse(Evento entity, Set<Imagem> imagens) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Evento não pode ser nulo.");
+        }
+
+        Set<ImagemDTO> imagemDTOs = imagens != null ? imagens.stream()
+                                                        .map(imagemService::convertToDto)
+                                                        .collect(Collectors.toSet()) : Collections.emptySet();
+        
+        Set<UsuarioDTO> voluntariosDTOs = entity.getVoluntarios() != null ? entity.getVoluntarios().stream()
+                                                                        .map(usuarioService::convertToDto)
+                                                                        .collect(Collectors.toSet()) : Collections.emptySet();
+
+        UsuarioDTO organizadorDTO = entity.getOrganizador() != null ? usuarioService.convertToDto(entity.getOrganizador()) : null;
+        TipoEventoDTO tipoEventoDTO = entity.getTipoEvento() != null ? tipoEventoService.convertToDto(entity.getTipoEvento()) : null;
+        StatusDTO statusDTO = entity.getStatus() != null ? statusService.convertToDto(entity.getStatus()) : null;
+
         return new EventoResponse(
                 entity.getId(),
                 entity.getTitulo(),
@@ -165,11 +186,11 @@ public class EventoService {
                 entity.getDataFim(),
                 entity.getDescricao(),
                 entity.getUrgencia(),
-                entity.getOrganizador(),
-                entity.getTipoEvento(),
-                entity.getStatus(),
-                entity.getVoluntarios(),
-                imagens
+                organizadorDTO,
+                tipoEventoDTO,
+                statusDTO,
+                voluntariosDTOs,
+                imagemDTOs
         );
     }
 }

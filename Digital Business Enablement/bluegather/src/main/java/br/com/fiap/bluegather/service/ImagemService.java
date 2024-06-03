@@ -71,7 +71,7 @@ public class ImagemService {
         return imagemRepository.findByEvento(evento);
     }
     
-    private ImagemDTO convertToDto(Imagem entity) {
+    public ImagemDTO convertToDto(Imagem entity) {
         ImagemDTO dto = new ImagemDTO();
         dto.setId(entity.getId());
         dto.setIdEvento(entity.getEvento() != null ? entity.getEvento().getId() : null);
@@ -80,7 +80,7 @@ public class ImagemService {
         return dto;
     }
 
-    private Imagem convertToEntity(ImagemDTO dto) {
+    public Imagem convertToEntity(ImagemDTO dto) {
         if (Objects.isNull(dto)) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ImagemDTO não pode ser nulo.");
         }

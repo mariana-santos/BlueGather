@@ -36,7 +36,7 @@ public class EventoController {
     }
 
     @GetMapping("/{id}")
-    public EventoResponse getEventoById(@PathVariable Long id) {
+    public EventoResponse findById(@PathVariable Long id) {
         log.info("(" + getClass().getSimpleName() + ") - Exibindo por ID: " + id);
         return eventoService.getEventoResponseById(id);
     }

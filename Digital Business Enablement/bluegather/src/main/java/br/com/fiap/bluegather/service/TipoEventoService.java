@@ -57,14 +57,14 @@ public class TipoEventoService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - TipoEvento não encontrado(a) por ID: " + id));
     }
     
-    private TipoEventoDTO convertToDto(TipoEvento entity) {
+    public TipoEventoDTO convertToDto(TipoEvento entity) {
         TipoEventoDTO dto = new TipoEventoDTO();
         dto.setId(entity.getId());
         dto.setNome(entity.getNome());
         return dto;
     }
 
-    private TipoEvento convertToEntity(TipoEventoDTO dto) {
+    public TipoEvento convertToEntity(TipoEventoDTO dto) {
         if (Objects.isNull(dto)) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - TipoEventoDTO não pode ser nulo.");
         }

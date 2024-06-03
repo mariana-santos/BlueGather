@@ -71,7 +71,7 @@ public class UsuarioService {
         return convertToDto(entity);
     }
     
-    private UsuarioDTO convertToDto(Usuario entity) {
+    public UsuarioDTO convertToDto(Usuario entity) {
         UsuarioDTO dto = new UsuarioDTO();
         dto.setId(entity.getId());
         dto.setCpf(entity.getCpf());
@@ -88,7 +88,7 @@ public class UsuarioService {
         return dto;
     }
 
-    private Usuario convertToEntity(UsuarioDTO dto) {
+    public Usuario convertToEntity(UsuarioDTO dto) {
         if (Objects.isNull(dto)) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - UsuarioDTO não pode ser nulo.");
         }

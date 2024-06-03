@@ -5,11 +5,6 @@ import lombok.*;
 import java.util.Date;
 import java.util.Set;
 
-import br.com.fiap.bluegather.model.Imagem;
-import br.com.fiap.bluegather.model.Status;
-import br.com.fiap.bluegather.model.TipoEvento;
-import br.com.fiap.bluegather.model.Usuario;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,13 +25,13 @@ public class EventoResponse {
 
     private Long urgencia;
 
-    private Usuario organizador;
+    private UsuarioDTO organizador;
 
-    private TipoEvento tipoEvento;
+    private TipoEventoDTO tipoEvento;
 
-    private Status status;
+    private StatusDTO status;
 
-    private Set<Usuario> voluntarios;
+    private Set<UsuarioDTO> voluntarios;
 
-    private Set<Imagem> imagens;
+    private Set<ImagemDTO> imagens;
 }

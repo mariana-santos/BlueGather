@@ -63,7 +63,7 @@ public class AvaliacaoService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Avaliacao não encontrado(a) por ID: " + id));
     }
     
-    private AvaliacaoDTO convertToDto(Avaliacao entity) {
+    public AvaliacaoDTO convertToDto(Avaliacao entity) {
         AvaliacaoDTO dto = new AvaliacaoDTO();
         dto.setId(entity.getId());
         dto.setIdEvento(entity.getEvento() != null ? entity.getEvento().getId() : null);
@@ -72,7 +72,7 @@ public class AvaliacaoService {
         return dto;
     }
 
-    private Avaliacao convertToEntity(AvaliacaoDTO dto) {
+    public Avaliacao convertToEntity(AvaliacaoDTO dto) {
         if (Objects.isNull(dto)) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - AvaliacaoDTO não pode ser nulo.");
         }

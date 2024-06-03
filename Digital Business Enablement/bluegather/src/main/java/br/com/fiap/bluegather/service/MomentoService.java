@@ -57,14 +57,14 @@ public class MomentoService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "(" + getClass().getSimpleName() + ") - Momento não encontrado(a) por ID: " + id));
     }
     
-    private MomentoDTO convertToDto(Momento entity) {
+    public MomentoDTO convertToDto(Momento entity) {
         MomentoDTO dto = new MomentoDTO();
         dto.setId(entity.getId());
         dto.setNome(entity.getNome());
         return dto;
     }
 
-    private Momento convertToEntity(MomentoDTO dto) {
+    public Momento convertToEntity(MomentoDTO dto) {
         if (Objects.isNull(dto)) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - MomentoDTO não pode ser nulo.");
         }

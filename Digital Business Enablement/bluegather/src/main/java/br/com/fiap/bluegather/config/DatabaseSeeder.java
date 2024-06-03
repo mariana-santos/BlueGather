@@ -126,7 +126,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento2.setLongitude("-46.6294");
         evento2.setDataInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2024-08-11 11:00"));
         evento2.setDataFim(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2024-08-11 14:00"));
-        evento2.setDescricao("Passeata na Frente do Mercadão de São Paulo");
+        evento2.setDescricao(null);
         evento2.setUrgencia(1L);
         evento2.setOrganizador(natan);
         evento2.setTipoEvento(passeata);
@@ -138,7 +138,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         evento3.setLongitude("-46.2275");
         evento3.setDataInicio(null);
         evento3.setDataFim(null);
-        evento3.setDescricao(null);
+        evento3.setDescricao("Precisamos de voluntários para limpar!");
         evento3.setUrgencia(5L);
         evento3.setOrganizador(null);
         evento3.setTipoEvento(limpeza);

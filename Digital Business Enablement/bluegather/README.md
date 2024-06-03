@@ -10,7 +10,7 @@ Com a BlueGather, as organizações e comunidades podem colaborar de forma efica
 
 <details>
 <summary><strong>Documentação das Classes</strong></summary>
-
+<br>
 <details>
 <summary>Avaliacao</summary>
 Representa uma avaliação feita por um usuário avaliador em relação a um evento.

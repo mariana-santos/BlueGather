@@ -8,6 +8,79 @@ A BlueGather é uma plataforma concebida para facilitar a organização e coorde
 
 Com a BlueGather, as organizações e comunidades podem colaborar de forma eficaz para proteger nosso planeta, unindo-se em ações práticas e impactantes.
 
+---
+
+## Instruções para Executar as API's
+
+### API C# (.NET)
+
+#### 1. Configurar o Ambiente
+- **Instale o .NET SDK**: Baixe e instale a versão mais recente do .NET SDK do [site oficial do .NET](https://dotnet.microsoft.com/download).
+- **Editor de Código**: Utilize um editor de código como Visual Studio ou Visual Studio Code. 
+
+#### 2. Preparar o Projeto
+- **Clone o Repositório**:
+  ```sh
+  git clone [<URL_do_repositório>](https://github.com/mariana-santos/BlueGather)
+  cd BlueGather
+  ```
+
+#### 3. Restaurar Dependências
+- No terminal, navegue até o diretório do projeto (BlueGather\Enterprise Application Development\bluegather) e execute:
+  ```sh
+  dotnet restore
+  ```
+
+#### 4. Compilar o Projeto
+- Compile o projeto para garantir que todos os pacotes estão corretos:
+  ```sh
+  dotnet build
+  ```
+
+#### 5. Executar o Projeto
+- Execute o projeto:
+  ```sh
+  dotnet run
+  ```
+
+- Se estiver usando Visual Studio, você pode simplesmente pressionar `F5` para iniciar o projeto.
+
+#### 6. Acessar o Swagger UI
+- Abra o navegador e vá até a URL `http://localhost:61611/swagger`
+
+### API Java (Spring Boot)
+
+#### 1. Configurar o Ambiente
+- **Instale o JDK**: Baixe e instale a versão mais recente do JDK do [site oficial do Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) ou do [AdoptOpenJDK](https://adoptopenjdk.net/).
+- **Editor de Código**: Utilize um editor de código como IntelliJ IDEA, Eclipse ou Visual Studio Code com extensões para Java.
+
+#### 2. Preparar o Projeto
+- **Clone o Repositório**: Se o projeto estiver em um repositório Git, clone-o:
+  ```sh
+  git clone [<URL_do_repositório>](https://github.com/mariana-santos/BlueGather)
+  cd BlueGather
+  ```
+
+#### 3. Compilar e Executar o Projeto
+- Navegue até o diretório do projeto e execute:
+  ```sh
+  ./mvnw spring-boot:run
+  ```
+
+- Se estiver usando um IDE como IntelliJ IDEA ou Eclipse, você pode clicar com o botão direito do mouse na classe principal (BluegatherApplication.java) e selecionar `Run`.
+
+### Dicas Adicionais
+
+- **Variáveis de Ambiente**: Certifique-se de que todas as variáveis de ambiente necessárias estejam definidas. No .NET, isso pode ser feito no arquivo `appsettings.json` ou `appsettings.Development.json`. No Spring Boot, isso pode ser configurado no `application-prod.properties` ou `application.properties`.
+
+- **Banco de Dados**: Certifique-se de que seu banco de dados esteja configurado e rodando. Verifique as configurações de conexão no arquivo de configuração de cada projeto.
+
+- **Logs e Debug**: Monitore os logs do console para qualquer erro ou informação adicional que possa ser útil durante a execução.
+
+- **Documentação**: Verifique a documentação do projeto para quaisquer etapas específicas adicionais ou dependências que possam ser necessárias.
+
+---
+
 ## Documentação das Classes
 
 #### Avaliacao

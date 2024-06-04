@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2024-06-03T17:56:23.847Z
+__export_date: 2024-06-04T14:12:28.085Z
 __export_source: insomnia.desktop.app:v9.2.0
 resources:
   - _id: req_7c5314015e644a4dbf4a28dead577c31
     parentId: fld_8f48d63c336a4138a8a466015c4dcbba
-    modified: 1717004854675
+    modified: 1717509113543
     created: 1717004854675
     url: "{{ _.base_url }}{{path}}"
     name: Listar Todos
@@ -56,9 +56,9 @@ resources:
     _type: workspace
   - _id: req_393e7afd7d0f49ba9fc6b035595bff81
     parentId: fld_8f48d63c336a4138a8a466015c4dcbba
-    modified: 1717007035098
+    modified: 1717510067126
     created: 1717004854676
-    url: "{{ _.base_url }}{{path}}/1"
+    url: "{{ _.base_url }}{{path}}/6"
     name: Exibir por ID
     description: ""
     method: GET
@@ -461,10 +461,10 @@ resources:
     _type: request
   - _id: req_2d9d2e83021742ceb0edfe638c58de30
     parentId: fld_ffbed32a617047018efcb17570c9324b
-    modified: 1717436167757
+    modified: 1717446283170
     created: 1717427354103
     url: "{{ _.base_url }}{{path}}/urgencia/5"
-    name: Exibir por ID da Urgência
+    name: Exibir por Urgência
     description: ""
     method: GET
     body:
@@ -1731,7 +1731,7 @@ resources:
     _type: request
   - _id: req_8964ce0dbc4c47668a8e0408bc9f6fa9
     parentId: fld_d32b587131f346418423cfd10af68835
-    modified: 1717007104673
+    modified: 1717509940018
     created: 1717004854727
     url: "{{ _.base_url }}{{path}}"
     name: Cadastrar
@@ -1741,10 +1741,10 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "cpf": "66666666666",
+          "cpf": "66666666668",
         	"nome": "Usuário Teste",
         	"urlImagem": "http://urlparaumaimagem.com/imagem.jpg",
-          "email": "usuarioteste@example.com",
+          "email": "usuarioteste22@example.com",
           "senha": "senha123"
         }
     preRequestScript: ""
@@ -1766,7 +1766,7 @@ resources:
     _type: request
   - _id: req_0296298979f042fda8226e5b69479541
     parentId: fld_d32b587131f346418423cfd10af68835
-    modified: 1717005716051
+    modified: 1717509950915
     created: 1717004854729
     url: "{{ _.base_url }}{{path}}/login"
     name: Login
@@ -1776,8 +1776,8 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"email": "kauecaponero@fiap.com.br",
-          "senha": "222222"
+          "email": "usuarioteste22@example.com",
+          "senha": "senha123"
         }
     preRequestScript: ""
     parameters: []
@@ -1841,9 +1841,9 @@ resources:
     _type: request
   - _id: req_03af270ac57a46c69cb304541df12b85
     parentId: fld_d32b587131f346418423cfd10af68835
-    modified: 1717006994863
+    modified: 1717510095137
     created: 1717004854729
-    url: "{{ _.base_url }}{{path}}/6"
+    url: "{{ _.base_url }}{{path}}/13"
     name: Deletar
     description: ""
     method: DELETE
@@ -1887,19 +1887,19 @@ resources:
     _type: environment
   - _id: jar_b71983dd2dad42acab801d27f508200a
     parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
-    modified: 1717006688928
+    modified: 1717510099017
     created: 1717004854672
     name: Default Jar
     cookies:
       - key: JSESSIONID
-        value: 67886476D1A0737458134ED64987F1B9
+        value: 247B118AF6DF6F6AEAE45726B43FDB8C
         domain: localhost
         path: /
         httpOnly: true
         hostOnly: true
         creation: 2024-03-12T17:20:00.058Z
-        lastAccessed: 2024-05-29T18:18:08.928Z
-        id: 9982e79f-e2d2-4f5f-a2eb-6d6ee064aaf7
+        lastAccessed: 2024-06-04T14:08:19.016Z
+        id: 03d112b4-c79f-44f0-826e-5a25140e0e66
       - key: JSESSIONID
         value: DB1C62B44A89E5402176D8E846604B9D
         domain: app-buyit-azure.azurewebsites.net
@@ -1909,7 +1909,7 @@ resources:
         hostOnly: true
         creation: 2024-03-15T13:55:13.986Z
         lastAccessed: 2024-03-15T17:55:51.701Z
-        id: 59eb6293-256d-4f77-8d73-a9b1d1c0111d
+        id: 805c20f9-6df1-4663-8962-bba30321d06f
       - key: ARRAffinity
         value: 22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17
         domain: app-buyit-azure.azurewebsites.net
@@ -1919,7 +1919,7 @@ resources:
         hostOnly: false
         creation: 2024-03-15T13:55:13.987Z
         lastAccessed: 2024-03-15T13:55:13.987Z
-        id: d52bdb49-8ff4-4286-8869-ca5c668731b6
+        id: bd0ac07d-2121-4863-9a63-9057cec16e0d
       - key: ARRAffinitySameSite
         value: 22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17
         domain: app-buyit-azure.azurewebsites.net
@@ -1930,7 +1930,7 @@ resources:
         creation: 2024-03-15T13:55:13.987Z
         lastAccessed: 2024-03-15T13:55:13.987Z
         sameSite: none
-        id: 8ebf1134-9353-4688-988b-622734c67cc9
+        id: ef1b4981-713e-4341-bdb7-39f96595da5b
     _type: cookie_jar
   - _id: spc_e5048181049f4eadbd4e9185acbe9f27
     parentId: wrk_bf9689d33bb04f5f85bf9274c833f796

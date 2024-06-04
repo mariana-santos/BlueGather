@@ -63,6 +63,15 @@ public class TipoEventoService
         return entity;
     }
 
+    public async Task<List<TipoEventoDto>> FindByName(string nome)
+    {
+        var list = await _context.TipoEvento
+            .Where(x => x.Nome.ToLower().Contains(nome.ToLower()))
+            .ToListAsync();
+
+        return list.Select(x => ConvertToDto(x)).ToList();
+    }
+
     private TipoEventoDto ConvertToDto(TipoEventoModel entity)
     {
         return new TipoEventoDto

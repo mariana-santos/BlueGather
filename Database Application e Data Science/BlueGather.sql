@@ -42,7 +42,7 @@ SELECT * FROM tipo_evento;
 SELECT * FROM usuario;
 SELECT * FROM usuario_evento;
 
--- CRIAÇÃO DAS TABELAS
+-- CRIA??O DAS TABELAS
 CREATE TABLE usuario (
     id NUMBER(9) CONSTRAINT pk_id_usuario PRIMARY KEY,
     cpf CHAR(11) CONSTRAINT uk_cpf_usuario UNIQUE CONSTRAINT nn_cpf_usuario NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE usuario_evento (
     CONSTRAINT pk_usuario_evento PRIMARY KEY (id_usuario, id_evento)
 );
 
--- CRIANDO SEQUÊNCIAS
+-- CRIANDO SEQU?NCIAS
 CREATE SEQUENCE sq_avaliacao START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sq_evento START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sq_imagem START WITH 1 INCREMENT BY 1;
@@ -118,26 +118,26 @@ INSERT INTO usuario VALUES (sq_usuario.NEXTVAL, '44444444444', 'Natan Cruz', 'ht
 INSERT INTO usuario VALUES (sq_usuario.NEXTVAL, '55555555555', 'Vitor Rubim', 'https://avatars.githubusercontent.com/u/48107882?v=4', 'vitorrubim@fiap.com.br', '555555');
 
 INSERT INTO tipo_evento VALUES (sq_tipo_evento.NEXTVAL, 'Limpeza de Praias');
-INSERT INTO tipo_evento VALUES (sq_tipo_evento.NEXTVAL, 'Passeata de Conscientização Ambiental');
+INSERT INTO tipo_evento VALUES (sq_tipo_evento.NEXTVAL, 'Passeata de Conscientiza??o Ambiental');
 INSERT INTO tipo_evento VALUES (sq_tipo_evento.NEXTVAL, 'Resgate de Animais Marinhos');
-INSERT INTO tipo_evento VALUES (sq_tipo_evento.NEXTVAL, 'Coleta de Lixo Reciclável');
+INSERT INTO tipo_evento VALUES (sq_tipo_evento.NEXTVAL, 'Coleta de Lixo Recicl?vel');
 INSERT INTO tipo_evento VALUES (sq_tipo_evento.NEXTVAL, 'Protesto');
 
--- Inseridos apenas 3 status pois não faz sentido ao projeto, no momento, ter mais do que isso
+-- Inseridos apenas 3 status pois n?o faz sentido ao projeto, no momento, ter mais do que isso
 INSERT INTO status VALUES (sq_status.NEXTVAL, 'Aberto');
 INSERT INTO status VALUES (sq_status.NEXTVAL, 'Finalizado');
 INSERT INTO status VALUES (sq_status.NEXTVAL, 'Cancelado');
 
 INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Limpeza da Praia da Enseada - Ubatuba', '-23.4898', '-45.0952', TO_TIMESTAMP('2024-08-10 06:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2024-08-10 10:00', 'YYYY-MM-DD HH24:MI'), 'Vamos ajudar a praia da enseada!', 2, 1, 1, 2);
-INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Passeata Contra a Sacola de Plásticos em Mercados', '-23.5420', '-46.6294', TO_TIMESTAMP('2024-08-11 11:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2024-08-11 14:00', 'YYYY-MM-DD HH24:MI'), NULL, 1, 4, 2, 2);
-INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Limpeza da Praia da Enseada - Guarujá', '-23.9868', '-46.2275', NULL, NULL, 'Precisamos de voluntários para limpar!', 5, NULL, 1, 3);
+INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Passeata Contra a Sacola de Pl?sticos em Mercados', '-23.5420', '-46.6294', TO_TIMESTAMP('2024-08-11 11:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2024-08-11 14:00', 'YYYY-MM-DD HH24:MI'), NULL, 1, 4, 2, 2);
+INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Limpeza da Praia da Enseada - Guaruj?', '-23.9868', '-46.2275', NULL, NULL, 'Precisamos de volunt?rios para limpar!', 5, NULL, 1, 3);
 INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Resgate de Tartarugas', '-3.84036', '-32.4113', TO_TIMESTAMP('2024-08-13 08:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2024-08-13 16:00', 'YYYY-MM-DD HH24:MI'), 'Ajudem-nos a salvar as tartarugas', 3, 1, 3, 2);
-INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Coleta de Lixo Reciclável da Favela da Rocinha', '-22.9879', '-43.2480', TO_TIMESTAMP('2024-08-14 16:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2024-08-14 18:00', 'YYYY-MM-DD HH24:MI'), 'Retirada de lixo reciclável de comércios e moradias para reciclagem e limpeza da comunidade', 4, 3, 4, 1);
+INSERT INTO evento VALUES (sq_evento.NEXTVAL, 'Coleta de Lixo Recicl?vel da Favela da Rocinha', '-22.9879', '-43.2480', TO_TIMESTAMP('2024-08-14 16:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2024-08-14 18:00', 'YYYY-MM-DD HH24:MI'), 'Retirada de lixo recicl?vel de com?rcios e moradias para reciclagem e limpeza da comunidade', 4, 3, 4, 1);
 
--- Inseridos apenas 3 status pois não faz sentido ao projeto, no momento, ter mais do que isso
-INSERT INTO momento VALUES (1, 'Antes');
-INSERT INTO momento VALUES (2, 'Durante');
-INSERT INTO momento VALUES (3, 'Depois');
+-- Inseridos apenas 3 status pois n?o faz sentido ao projeto, no momento, ter mais do que isso
+INSERT INTO momento VALUES (sq_momento.NEXTVAL, 'Antes');
+INSERT INTO momento VALUES (sq_momento.NEXTVAL, 'Durante');
+INSERT INTO momento VALUES (sq_momento.NEXTVAL, 'Depois');
 
 INSERT INTO imagem VALUES (sq_imagem.NEXTVAL, 1, 1, 'https://hardcore.com.br/wp-content/uploads/sites/21/2021/01/poluicao-plastica-em-bali.jpg');
 INSERT INTO imagem VALUES (sq_imagem.NEXTVAL, 1, 2, 'https://voiceoftheoceans.com/wp-content/uploads/2022/09/27e8fd00-c478-4522-88ad-f356ab1c740d.jpg');

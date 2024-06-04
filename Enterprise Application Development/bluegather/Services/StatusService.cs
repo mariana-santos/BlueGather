@@ -63,6 +63,15 @@ public class StatusService
         return entity;
     }
 
+    public async Task<List<StatusDto>> FindByName(string nome)
+    {
+        var list = await _context.Status
+            .Where(x => x.Nome.ToLower().Contains(nome.ToLower()))
+            .ToListAsync();
+
+        return list.Select(x => ConvertToDto(x)).ToList();
+    }
+
     private StatusDto ConvertToDto(StatusModel entity)
     {
         return new StatusDto

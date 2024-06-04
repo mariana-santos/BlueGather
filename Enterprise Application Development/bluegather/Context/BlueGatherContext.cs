@@ -48,8 +48,7 @@ namespace BlueGather.Context
             modelBuilder.Entity<EventoModel>()
                 .HasOne(x => x.Organizador)
                 .WithMany()
-                .HasForeignKey("ID_ORGANIZADOR")
-                .IsRequired();
+                .HasForeignKey("ID_ORGANIZADOR");
 
             modelBuilder.Entity<EventoModel>()
                 .HasOne(x => x.TipoEvento)
@@ -65,14 +64,14 @@ namespace BlueGather.Context
 
             modelBuilder.Entity<EventoModel>()
                 .HasMany(x => x.Voluntarios)
-                .WithMany(t => t.Eventos)
+                .WithMany(y => y.Eventos)
                 .UsingEntity<Dictionary<string, object>>(
                     "UsuarioEvento",
-                    j => j.HasOne<UsuarioModel>().WithMany().HasForeignKey("ID_VOLUNTARIO"),
-                    j => j.HasOne<EventoModel>().WithMany().HasForeignKey("ID_EVENTO"),
-                    j =>
+                    z => z.HasOne<UsuarioModel>().WithMany().HasForeignKey("ID_USUARIO"),
+                    z => z.HasOne<EventoModel>().WithMany().HasForeignKey("ID_EVENTO"),
+                    z =>
                     {
-                        j.ToTable("USUARIO_EVENTO");
+                        z.ToTable("USUARIO_EVENTO");
                     }
                 );
 
@@ -90,14 +89,14 @@ namespace BlueGather.Context
 
             modelBuilder.Entity<UsuarioModel>()
                 .HasMany(x => x.Eventos)
-                .WithMany(t => t.Voluntarios)
+                .WithMany(y => y.Voluntarios)
                 .UsingEntity<Dictionary<string, object>>(
                     "UsuarioEvento",
-                    j => j.HasOne<EventoModel>().WithMany().HasForeignKey("ID_EVENTO"),
-                    j => j.HasOne<UsuarioModel>().WithMany().HasForeignKey("ID_VOLUNTARIO"),
-                    j =>
+                    z => z.HasOne<EventoModel>().WithMany().HasForeignKey("ID_EVENTO"),
+                    z => z.HasOne<UsuarioModel>().WithMany().HasForeignKey("ID_USUARIO"),
+                    z =>
                     {
-                        j.ToTable("USUARIO_EVENTO");
+                        z.ToTable("USUARIO_EVENTO");
                     }
                 );
 

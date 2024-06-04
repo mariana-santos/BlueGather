@@ -85,5 +85,19 @@ namespace BlueGather.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("nome/{nome}")]
+        public async Task<ActionResult<IEnumerable<StatusDto>>> FindByName(string nome)
+        {
+            try
+            {
+                var list = await _service.FindByName(nome);
+                return Ok(list);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

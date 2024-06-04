@@ -2008,19 +2008,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kauec\\.nuget\\packages\\": {}
+    "C:\\Users\\kauef\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kauec\\OneDrive\\Documentos\\GitHub\\BlueGather\\Enterprise Application Development\\bluegather\\bluegather.csproj",
+      "projectUniqueName": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\bluegather.csproj",
       "projectName": "bluegather",
-      "projectPath": "C:\\Users\\kauec\\OneDrive\\Documentos\\GitHub\\BlueGather\\Enterprise Application Development\\bluegather\\bluegather.csproj",
-      "packagesPath": "C:\\Users\\kauec\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kauec\\OneDrive\\Documentos\\GitHub\\BlueGather\\Enterprise Application Development\\bluegather\\obj\\",
+      "projectPath": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\bluegather.csproj",
+      "packagesPath": "C:\\Users\\kauef\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kauec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kauef\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2040,6 +2040,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2106,7 +2111,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

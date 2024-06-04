@@ -15,8 +15,8 @@ namespace BlueGather.Configurations
             builder.Property(x => x.Titulo).HasColumnName("TITULO").HasColumnType("VARCHAR(255)").IsRequired();
             builder.Property(x => x.Latitude).HasColumnName("LATITUDE").HasColumnType("VARCHAR(12)").IsRequired();
             builder.Property(x => x.Longitude).HasColumnName("LONGITUDE").HasColumnType("VARCHAR(12)").IsRequired();
-            builder.Property(x => x.DataInicio).HasColumnName("DATA_INICIO");
-            builder.Property(x => x.DataFim).HasColumnName("DATA_FIM");
+            builder.Property(x => x.DataInicio).HasColumnName("DATA_INICIO").IsRequired(false);
+            builder.Property(x => x.DataFim).HasColumnName("DATA_FIM").IsRequired(false);
             builder.Property(x => x.Descricao).HasColumnName("DESCRICAO").HasColumnType("VARCHAR(255)");
             builder.Property(x => x.Urgencia).HasColumnName("URGENCIA").IsRequired(); ;
         }

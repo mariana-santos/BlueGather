@@ -2,15 +2,20 @@
 using BlueGather.Dto;
 using BlueGather.Models;
 using BlueGather.Context;
+using bluegather.Dtos;
+using BlueGather.Repositories;
 
 namespace BlueGather.Services;
 public class AvaliacaoService
 {
     private readonly BlueGatherContext _context;
+    private readonly AvaliacaoRepository _repository;
 
-    public AvaliacaoService(BlueGatherContext context)
+    public AvaliacaoService(BlueGatherContext context, AvaliacaoRepository repository)
     {
         _context = context;
+        _repository = repository;
+        _repository = repository;
     }
 
     public async Task<List<AvaliacaoDto>> FindAll()
@@ -87,6 +92,16 @@ public class AvaliacaoService
             .ToListAsync();
 
         return list.Select(x => ConvertToDto(x)).ToList();
+    }
+
+    public async Task<AvaliacaoResumoDto> FindAvaliacaoResumoByEventoId(long eventoId)
+    {
+        if (eventoId == 0)
+        {
+            throw new ArgumentException("ID do Evento não pode ser nulo.");
+        }
+
+        return await _repository.FindAvaliacaoResumoByEventoId(eventoId);
     }
 
     private AvaliacaoDto ConvertToDto(AvaliacaoModel entity)

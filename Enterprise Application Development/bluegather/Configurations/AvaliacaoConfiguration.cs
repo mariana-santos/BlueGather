@@ -11,7 +11,7 @@ namespace BlueGather.Configurations
             builder.ToTable("AVALIACAO");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).HasColumnName("ID").UseHiLo("SEQ_AVALIACAO");
+            builder.Property(x => x.Id).HasColumnName("ID").UseHiLo("SQ_AVALIACAO");
             builder.Property(x => x.Nota).HasColumnName("NOTA").IsRequired();
         }
     }

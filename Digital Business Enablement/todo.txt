@@ -1,0 +1,3 @@
+- testar em prod
+- exportar novamente o insomnia (com o authorization)
+- validar authorization em outro pc

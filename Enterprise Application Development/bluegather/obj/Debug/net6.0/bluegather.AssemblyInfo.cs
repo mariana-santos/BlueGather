@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bluegather")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8de4a37a0e8fd9a4eefcbe5650ef7d69a6d1dc8c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64b692e03236137b29e46053471dd53c1a37df98")]
 [assembly: System.Reflection.AssemblyProductAttribute("bluegather")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bluegather")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

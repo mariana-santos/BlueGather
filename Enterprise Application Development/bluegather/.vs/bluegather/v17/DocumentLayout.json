@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\controllers\\avaliacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:controllers\\avaliacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\repositories\\avaliacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:repositories\\avaliacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\services\\avaliacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:services\\avaliacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|c:\\users\\kauef\\downloads\\kaue\\bluegather\\enterprise application development\\bluegather\\dtos\\avaliacaoresumodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{516CB783-DF27-4BC7-9480-9DB284E55E02}|bluegather.csproj|solutionrelative:dtos\\avaliacaoresumodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAADgvxkAAAA2AAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAAA0AAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T18:34:27.918Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AvaliacaoController.cs",
-              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\AvaliacaoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AvaliacaoController.cs",
-              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Controllers\\AvaliacaoController.cs",
-              "RelativeToolTip": "Controllers\\AvaliacaoController.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAuwG8AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:33:57.145Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AvaliacaoService.cs",
-              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Services\\AvaliacaoService.cs",
-              "RelativeDocumentMoniker": "Services\\AvaliacaoService.cs",
-              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Services\\AvaliacaoService.cs",
-              "RelativeToolTip": "Services\\AvaliacaoService.cs",
-              "ViewState": "AQIAAHcAAAAAAAAAAADwvxQAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:31:44.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AvaliacaoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Repositories\\AvaliacaoRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\AvaliacaoRepository.cs",
-              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Repositories\\AvaliacaoRepository.cs",
-              "RelativeToolTip": "Repositories\\AvaliacaoRepository.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:29:12.337Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AvaliacaoResumoDto.cs",
-              "DocumentMoniker": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Dtos\\AvaliacaoResumoDto.cs",
-              "RelativeDocumentMoniker": "Dtos\\AvaliacaoResumoDto.cs",
-              "ToolTip": "C:\\Users\\kauef\\Downloads\\Kaue\\BlueGather\\Enterprise Application Development\\bluegather\\Dtos\\AvaliacaoResumoDto.cs",
-              "RelativeToolTip": "Dtos\\AvaliacaoResumoDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:28:48.12Z",
               "EditorCaption": ""
             }
           ]

@@ -1,10 +1,10 @@
 _type: export
 __export_format: 4
-__export_date: 2024-06-04T18:55:52.570Z
-__export_source: insomnia.desktop.app:v9.2.0
+__export_date: 2024-06-05T00:21:32.883Z
+__export_source: insomnia.desktop.app:v2023.5.8
 resources:
-  - _id: req_7c5314015e644a4dbf4a28dead577c31
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_b9547a328ad64ece92f00beb48dceec0
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717523626457
     created: 1717004854675
     url: "{{ _.base_url }}{{path}}"
@@ -12,7 +12,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -26,7 +25,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511433
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -34,8 +32,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_8f48d63c336a4138a8a466015c4dcbba
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: fld_e0b717c120714cadbb4823d533170257
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
     modified: 1717010781070
     created: 1717004854673
     name: avaliacao
@@ -47,16 +45,16 @@ resources:
         - path
     metaSortKey: -1697849027401
     _type: request_group
-  - _id: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: wrk_9c4a03010c68477ba3f65b710871d6e1
     parentId: null
-    modified: 1717006140722
-    created: 1717004854667
+    modified: 1717545617059
+    created: 1717545617059
     name: BlueGather
-    description: Arquivo Insomnia para o Projeto BlueGather
+    description: ""
     scope: collection
     _type: workspace
-  - _id: req_393e7afd7d0f49ba9fc6b035595bff81
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_f6ab64792dc746b9819eb4a6e0264555
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717523630909
     created: 1717004854676
     url: "{{ _.base_url }}{{path}}/5"
@@ -64,7 +62,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -78,7 +75,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511408
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -86,8 +82,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_c03274069d9240eab1c126536cb5db1a
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_2a3fed25db4f4e608354f54bebd6c265
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717523635576
     created: 1717424638752
     url: "{{ _.base_url }}{{path}}/evento/1"
@@ -95,7 +91,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -109,7 +104,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.6582
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -117,8 +111,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_f93ea61341fd4e8891c4e110d80783b8
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_5ee988991a2549d6b7fb1b8fdbb0b448
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717435705523
     created: 1717425172610
     url: "{{ _.base_url }}{{path}}/evento/resumo/1"
@@ -126,7 +120,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -139,7 +132,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.6155
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -147,8 +139,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_8964d082cc9b43c0bb8ac389f9b40e4b
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_8510b89733344fd08fb995d5aab9b4e0
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717523641708
     created: 1717425221431
     url: "{{ _.base_url }}{{path}}/avaliador/4"
@@ -156,7 +148,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -170,7 +161,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.5728
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -178,8 +168,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_5daeb115b5bd4733abfdd175c92438c1
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_052ff790d7d9408b8a6ff10ac3bc5805
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717523646478
     created: 1717004854677
     url: "{{ _.base_url }}{{path}}"
@@ -194,7 +184,6 @@ resources:
         	"idAvaliador": 2,
         	"nota": 5
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -211,7 +200,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511233
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -219,8 +207,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_47e8bba69a4344b2a46e19e4a56b63c9
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_07761f3be371401ca0fbb4dfe9245502
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717523651545
     created: 1717004854678
     url: "{{ _.base_url }}{{path}}/8"
@@ -235,7 +223,6 @@ resources:
         	"idAvaliador": 2,
         	"nota": 4
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -252,7 +239,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511133
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -260,8 +246,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_7ba98dcac4f14443bba17b616c614fe5
-    parentId: fld_8f48d63c336a4138a8a466015c4dcbba
+  - _id: req_e3dd811050074a189ba7ad0041f9df95
+    parentId: fld_e0b717c120714cadbb4823d533170257
     modified: 1717523656715
     created: 1717004854679
     url: "{{ _.base_url }}{{path}}/8"
@@ -269,7 +255,6 @@ resources:
     description: ""
     method: DELETE
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -283,7 +268,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511033
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -291,8 +275,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_a62e8ce5c71240baa450fa01ccc278d9
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_14cd722102774266b6603a80c77b3b13
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717522670580
     created: 1717007216874
     url: "{{ _.base_url }}{{path}}"
@@ -300,7 +284,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -314,7 +297,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511433
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -322,8 +304,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_ffbed32a617047018efcb17570c9324b
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: fld_988dfdea3cf04c708be0d6895ae3c4cc
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
     modified: 1717010805988
     created: 1717007216873
     name: evento
@@ -335,8 +317,8 @@ resources:
         - path
     metaSortKey: -1697849027388.5
     _type: request_group
-  - _id: req_257da447064745ee9955c52434976444
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_03bc0128a5ae432fa43825955f7f39a1
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717522685617
     created: 1717007216876
     url: "{{ _.base_url }}{{path}}/3"
@@ -344,7 +326,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -358,7 +339,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511408
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -366,8 +346,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_8ef95b2e27b946d68536e7a6ea4066bb
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_5b635690cbb648c4928a12649c02559b
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523335460
     created: 1717425979308
     url: "{{ _.base_url }}{{path}}/titulo/Ubatuba"
@@ -375,7 +355,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -389,7 +368,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.829
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -397,8 +375,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_bdef2529560149ebb39b12638ed1a7c1
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_b625bf7c6ebe4847b10cf83d85d02f98
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523381934
     created: 1717426107954
     url: "{{ _.base_url }}{{path}}/localizacao/150"
@@ -412,7 +390,6 @@ resources:
             "latitude": "-23.4898",
             "longitude": "-45.0952"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -429,7 +406,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.7437
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -437,8 +413,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_26272a98834d450d9dffa616e8836caa
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_1b16078c5548473a9220247e07c01ae9
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523487946
     created: 1717426799119
     url: "{{ _.base_url }}{{path}}/data/2024-08-14"
@@ -448,7 +424,6 @@ resources:
     body:
       mimeType: application/json
       text: ""
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -465,7 +440,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.701
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -473,8 +447,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_2d9d2e83021742ceb0edfe638c58de30
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_d584dc6f0e3e401ab314a51deeadb220
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523492186
     created: 1717427354103
     url: "{{ _.base_url }}{{path}}/urgencia/4"
@@ -484,7 +458,6 @@ resources:
     body:
       mimeType: application/json
       text: ""
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -501,7 +474,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.6797
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -509,8 +481,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_b4cebf2004ca4c2ca67bf6576855915a
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_8dadf17730ba459fb6baf6db209366b6
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523496567
     created: 1717427550845
     url: "{{ _.base_url }}{{path}}/organizador/3"
@@ -520,7 +492,6 @@ resources:
     body:
       mimeType: application/json
       text: ""
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -537,7 +508,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.669
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -545,8 +515,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_7e54e1f7ac9f4dbb9f68b39b9ebb0f9d
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_36733a50aa4e4eef90874c65f3c9b598
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523501535
     created: 1717427738709
     url: "{{ _.base_url }}{{path}}/tipo/3"
@@ -556,7 +526,6 @@ resources:
     body:
       mimeType: application/json
       text: ""
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -573,7 +542,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.6636
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -581,8 +549,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_50d418bd463e4486948469eb0ccaeb35
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_1895d9ffb18640a78191ecefc1098bcc
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523505396
     created: 1717427940206
     url: "{{ _.base_url }}{{path}}/status/1"
@@ -592,7 +560,6 @@ resources:
     body:
       mimeType: application/json
       text: ""
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -609,7 +576,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.661
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -617,8 +583,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_2d06a83f26b64abcb343d285dd29a24e
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_ab54c9c1c2014462b2081fa17da08b51
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717523606365
     created: 1717428028708
     url: "{{ _.base_url }}{{path}}/voluntario/1"
@@ -628,7 +594,6 @@ resources:
     body:
       mimeType: application/json
       text: ""
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -645,7 +610,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.6597
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -653,8 +617,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_4daf5535edb44bce809c3e43d0d541db
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_72c028be906e4a858e452194d73e8529
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717525191545
     created: 1717007216876
     url: "{{ _.base_url }}{{path}}"
@@ -677,7 +641,6 @@ resources:
             "idStatus": 1,
             "idsVoluntarios": []
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -694,7 +657,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511233
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -702,8 +664,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_793fe2c06a81436da1225ba8b057b319
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_63c2bc5f0a1f461198751329c7b90140
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717525607636
     created: 1717007216877
     url: "{{ _.base_url }}{{path}}/7"
@@ -726,7 +688,6 @@ resources:
           "idStatus": 1,
           "idsVoluntarios": []
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -742,7 +703,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511133
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -750,8 +710,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_a85bb34d5a85487c94b14429a221c3b0
-    parentId: fld_ffbed32a617047018efcb17570c9324b
+  - _id: req_2015cd8763e8490b8c1a0b9e1a224b33
+    parentId: fld_988dfdea3cf04c708be0d6895ae3c4cc
     modified: 1717525615226
     created: 1717007216878
     url: "{{ _.base_url }}{{path}}/7"
@@ -759,7 +719,6 @@ resources:
     description: ""
     method: DELETE
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -772,7 +731,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511033
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -780,8 +738,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_132a40dec4364d8ca0393caf9c50acd5
-    parentId: fld_b739ce119a76464a8107d598efe32291
+  - _id: req_2c751eccc4ed4acb9baf51dbc1daaa35
+    parentId: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
     modified: 1717523702073
     created: 1717010046133
     url: "{{ _.base_url }}{{path}}"
@@ -789,7 +747,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -803,7 +760,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511433
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -811,8 +767,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_b739ce119a76464a8107d598efe32291
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
     modified: 1717010843134
     created: 1717010046132
     name: imagem
@@ -824,8 +780,8 @@ resources:
         - path
     metaSortKey: -1697849027382.25
     _type: request_group
-  - _id: req_8f36106f129745df9c960923848ac7d6
-    parentId: fld_b739ce119a76464a8107d598efe32291
+  - _id: req_f5492feea59d4bba877ba6df8fe2ffe0
+    parentId: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
     modified: 1717523673578
     created: 1717010046134
     url: "{{ _.base_url }}{{path}}/1"
@@ -833,7 +789,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -847,7 +802,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511408
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -855,8 +809,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_a1121895b9b841b79bfb273d62cc265e
-    parentId: fld_b739ce119a76464a8107d598efe32291
+  - _id: req_b3084cfb6b8b4b17a3ceed877b7399d6
+    parentId: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
     modified: 1717523677937
     created: 1717428872417
     url: "{{ _.base_url }}{{path}}/evento/1"
@@ -864,7 +818,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -878,7 +831,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.9146
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -886,8 +838,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_d9808fd84ace45e5813c7779445826c8
-    parentId: fld_b739ce119a76464a8107d598efe32291
+  - _id: req_50b62e608e244e1fb20d0e24db0a32ab
+    parentId: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
     modified: 1717523683144
     created: 1717428884711
     url: "{{ _.base_url }}{{path}}/momento/1"
@@ -895,7 +847,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -909,7 +860,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.8718
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -917,8 +867,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_bd0a3a593ff54e648c57c8caf2d9a300
-    parentId: fld_b739ce119a76464a8107d598efe32291
+  - _id: req_c284f89d7a1f4a8386896bf68ff1bc2d
+    parentId: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
     modified: 1717523687648
     created: 1717010046135
     url: "{{ _.base_url }}{{path}}"
@@ -933,7 +883,6 @@ resources:
         	"idMomento": 3,
         	"urlImagem": "Testando Cadastro de Imagem"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -950,7 +899,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511233
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -958,8 +906,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_2b324b16c7c8443ba9759e2b2e01bcc3
-    parentId: fld_b739ce119a76464a8107d598efe32291
+  - _id: req_8a2c0f5251a74c9395f964ed35d09a89
+    parentId: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
     modified: 1717523692674
     created: 1717010046135
     url: "{{ _.base_url }}{{path}}/7"
@@ -974,7 +922,6 @@ resources:
         	"idMomento": 3,
         	"urlImagem": "Testando Atualização de Imagem"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -991,7 +938,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511133
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -999,8 +945,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_021dcbcc19e144f2a18ec0b611e65d5d
-    parentId: fld_b739ce119a76464a8107d598efe32291
+  - _id: req_44e8852ddf924d30a8adcbd666fbf6ab
+    parentId: fld_e2d8fdf6924b4e44b0fd19dc89733f6e
     modified: 1717523698712
     created: 1717010046136
     url: "{{ _.base_url }}{{path}}/7"
@@ -1008,7 +954,6 @@ resources:
     description: ""
     method: DELETE
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1022,7 +967,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511033
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1030,8 +974,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_7499bb04809248dfbff4593b014e745c
-    parentId: fld_e2fe1422fc7c4fe28f75d7e54fa25272
+  - _id: req_79c732c999734eefb163b47f45e2cbca
+    parentId: fld_e30ee3ef4a0a4d94911ac23eee5b04b1
     modified: 1717523711042
     created: 1717010140652
     url: "{{ _.base_url }}{{path}}"
@@ -1039,7 +983,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1053,7 +996,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511433
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1061,8 +1003,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_e2fe1422fc7c4fe28f75d7e54fa25272
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: fld_e30ee3ef4a0a4d94911ac23eee5b04b1
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
     modified: 1717010858175
     created: 1717010140651
     name: momento
@@ -1074,8 +1016,8 @@ resources:
         - path
     metaSortKey: -1697849027379.125
     _type: request_group
-  - _id: req_17d24acb602043ae8659cb88a8c1966b
-    parentId: fld_e2fe1422fc7c4fe28f75d7e54fa25272
+  - _id: req_5c0b4fd9b9bc45d982883a40d7112e32
+    parentId: fld_e30ee3ef4a0a4d94911ac23eee5b04b1
     modified: 1717523714764
     created: 1717010140653
     url: "{{ _.base_url }}{{path}}/1"
@@ -1083,7 +1025,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1097,7 +1038,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511408
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1105,8 +1045,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_f6cf117be09749f280e4c2781c6a8ed5
-    parentId: fld_e2fe1422fc7c4fe28f75d7e54fa25272
+  - _id: req_66159c0911214cdcab2c91dfe545408a
+    parentId: fld_e30ee3ef4a0a4d94911ac23eee5b04b1
     modified: 1717523718262
     created: 1717429016945
     url: "{{ _.base_url }}{{path}}/nome/depois"
@@ -1114,7 +1054,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1128,7 +1067,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.9573
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1136,8 +1074,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_9a6eec9fe49d4e689108fcc88b1ab1b8
-    parentId: fld_e2fe1422fc7c4fe28f75d7e54fa25272
+  - _id: req_2899b149453c434db52622e3238e40cb
+    parentId: fld_e30ee3ef4a0a4d94911ac23eee5b04b1
     modified: 1717523742879
     created: 1717010140654
     url: "{{ _.base_url }}{{path}}"
@@ -1150,7 +1088,6 @@ resources:
         {
         	"nome": "Cadastrando Momento"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1168,7 +1105,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511233
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1176,8 +1112,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_6492fae1413449c8a0ea4cf525c291fd
-    parentId: fld_e2fe1422fc7c4fe28f75d7e54fa25272
+  - _id: req_d871f8c02b974f598c4a6b97ffb39912
+    parentId: fld_e30ee3ef4a0a4d94911ac23eee5b04b1
     modified: 1717523842561
     created: 1717010140653
     url: "{{ _.base_url }}{{path}}/4"
@@ -1190,7 +1126,6 @@ resources:
         {
         	"nome": "Atualizando Momento"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1207,7 +1142,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511133
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1215,8 +1149,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_46a6d118cdfb4cdc96085cc361cb979a
-    parentId: fld_e2fe1422fc7c4fe28f75d7e54fa25272
+  - _id: req_673536159d104239ac45ce016ada9a76
+    parentId: fld_e30ee3ef4a0a4d94911ac23eee5b04b1
     modified: 1717523846940
     created: 1717010140655
     url: "{{ _.base_url }}{{path}}/4"
@@ -1224,7 +1158,6 @@ resources:
     description: ""
     method: DELETE
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1238,7 +1171,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511033
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1246,8 +1178,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_dd09e5fccf9e4add927e79b7da88145e
-    parentId: fld_f6a63d44aa4849f6bb308bacf4e4db60
+  - _id: req_33c2acc6ea474b2abf14cc23224a9446
+    parentId: fld_e59b9d020232465390af61601f2ea9c9
     modified: 1717523854361
     created: 1717010211098
     url: "{{ _.base_url }}{{path}}"
@@ -1255,7 +1187,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1269,7 +1200,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511433
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1277,8 +1207,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_f6a63d44aa4849f6bb308bacf4e4db60
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: fld_e59b9d020232465390af61601f2ea9c9
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
     modified: 1717010879147
     created: 1717010211097
     name: status
@@ -1290,8 +1220,8 @@ resources:
         - path
     metaSortKey: -1697849027377.5625
     _type: request_group
-  - _id: req_40fd14db986349fbb20ff31810dfe245
-    parentId: fld_f6a63d44aa4849f6bb308bacf4e4db60
+  - _id: req_39766dba2ed04aecb0ce408e9cb006c6
+    parentId: fld_e59b9d020232465390af61601f2ea9c9
     modified: 1717523858595
     created: 1717010211099
     url: "{{ _.base_url }}{{path}}/1"
@@ -1299,7 +1229,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1313,7 +1242,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511408
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1321,8 +1249,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_f47fd377ab934bbebb935ae5dab0d7d7
-    parentId: fld_f6a63d44aa4849f6bb308bacf4e4db60
+  - _id: req_c3d225d57dad4c50b107f7d0c2391b1c
+    parentId: fld_e59b9d020232465390af61601f2ea9c9
     modified: 1717523862903
     created: 1717429232871
     url: "{{ _.base_url }}{{path}}/nome/aberto"
@@ -1330,7 +1258,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1344,7 +1271,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.9785
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1352,8 +1278,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_14a5c4a307cf4789abc8a69ec7fe3624
-    parentId: fld_f6a63d44aa4849f6bb308bacf4e4db60
+  - _id: req_56e196e0eafb4a80a20410841532f24e
+    parentId: fld_e59b9d020232465390af61601f2ea9c9
     modified: 1717523866731
     created: 1717010211100
     url: "{{ _.base_url }}{{path}}"
@@ -1366,7 +1292,6 @@ resources:
         {
         	"nome": "Cadastrando Status"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1383,7 +1308,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511233
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1391,8 +1315,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_9114549c7cf44c1cbcb06c1312fe67b4
-    parentId: fld_f6a63d44aa4849f6bb308bacf4e4db60
+  - _id: req_45818f5f15a64fb8bd2b75f550df4c92
+    parentId: fld_e59b9d020232465390af61601f2ea9c9
     modified: 1717523872487
     created: 1717010211099
     url: "{{ _.base_url }}{{path}}/5"
@@ -1405,7 +1329,6 @@ resources:
         {
         	"nome": "Atualizando Status"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1422,7 +1345,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511133
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1430,8 +1352,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_8f225b02f2484b219485fa345c12d343
-    parentId: fld_f6a63d44aa4849f6bb308bacf4e4db60
+  - _id: req_f15906331ace4e38b3e7057d32cc6c4c
+    parentId: fld_e59b9d020232465390af61601f2ea9c9
     modified: 1717523880304
     created: 1717010211100
     url: "{{ _.base_url }}{{path}}/5"
@@ -1439,7 +1361,6 @@ resources:
     description: ""
     method: DELETE
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1453,7 +1374,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511033
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1461,8 +1381,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_a9c7c18604f0440d9471eaaa4df4ff98
-    parentId: fld_3b7c96ed611b4583b492da5a18848faa
+  - _id: req_ebdfc5e6c0904ff384b91ac19f5d69df
+    parentId: fld_4236fbcba7d544d8a9f545e3887cacc5
     modified: 1717523892579
     created: 1717010911719
     url: "{{ _.base_url }}{{path}}"
@@ -1470,7 +1390,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1484,7 +1403,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511433
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1492,8 +1410,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_3b7c96ed611b4583b492da5a18848faa
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: fld_4236fbcba7d544d8a9f545e3887cacc5
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
     modified: 1717010911718
     created: 1717010911718
     name: tipoevento
@@ -1505,8 +1423,8 @@ resources:
         - path
     metaSortKey: -1697849027376.7812
     _type: request_group
-  - _id: req_371eef537c3e4b48bfcaf609e8271108
-    parentId: fld_3b7c96ed611b4583b492da5a18848faa
+  - _id: req_c1d17285b07f4df29faaa4c5de2ae583
+    parentId: fld_4236fbcba7d544d8a9f545e3887cacc5
     modified: 1717523895848
     created: 1717010911720
     url: "{{ _.base_url }}{{path}}/1"
@@ -1514,7 +1432,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1528,7 +1445,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511408
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1536,8 +1452,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_73a90d3b45ea4b929e2fce9d788c01a9
-    parentId: fld_3b7c96ed611b4583b492da5a18848faa
+  - _id: req_fa163444fe6a42a5a055baccaeced867
+    parentId: fld_4236fbcba7d544d8a9f545e3887cacc5
     modified: 1717523899103
     created: 1717429645816
     url: "{{ _.base_url }}{{path}}/nome/resgate"
@@ -1545,7 +1461,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1559,7 +1474,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.9893
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1567,8 +1481,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_593a36f8fb6144d48f76ea10fc0244a3
-    parentId: fld_3b7c96ed611b4583b492da5a18848faa
+  - _id: req_4a21da213e154eae9be03ff406ad43cf
+    parentId: fld_4236fbcba7d544d8a9f545e3887cacc5
     modified: 1717523903002
     created: 1717010911722
     url: "{{ _.base_url }}{{path}}"
@@ -1581,7 +1495,6 @@ resources:
         {
         	"nome": "Cadastrando TipoEvento"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1598,7 +1511,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511233
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1606,8 +1518,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_9fdc6621e330457f8960d3f3c71e8bb2
-    parentId: fld_3b7c96ed611b4583b492da5a18848faa
+  - _id: req_9881ed7572a44203936ab00aec8f7314
+    parentId: fld_4236fbcba7d544d8a9f545e3887cacc5
     modified: 1717523908854
     created: 1717010911721
     url: "{{ _.base_url }}{{path}}/7"
@@ -1620,7 +1532,6 @@ resources:
         {
         	"nome": "Atualizando TipoEvento"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1637,7 +1548,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511133
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1645,8 +1555,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_a63cef487a0d444c876ed1f0de367204
-    parentId: fld_3b7c96ed611b4583b492da5a18848faa
+  - _id: req_86ce358e617746de9423c49cee8a5864
+    parentId: fld_4236fbcba7d544d8a9f545e3887cacc5
     modified: 1717523914641
     created: 1717010911722
     url: "{{ _.base_url }}{{path}}/7"
@@ -1654,7 +1564,6 @@ resources:
     description: ""
     method: DELETE
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1668,7 +1577,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511033
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1676,8 +1584,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_27101bc7db60475c8ff12d6f59dd03e5
-    parentId: fld_d32b587131f346418423cfd10af68835
+  - _id: req_5f15472a22674a28b505c65d8c6fd4fb
+    parentId: fld_df5601ead2824c6b8769d585827ef25a
     modified: 1717524033680
     created: 1717004854726
     url: "{{ _.base_url }}{{path}}"
@@ -1685,7 +1593,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1699,7 +1606,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511433
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1707,8 +1613,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_d32b587131f346418423cfd10af68835
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
+  - _id: fld_df5601ead2824c6b8769d585827ef25a
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
     modified: 1717010932784
     created: 1717004854726
     name: usuario
@@ -1720,8 +1626,8 @@ resources:
         - path
     metaSortKey: -1697849027154.125
     _type: request_group
-  - _id: req_8858de1f9179479db78fa0e8298007c9
-    parentId: fld_d32b587131f346418423cfd10af68835
+  - _id: req_cf8daec0f31b422db297bba396fff916
+    parentId: fld_df5601ead2824c6b8769d585827ef25a
     modified: 1717523928031
     created: 1717004854727
     url: "{{ _.base_url }}{{path}}/5"
@@ -1729,7 +1635,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1743,7 +1648,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511408
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1751,8 +1655,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_1774f70c52f24f8b900f7b9f4e276859
-    parentId: fld_d32b587131f346418423cfd10af68835
+  - _id: req_9f7b8ebff7354a249bb1dad19e35840b
+    parentId: fld_df5601ead2824c6b8769d585827ef25a
     modified: 1717523932307
     created: 1717429911406
     url: "{{ _.base_url }}{{path}}/evento/2"
@@ -1760,7 +1664,6 @@ resources:
     description: ""
     method: GET
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1774,7 +1677,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511407.9946
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1782,9 +1684,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_8964ce0dbc4c47668a8e0408bc9f6fa9
-    parentId: fld_d32b587131f346418423cfd10af68835
-    modified: 1717524040855
+  - _id: req_eb723dc369944aeea25f4a070c7381ae
+    parentId: fld_df5601ead2824c6b8769d585827ef25a
+    modified: 1717546100897
     created: 1717004854727
     url: "{{ _.base_url }}{{path}}"
     name: Cadastrar
@@ -1794,13 +1696,12 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "cpf": "66666666666",
+          "cpf": "66666666661",
         	"nome": "Usuário Teste",
         	"urlImagem": "http://urlparaumaimagem.com/imagem.jpg",
-          "email": "usuarioteste22@example.com",
+          "email": "usuariotesteww@example.com",
           "senha": "senha123"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1810,7 +1711,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511233
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1818,9 +1718,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_0296298979f042fda8226e5b69479541
-    parentId: fld_d32b587131f346418423cfd10af68835
-    modified: 1717509950915
+  - _id: req_bf9352d28fe043b29279898e83c79f09
+    parentId: fld_df5601ead2824c6b8769d585827ef25a
+    modified: 1717546094709
     created: 1717004854729
     url: "{{ _.base_url }}{{path}}/login"
     name: Login
@@ -1830,10 +1730,9 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "email": "usuarioteste22@example.com",
+          "email": "usuariotesteww@example.com",
           "senha": "senha123"
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1842,7 +1741,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511183
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1850,9 +1748,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_d1ef0d7305f1471e808e4276e9e1066c
-    parentId: fld_d32b587131f346418423cfd10af68835
-    modified: 1717524037123
+  - _id: req_76ac09ca3be24a95a259158ee29c1a52
+    parentId: fld_df5601ead2824c6b8769d585827ef25a
+    modified: 1717546162897
     created: 1717004854728
     url: "{{ _.base_url }}{{path}}/15"
     name: Atualizar
@@ -1869,7 +1767,6 @@ resources:
           "senha": "senha123atualizada",
         	"idsEventos": [2]
         }
-    preRequestScript: ""
     parameters: []
     headers:
       - name: Content-Type
@@ -1886,7 +1783,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511133
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1894,16 +1790,15 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_03af270ac57a46c69cb304541df12b85
-    parentId: fld_d32b587131f346418423cfd10af68835
-    modified: 1717524500461
+  - _id: req_25faa0bd639b47c792761bf989e7c82a
+    parentId: fld_df5601ead2824c6b8769d585827ef25a
+    modified: 1717546661191
     created: 1717004854729
-    url: "{{ _.base_url }}{{path}}/17"
+    url: "{{ _.base_url }}{{path}}/6"
     name: Deletar
     description: ""
     method: DELETE
     body: {}
-    preRequestScript: ""
     parameters: []
     headers:
       - name: User-Agent
@@ -1917,7 +1812,6 @@ resources:
     authentication: {}
     metaSortKey: -1697849511033
     isPrivate: false
-    pathParameters: []
     settingStoreCookies: true
     settingSendCookies: true
     settingDisableRenderRequestBody: false
@@ -1925,80 +1819,32 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: env_512d2db8e09341b692a615caa2e3c8dc
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
-    modified: 1717006916373
-    created: 1717004854667
+  - _id: env_5c4ababc784efd9db7baf04ff2c1e83b2c16dce8
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
+    modified: 1717546357322
+    created: 1717545617067
     name: Base Environment
     data:
       authorization: Bearer {% response 'body',
-        'req_0296298979f042fda8226e5b69479541', 'b64::JC50b2tlbg==::46b',
-        'when-expired', 86400 %}
+        'req_bf9352d28fe043b29279898e83c79f09', 'b64::JC50b2tlbg==::46b',
+        'when-expired', 60 %}
     dataPropertyOrder:
       "&":
         - authorization
     color: null
     isPrivate: false
-    metaSortKey: 1698069577567
+    metaSortKey: 1717545617067
     _type: environment
-  - _id: jar_b71983dd2dad42acab801d27f508200a
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
-    modified: 1717510099017
-    created: 1717004854672
+  - _id: jar_5c4ababc784efd9db7baf04ff2c1e83b2c16dce8
+    parentId: wrk_9c4a03010c68477ba3f65b710871d6e1
+    modified: 1717545617071
+    created: 1717545617071
     name: Default Jar
-    cookies:
-      - key: JSESSIONID
-        value: 247B118AF6DF6F6AEAE45726B43FDB8C
-        domain: localhost
-        path: /
-        httpOnly: true
-        hostOnly: true
-        creation: 2024-03-12T17:20:00.058Z
-        lastAccessed: 2024-06-04T14:08:19.016Z
-        id: 03d112b4-c79f-44f0-826e-5a25140e0e66
-      - key: JSESSIONID
-        value: DB1C62B44A89E5402176D8E846604B9D
-        domain: app-buyit-azure.azurewebsites.net
-        path: /
-        secure: true
-        httpOnly: true
-        hostOnly: true
-        creation: 2024-03-15T13:55:13.986Z
-        lastAccessed: 2024-03-15T17:55:51.701Z
-        id: 805c20f9-6df1-4663-8962-bba30321d06f
-      - key: ARRAffinity
-        value: 22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17
-        domain: app-buyit-azure.azurewebsites.net
-        path: /
-        secure: true
-        httpOnly: true
-        hostOnly: false
-        creation: 2024-03-15T13:55:13.987Z
-        lastAccessed: 2024-03-15T13:55:13.987Z
-        id: bd0ac07d-2121-4863-9a63-9057cec16e0d
-      - key: ARRAffinitySameSite
-        value: 22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17
-        domain: app-buyit-azure.azurewebsites.net
-        path: /
-        secure: true
-        httpOnly: true
-        hostOnly: false
-        creation: 2024-03-15T13:55:13.987Z
-        lastAccessed: 2024-03-15T13:55:13.987Z
-        sameSite: none
-        id: ef1b4981-713e-4341-bdb7-39f96595da5b
+    cookies: []
     _type: cookie_jar
-  - _id: spc_e5048181049f4eadbd4e9185acbe9f27
-    parentId: wrk_bf9689d33bb04f5f85bf9274c833f796
-    modified: 1717004854736
-    created: 1717004854736
-    fileName: BlueGather
-    contents: ""
-    contentType: yaml
-    _type: api_spec
-  - _id: env_b94b1d705b81437c858a36fc8cc33892
-    parentId: env_512d2db8e09341b692a615caa2e3c8dc
-    modified: 1717006679844
+  - _id: env_11a3dc652d3f4b64b9f9229aad1699ab
+    parentId: env_5c4ababc784efd9db7baf04ff2c1e83b2c16dce8
+    modified: 1717546399007
     created: 1717004854670
     name: Local
     data:
@@ -2010,8 +1856,8 @@ resources:
     isPrivate: false
     metaSortKey: 1710511128426
     _type: environment
-  - _id: env_5c4aaf9b56a04229b3404baf655638a4
-    parentId: env_512d2db8e09341b692a615caa2e3c8dc
+  - _id: env_a9a2cc0799a7434181e6715de2011f64
+    parentId: env_5c4ababc784efd9db7baf04ff2c1e83b2c16dce8
     modified: 1717006683866
     created: 1717004854671
     name: C#
@@ -2023,4 +1869,18 @@ resources:
     color: "#ff0000"
     isPrivate: false
     metaSortKey: 1710511128476
+    _type: environment
+  - _id: env_d32a2b349357428abec97d86dc06b41e
+    parentId: env_5c4ababc784efd9db7baf04ff2c1e83b2c16dce8
+    modified: 1717546440984
+    created: 1717546400194
+    name: Railway
+    data:
+      base_url: https://bluegather-production.up.railway.app/
+    dataPropertyOrder:
+      "&":
+        - base_url
+    color: "#c800ff"
+    isPrivate: false
+    metaSortKey: 1717546400194
     _type: environment

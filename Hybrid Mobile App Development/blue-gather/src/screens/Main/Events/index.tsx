@@ -7,15 +7,18 @@ import {
 
 // Type import
 import { MainRoutes } from '..';
+import { Image } from '@dtos/image';
 
 // Pages import
 import { EventList } from '@screens/Main/Events/EventsList';
-import { EventDetails } from '@screens/Main/Events/QuoteDetails';
+import { EventDetails } from '@screens/Main/Events/EventDetails';
+import { EventImages } from '@screens/Main/Events/EventImages';
 
 // Interfaces
 export type EventsRoutes = {
   EventList: undefined;
   EventDetails: { id: number } ;
+  EventImages: { images: Image[] } ;
 };
 
 export const Events: React.FC<
@@ -33,6 +36,7 @@ export const Events: React.FC<
     <Stack.Navigator initialRouteName="EventList" screenOptions={screenOptions}>
       <Stack.Screen name="EventList" component={EventList} />
       <Stack.Screen name="EventDetails" component={EventDetails} />
+      <Stack.Screen name="EventImages" component={EventImages} />
     </Stack.Navigator>
   );
 };

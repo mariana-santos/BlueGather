@@ -20,7 +20,7 @@ export const Menu = styled.View`
 
   border-radius: 25px;
 
-  background-color: ${({ theme }) => theme.COLORS.BLUE[0]};
+  background-color: ${({ theme }) => theme.COLORS.BLUE[5]};
 
   padding: 2px;
 `;

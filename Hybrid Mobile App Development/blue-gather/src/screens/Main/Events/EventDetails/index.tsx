@@ -8,14 +8,15 @@ import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 // Type import
 import { EventsRoutes } from '..';
 import { Event } from '@dtos/event';
-import { ImageSourcePropType } from 'react-native';
+import { ImageSourcePropType, Share } from 'react-native';
 
 // Component import
 import {
   WrapperPage,
   Button,
   CustomModal,
-  WavesContainer
+  WavesContainer,
+  Header
 } from '@components/index';
 
 // Style import
@@ -27,8 +28,10 @@ import {
   Actions,
   LabelWrapper,
   SmallerLabel,
-  Header,
-  EventImage
+  EventImage,
+  EventHeader,
+  Back,
+  ShareButton
 } from './styles';
 import { Flex, ScrollableContent } from '@global/styles';
 
@@ -115,7 +118,6 @@ export const EventDetails: React.FC<
     4: 'alta urgência',
     5: 'alta urgência'
   }
-
   
   const handleCancel = () => {
     setModalTitle("Cancelar");
@@ -134,18 +136,35 @@ export const EventDetails: React.FC<
       ? { uri: event.imagens[0].urlImagem }
       : default_image;
 
+  const handleShare = () => {
+    Share.share({
+      title: "Vamos fazer a diferença?",
+      message: `Oi :) queria te convidar para um evento voluntário para contribuir com a limpeza do oceano!
+${event.titulo}
+${event.descricao && event.descricao}
+${event.dataInicio && formatDate(event.dataInicio, true)}`,
+    })
+  };
+
   return (
     <WrapperPage>
-      <ScrollableContent style={{ paddingTop: 10 }}>
+      <ScrollableContent>
         {loading || !event.id ?
             <TextIndicator>Carregando evento...</TextIndicator> 
             : 
             (
               <Fragment>
-
-                <Header>
+                <EventHeader>
                   <EventImage source={imageSource}/>
-                </Header>
+                  <Back goBack={() => navigation.goBack()} />
+                  <ShareButton onPress={handleShare}>
+                    <Icon 
+                      name="share" 
+                      size={theme.FONT_SIZE.XL}
+                      color={theme.COLORS.WHITE} 
+                    />
+                  </ShareButton>
+                </EventHeader>
 
                 <WavesContainer fullOpacityWaves>
                   <Container>
@@ -166,11 +185,20 @@ export const EventDetails: React.FC<
                     <Value>{event.latitude}, {event.longitude}</Value>
                   </Container>
 
-                  <Container>
-                    <LabelWrapper>
-                      <Label>Imagens</Label>
-                    </LabelWrapper>
-                  </Container>
+                  {event.imagens.length > 0 && (
+                    <Container>
+                      <Flex>
+                        <Label>Imagens</Label>
+
+                        <Button 
+                          size="SM" 
+                          label="Ver imagens"
+                          backgroundColor={theme.COLORS.PURPLE[10]}
+                          onPress={() => navigation.navigate("EventImages", { images: event.imagens })}
+                        />
+                      </Flex>
+                    </Container>
+                  )}
 
                   {event.dataInicio && (
                     <Container>

@@ -24,9 +24,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { MainRoutes } from '..';
 import { ImageSourcePropType } from 'react-native';
 import { Event } from '@dtos/event';
-
-// Theme import
-import { MainNavigationRoutes } from '@routes/index';
+import { EventsRoutes } from '../Events';
 
 // Service import
 import { api } from '@services/api';
@@ -46,7 +44,7 @@ export function Home({
   navigation,
 }: CompositeScreenProps<
   NativeStackScreenProps<MainRoutes, 'Home'>,
-  NativeStackScreenProps<MainNavigationRoutes>
+  NativeStackScreenProps<EventsRoutes>
 >) {
   const [currentRegion, setCurrentRegion] = useState<Region>();
   const [events, setEvents] = useState<Event[]>([]);
@@ -140,6 +138,7 @@ export function Home({
                 longitude: Number(ev.longitude),
                 latitude: Number(ev.latitude),
               }}
+              onPress={() => navigation.navigate("EventDetails", { id: ev.id })}
             >
               <EventIcon source={imageSource} />
               <EventInfo>

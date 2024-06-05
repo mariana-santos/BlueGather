@@ -40,7 +40,7 @@ export function CustomModal({
       <Container>
         <Header>
           <Pressable onPress={onClose}>
-            <X color={theme.COLORS.GRAY_300} weight="bold" />
+            <X color={theme.COLORS.GRAY[40]} weight="bold" />
           </Pressable>
         </Header>
 

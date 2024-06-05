@@ -40,6 +40,7 @@ import { SearchEventsInput } from './SearchEventsInput';
 
 // Util import
 import { STATUS_OPTIONS } from '@utils/statusOptions';
+import { formatDate } from '@utils/format-date';
 
 export function Home({
   navigation,
@@ -130,14 +131,7 @@ export function Home({
             ? { uri: ev.imagens[0].urlImagem }
             : defaultIcon;
 
-          let formattedDate = '';
-
-          if (ev.dataInicio) {
-            const parsedDate = parseISO(ev.dataInicio);
-            formattedDate = format(parsedDate, "dd/MM 'às' HH'h'mm", {
-              locale: ptBR,
-            });
-          }
+          const formattedDate = formatDate(ev.dataInicio, true);
 
           return (
             <Marker

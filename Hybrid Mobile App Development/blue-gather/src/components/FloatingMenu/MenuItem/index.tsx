@@ -30,7 +30,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   const activeRoute = route.name;
   const isActive = activeRoute === screen;
 
-  const iconColor = isActive ? theme.COLORS.BLUE[0] : theme.COLORS.GRAY[40];
+  const iconColor = theme.COLORS.GRAY[isActive ? 50 : 40];
 
   return (
     <Item

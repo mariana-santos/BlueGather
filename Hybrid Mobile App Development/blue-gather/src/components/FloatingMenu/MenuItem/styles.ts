@@ -10,7 +10,7 @@ export const Item = styled.TouchableOpacity<Props>`
   align-items: center;
 
   height: 50px;
-  width: 55px;
+  width: 65px;
 
   border-radius: 25px;
 
@@ -18,6 +18,6 @@ export const Item = styled.TouchableOpacity<Props>`
     active &&
     css`
       background: ${theme.COLORS.BLUE[20]};
-      border: solid 1px ${theme.COLORS.BLUE[50]};
+      border: solid 1px ${theme.COLORS.BLUE[30]};
     `}
 `;

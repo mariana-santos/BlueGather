@@ -60,6 +60,7 @@ export function SignIn({
       resetField('email');
       resetField('senha');
     } catch (error) {
+      console.error(error);
       Toast.show({
         type: 'error',
         text1: 'Erro',

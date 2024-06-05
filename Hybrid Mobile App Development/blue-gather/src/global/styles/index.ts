@@ -6,7 +6,7 @@ export const ScrollableContent = styled.ScrollView`
   width: 100%;
   height: 100%;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY[5]};
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
 
 export const AlertText = styled.Text`

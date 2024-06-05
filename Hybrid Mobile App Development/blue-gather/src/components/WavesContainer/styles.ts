@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 
 const windowHeight = Dimensions.get('window').height;
 
-export const Header = styled.ImageBackground`
+export const Header = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ export const Waves = styled.Image`
   height: 80px;
 `;
 
-export const Container = styled.ImageBackground<{ scrollable?: boolean }>`
+export const Container = styled.View<{ scrollable?: boolean }>`
   flex: 1;
 
   ${props =>
@@ -27,6 +27,6 @@ export const Container = styled.ImageBackground<{ scrollable?: boolean }>`
           min-height: ${windowHeight - 210}px;
         `}
 
-  background-color: ${({ theme }) => theme.COLORS.BLUE[3]};
+  background-color: ${({ theme }) => theme.COLORS.BLUE[0]};
   padding: 0 30px;
 `;

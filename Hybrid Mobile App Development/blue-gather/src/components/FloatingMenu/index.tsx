@@ -30,8 +30,8 @@ export function FloatingMenu() {
   return (
     <Container>
       <Menu>
-        <MenuItem icon="calendar" screen="Home" />
-        <MenuItem icon="map-pin" screen="CreateEvent" />
+        <MenuItem icon="calendar" screen="Events" />
+        <MenuItem icon="map-pin" screen="Home" />
         <MenuItem icon="user" screen="Profile" />
       </Menu>
     </Container>

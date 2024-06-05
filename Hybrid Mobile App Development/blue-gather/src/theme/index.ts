@@ -28,6 +28,8 @@ export default {
     },
     FEEDBACK: {
       RED: '#B35050',
+      GREEN: '#6CB760',
+      YELLOW: '#DFBA5C',
     },
     WHITE: '#FFFFFF',
   },

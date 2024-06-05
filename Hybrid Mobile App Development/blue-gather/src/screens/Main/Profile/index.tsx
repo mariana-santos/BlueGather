@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ImageSourcePropType } from 'react-native';
+import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Hook import
 import { useAuth } from '@hooks/useAuth';
@@ -11,12 +12,14 @@ import {
   UserAvatar,
   WrapperPage,
   FloatingMenu,
+  Button,
 } from '@components/index';
 
 // Style import
 import { AvatarWrapper, Content, MedalsContainer, Text } from './styles';
 import { ScrollableContent } from '@global/styles/index';
 import { Medal } from './Medal';
+import theme from '@theme/index';
 
 interface ProfileForm {
   email: string;
@@ -25,7 +28,7 @@ interface ProfileForm {
 
 export function Profile() {
   // Hook
-  const { user } = useAuth();
+  const { user, handleSignOut } = useAuth();
 
   // State
   const [avatar, setAvatar] = useState<string | undefined>(user?.urlImagem);
@@ -64,6 +67,14 @@ export function Profile() {
               <Medal />
               <Medal />
             </MedalsContainer>
+
+            <Button 
+              backgroundColor={theme.COLORS.FEEDBACK.RED}
+              style={{ marginTop: 25 }}
+              label='Sair' 
+              icon={<Icon name='logout' size={theme.FONT_SIZE.LG} color={theme.COLORS.WHITE} />}
+              onPress={handleSignOut}
+            />
           </Content>
         </WavesContainer>
       </ScrollableContent>

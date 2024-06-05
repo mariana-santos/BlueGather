@@ -12,6 +12,7 @@ export const ButtonContainer = styled.TouchableOpacity<Props>`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  border-radius: 8px;
   align-self: ${({ size }) => (size === 'SM' ? 'flex-start' : 'default')};
 
   background-color: ${({ backgroundColor }) => backgroundColor};

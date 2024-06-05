@@ -7,6 +7,8 @@ import { MainNavigationRoutes } from '@routes/index';
 import { Home } from './Home';
 import { Profile } from './Profile';
 import { CreateEvent } from './CreateEvent';
+import { Events } from './Events';
+
 import {
   NativeStackNavigationOptions,
   NativeStackScreenProps,
@@ -18,6 +20,7 @@ export type MainRoutes = {
   Home: undefined;
   Profile: undefined;
   CreateEvent: undefined;
+  Events: undefined;
 };
 
 export const Main: React.FC<
@@ -36,6 +39,7 @@ export const Main: React.FC<
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="CreateEvent" component={CreateEvent} />
+      <Stack.Screen name="Events" component={Events} />
     </Stack.Navigator>
   );
 };

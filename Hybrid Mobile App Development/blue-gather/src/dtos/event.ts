@@ -1,6 +1,7 @@
 import { Status } from "./status";
 import { TipoEvento } from "./tipoEvento";
 import { User } from "./user";
+import { Image } from "./image";
 
 export interface Event {
   id: number;
@@ -15,6 +16,7 @@ export interface Event {
   tipoEvento: TipoEvento;
   status: Status;
   voluntarios: User[];
+  imagens: Image[]
 }
 
 export interface EventQuery {

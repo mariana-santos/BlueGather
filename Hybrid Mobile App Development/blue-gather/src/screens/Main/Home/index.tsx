@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { CompositeScreenProps } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
-import { Marker, Region } from 'react-native-maps';
+import { Marker, Region, MapPressEvent } from 'react-native-maps';
 import {
   requestForegroundPermissionsAsync,
   getCurrentPositionAsync,
@@ -22,6 +22,7 @@ import {
 // Type import
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { MainRoutes } from '..';
+import { ImageSourcePropType } from 'react-native';
 import { Event } from '@dtos/event';
 
 // Theme import
@@ -32,9 +33,13 @@ import { api } from '@services/api';
 
 // Asset import
 import defaultIcon from '@assets/default_event_icon.png';
+
+// Component import
 import { FloatingMenu } from '@components/FloatingMenu';
-import { Input } from '@components/Input';
 import { SearchEventsInput } from './SearchEventsInput';
+
+// Util import
+import { STATUS_OPTIONS } from '@utils/statusOptions';
 
 export function Home({
   navigation,
@@ -44,7 +49,7 @@ export function Home({
 >) {
   const [currentRegion, setCurrentRegion] = useState<Region>();
   const [events, setEvents] = useState<Event[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [userMarker, setUserMarker] = useState<Region>();
 
   useEffect(() => {
     (async function loadInitialPosition() {
@@ -55,9 +60,7 @@ export function Home({
           accuracy: 6,
         });
 
-        // const { latitude, longitude } = coords;
-        const latitude = -24.014135;
-        const longitude = -46.40598;
+        const { latitude, longitude } = coords;
 
         setCurrentRegion({
           latitude,
@@ -72,22 +75,30 @@ export function Home({
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        setLoading(true);
-        const { data } = await api.get('/evento');
-        setEvents(data.content);
+        const { data } = await api.get(`/evento/status/${STATUS_OPTIONS.inProgress}`);
+        setEvents(data);
       } catch (error) {
+        console.error(error);
         Toast.show({
           type: 'error',
           text1: 'Erro',
           text2: 'Não foi possível buscar os eventos voluntários perto de você',
         });
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchEvents();
   }, []);
+
+  const handleMapPress = (event: MapPressEvent) => {
+    const { latitude, longitude } = event.nativeEvent.coordinate;
+    setUserMarker({ 
+      latitude,
+      longitude,
+      latitudeDelta: 5,
+      longitudeDelta: 5,
+    });
+  };
 
   if (!currentRegion) return;
 
@@ -96,11 +107,28 @@ export function Home({
       <Map
         onRegionChangeComplete={region => setCurrentRegion(region)}
         initialRegion={currentRegion}
-      >
-        {events.map(ev => {
-          // const imageSource: ImageSourcePropType = ev?.urlImagem
-          //   ? { uri: user?.urlImagem }
-          //   : defaultIcon;
+        onPress={handleMapPress}
+      >        
+        {userMarker && (
+          <Marker
+            coordinate={{
+              longitude: userMarker.latitude,
+              latitude: userMarker.latitude,
+            }}
+          >
+            <EventIcon source={defaultIcon} />
+            <EventInfo>
+              <EventWrapper>
+                <EventTitle numberOfLines={1}>aaaaaaaaaa</EventTitle>
+              </EventWrapper>
+            </EventInfo>
+          </Marker>
+        )}
+
+        {events && events?.map(ev => {
+          const imageSource: ImageSourcePropType = ev.imagens && ev.imagens.length > 0
+            ? { uri: ev.imagens[0].urlImagem }
+            : defaultIcon;
 
           let formattedDate = '';
 
@@ -119,8 +147,7 @@ export function Home({
                 latitude: Number(ev.latitude),
               }}
             >
-              <EventIcon source={defaultIcon} />
-
+              <EventIcon source={imageSource} />
               <EventInfo>
                 <EventWrapper>
                   <EventTitle numberOfLines={1}>{ev.titulo}</EventTitle>
@@ -133,7 +160,8 @@ export function Home({
           );
         })}
       </Map>
-      <SearchEventsInput />
+
+      <SearchEventsInput events={events} />
 
       <FloatingMenu />
     </Fragment>

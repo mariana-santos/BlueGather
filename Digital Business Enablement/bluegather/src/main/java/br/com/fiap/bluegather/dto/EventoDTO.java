@@ -23,11 +23,9 @@ public class EventoDTO {
     private String longitude;
 
     @FutureOrPresent(message = "A dataInicio deve ser no presente ou no futuro.")
-    @NotNull(message = "O campo dataInicio não pode estar vazio.")
     private Date dataInicio;
 
     @Future(message = "A dataFim deve ser no futuro.")
-    @NotNull(message = "O campo dataFim não pode estar vazio.")
     private Date dataFim;
 
     private String descricao;
@@ -37,7 +35,6 @@ public class EventoDTO {
     @NotNull(message = "O campo urgencia não pode estar vazio.")
     private Long urgencia;
 
-    @NotNull(message = "O campo idOrganizador não pode estar vazio.")
     private Long idOrganizador;
 
     @NotNull(message = "O campo idTipoEvento não pode estar vazio.")

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -27,6 +28,9 @@ public class UsuarioService {
 
     @Autowired
     private EventoRepository eventoRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     public Page<UsuarioDTO> listAll(Pageable pageRequest) {
         Page<Usuario> list = usuarioRepository.findAll(pageRequest);
@@ -107,7 +111,7 @@ public class UsuarioService {
         entity.setNome(dto.getNome());
         entity.setUrlImagem((dto.getUrlImagem()));
         entity.setEmail(dto.getEmail());
-        entity.setSenha(dto.getSenha());
+        entity.setSenha(passwordEncoder.encode(dto.getSenha()));
     
         Set<Evento> newEventos = new LinkedHashSet<>();
         if (dto.getIdsEventos() != null) {

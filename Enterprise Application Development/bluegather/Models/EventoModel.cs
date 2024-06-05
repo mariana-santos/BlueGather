@@ -24,11 +24,11 @@ namespace BlueGather.Models
 
         [Column("DATA_INICIO", TypeName = "date")]
         [FutureOrPresent(ErrorMessage = "A data de início deve ser no presente ou no futuro.")]
-        public DateTime DataInicio { get; set; }
+        public DateTime? DataInicio { get; set; }
 
         [Column("DATA_FIM", TypeName = "date")]
         [Future(ErrorMessage = "A data de fim deve ser no futuro.")]
-        public DateTime DataFim { get; set; }
+        public DateTime? DataFim { get; set; }
 
         [Column("DESCRICAO")]
         public string? Descricao { get; set; }

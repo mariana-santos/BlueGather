@@ -11,12 +11,12 @@ namespace BlueGather.Configurations
             builder.ToTable("USUARIO");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).HasColumnName("ID").UseHiLo("SEQ_USUARIO");
+            builder.Property(x => x.Id).HasColumnName("ID").UseHiLo("SQ_USUARIO");
             builder.Property(x => x.Cpf).HasColumnName("CPF").HasMaxLength(11).IsRequired();
-            builder.Property(x => x.Nome).HasColumnName("NOME_USUARIO").HasMaxLength(100).IsRequired();
+            builder.Property(x => x.Nome).HasColumnName("NOME").HasMaxLength(100).IsRequired();
             builder.Property(x => x.UrlImagem).HasColumnName("URL_IMAGEM").HasMaxLength(255);
-            builder.Property(x => x.Email).HasColumnName("EMAIL_USUARIO").HasMaxLength(100).IsRequired();
-            builder.Property(x => x.Senha).HasColumnName("SENHA_USUARIO").HasMaxLength(100).IsRequired();
+            builder.Property(x => x.Email).HasColumnName("EMAIL").HasMaxLength(100).IsRequired();
+            builder.Property(x => x.Senha).HasColumnName("SENHA").HasMaxLength(100).IsRequired();
         }
     }
 }

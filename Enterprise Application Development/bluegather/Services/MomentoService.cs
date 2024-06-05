@@ -63,6 +63,15 @@ public class MomentoService
         return entity;
     }
 
+    public async Task<List<MomentoDto>> FindByName(string nome)
+    {
+        var list = await _context.Momento
+            .Where(x => x.Nome.ToLower().Contains(nome.ToLower()))
+            .ToListAsync();
+
+        return list.Select(x => ConvertToDto(x)).ToList();
+    }
+
     private MomentoDto ConvertToDto(MomentoModel entity)
     {
         return new MomentoDto

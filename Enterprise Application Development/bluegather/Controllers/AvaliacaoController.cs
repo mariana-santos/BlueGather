@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BlueGather.Dto;
 using BlueGather.Services;
+using bluegather.Dtos;
 
 namespace BlueGather.Controllers
 {
@@ -111,6 +112,24 @@ namespace BlueGather.Controllers
             catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("evento/resumo/{eventoId}")]
+        public async Task<ActionResult<AvaliacaoResumoDto>> GetAvaliacaoResumoByEventoId(long eventoId)
+        {
+            try
+            {
+                var resumo = await _service.FindAvaliacaoResumoByEventoId(eventoId);
+                return Ok(resumo);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
             }
         }
     }

@@ -11,7 +11,7 @@ namespace BlueGather.Configurations
             builder.ToTable("IMAGEM");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).HasColumnName("ID").UseHiLo("SEQ_IMAGEM");
+            builder.Property(x => x.Id).HasColumnName("ID").UseHiLo("SQ_IMAGEM");
             builder.Property(x => x.UrlImagem).HasColumnName("URL_IMAGEM").HasColumnType("VARCHAR(255)").IsRequired();
         }
     }

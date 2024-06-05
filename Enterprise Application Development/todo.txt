@@ -1,2 +1,0 @@
-- Testar tudo;
-- Fazer querys faltantes;

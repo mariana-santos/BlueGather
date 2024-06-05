@@ -86,6 +86,20 @@ namespace BlueGather.Controllers
             }
         }
 
+        [HttpGet("urgencia/{urgencia}")]
+        public async Task<ActionResult<IEnumerable<EventoDto>>> FindByUrgencia(long urgencia)
+        {
+            try
+            {
+                var list = await _service.FindByUrgencia(urgencia);
+                return Ok(list);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("organizador/{id}")]
         public async Task<ActionResult<IEnumerable<EventoDto>>> FindByOrganizadorId(long id)
         {
@@ -100,7 +114,7 @@ namespace BlueGather.Controllers
             }
         }
 
-        [HttpGet("tipoevento/{id}")]
+        [HttpGet("tipo/{id}")]
         public async Task<ActionResult<IEnumerable<EventoDto>>> FindByTipoEventoId(long id)
         {
             try
@@ -120,6 +134,68 @@ namespace BlueGather.Controllers
             try
             {
                 var list = await _service.FindByStatusId(id);
+                return Ok(list);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("titulo/{titulo}")]
+        public async Task<ActionResult<IEnumerable<EventoDto>>> FindByTitulo(string titulo)
+        {
+            try
+            {
+                var list = await _service.FindByTitulo(titulo);
+                return Ok(list);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("localizacao/{raio}")]
+        public async Task<ActionResult<List<EventoDto>>> FindByLocalizacaoERaio(double raio, [FromBody] Dictionary<string, string> coordenadas)
+        {
+            try
+            {
+                if (!coordenadas.TryGetValue("latitude", out var latStr) || !double.TryParse(latStr, out var latitude) ||
+                    !coordenadas.TryGetValue("longitude", out var lonStr) || !double.TryParse(lonStr, out var longitude))
+                {
+                    return BadRequest("Coordenadas inválidas.");
+                }
+
+                var list = await _service.FindByLocalizacaoERaio(latitude, longitude, raio);
+                return Ok(list);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("data/{dataInicio}")]
+        public async Task<ActionResult<HashSet<EventoDto>>> FindByDataInicioAfter(DateTime dataInicio)
+        {
+            try
+            {
+                var list = await _service.FindByDataInicioAfter(dataInicio);
+                return Ok(list);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("voluntario/{id}")]
+        public async Task<ActionResult<HashSet<EventoDto>>> FindByVoluntarioId(long id)
+        {
+            try
+            {
+                var list = await _service.FindByVoluntarioId(id);
                 return Ok(list);
             }
             catch (System.Exception ex)

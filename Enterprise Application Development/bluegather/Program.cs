@@ -7,11 +7,17 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    options.JsonSerializerOptions.Converters.Add(new DateTimeConverterUsingDateTimeParse());
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BlueGatherContext>(options => options.UseOracle(configuration.GetConnectionString("OracleConnection")));
+
+builder.Services.AddScoped<AvaliacaoRepository>();
 
 builder.Services.AddScoped<Repository<AvaliacaoModel>>();
 builder.Services.AddScoped<Repository<EventoModel>>();

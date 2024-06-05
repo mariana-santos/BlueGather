@@ -104,7 +104,7 @@ public class UsuarioService
             UrlImagem = entity.UrlImagem,
             Email = entity.Email,
             Senha = entity.Senha,
-            IdsEventos = entity.Eventos.Select(e => e.Id).ToList()
+            IdsEventos = entity.Eventos?.Select(x => x.Id).ToList()
         };
     }
 

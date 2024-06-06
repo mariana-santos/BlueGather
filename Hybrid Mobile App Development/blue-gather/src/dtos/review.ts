@@ -1,5 +1,3 @@
-import { Quote } from "./quote";
-
 export interface ReviewQuery {
     idCotacao: number;
     data: string;
@@ -11,7 +9,6 @@ export interface ReviewQuery {
 
 export interface Review {
     id: number;
-    cotacao: Quote;
     data: string;
     notaEntrega: number;
     notaQualidade: number;

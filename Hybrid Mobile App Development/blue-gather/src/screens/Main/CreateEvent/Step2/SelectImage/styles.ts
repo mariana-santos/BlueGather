@@ -8,7 +8,7 @@ export const Container = styled.TouchableOpacity`
   height: 50px;
   width: 50px;
 
-  background-color: ${({ theme }) => theme.COLORS.BLUE[30]};
+  background-color: ${({ theme }) => theme.COLORS.PURPLE[10]};
 
   border-radius: 25px;
 `;

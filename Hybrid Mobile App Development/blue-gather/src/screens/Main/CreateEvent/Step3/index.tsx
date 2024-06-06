@@ -1,13 +1,17 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import { Switch } from 'react-native';
+import { Switch, Keyboard } from 'react-native';
+import { addDays, format } from 'date-fns';
+import { useState } from 'react';
+
 // Type import
 import { MainNavigationRoutes } from '@routes/index';
 import { CreateEventRoutes } from '..';
+import { EventQuery } from '@dtos/event';
 
 // Validation import
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Step3FormSchema } from '@validations/QuoteDetails';
 
@@ -22,15 +26,21 @@ import {
 
 // Style import
 import { ScrollableContent, Fieldset } from '@global/styles/index';
-import { Keyboard } from 'react-native';
-import { addDays, format } from 'date-fns';
 import { Text } from '@screens/Main/Profile/styles';
-import { useState } from 'react';
+
+// Theme import
 import theme from '@theme/index';
 
+// Hook import
+import { useCreateEvent } from '@hooks/useCreateEvent';
+import { useAuth } from '@hooks/useAuth';
+
+// Util import
+import { STATUS_OPTIONS } from '@utils/statusOptions';
+
 interface Step3Form {
-  startDate: Date;
-  endDate: Date;
+  startDate?: Date;
+  endDate?: Date;
 }
 
 export const Step3: React.FC<
@@ -51,19 +61,39 @@ export const Step3: React.FC<
     resolver: yupResolver(Step3FormSchema),
   });
 
-  const onSubmit = () => {
-    return console.log('** aqui criaria um evento');
+  const { user } = useAuth();
+  const { event, handleNewEvent } = useCreateEvent();
+
+  const onSubmit: SubmitHandler<Step3Form> = data => {
+    const { startDate, endDate } = data;
+
+    const dataInicio = startDate ? format(startDate, 'yyyy-MM-dd HH:mm:ss') : null;
+    const dataFim = endDate ? format(endDate, 'yyyy-MM-dd HH:mm:ss') : null;
+
+    const finalQuery: EventQuery = {
+      ...event,
+      dataInicio,
+      dataFim,
+      idOrganizador: isOrganizer ? Number(user.id) : null,
+      idsVoluntarios: isOrganizer ? [Number(user.id)] : [],
+      urgencia: 5,
+      idTipoEvento: 1,
+      idStatus: STATUS_OPTIONS.inProgress
+    };
+
+    handleNewEvent(finalQuery);
   };
 
   function showDatePicker(dateType: keyof Step3Form) {
-    const inputValue = getValues(dateType);
+    const inputValue = getValues(dateType) || new Date();
 
     DateTimePickerAndroid.open({
       value: inputValue,
-      onChange: ({ nativeEvent }) => {
+      onChange: (event, selectedDate) => {
         Keyboard.dismiss();
-        const selectedDate = new Date(nativeEvent.timestamp);
-        return setValue(dateType, selectedDate);
+        if (selectedDate) {
+          setValue(dateType, selectedDate);
+        }
       },
       mode: 'date',
       minimumDate: new Date(),
@@ -75,7 +105,9 @@ export const Step3: React.FC<
       <ScrollableContent>
         <DefaultComponent
           headerProps={{ goBack: () => navigation.goBack() }}
-          highlightProps={{ title: 'Novo evento', subtitle: 'Passo 1 de 3' }}
+          highlightProps={{ 
+            title: 'Organização', 
+            subtitle: 'O organizador define detalhes como datas e é responsável por tirar fotos do resultado.' }}
         />
 
         <WavesContainer>
@@ -99,11 +131,9 @@ export const Step3: React.FC<
             <Controller
               control={control}
               name="startDate"
-              defaultValue={new Date()}
               render={({ field: { value } }) => (
                 <Input
-                  value={format(new Date(value), 'dd/MM/yyyy')}
-                  required
+                  value={!value ? value : format(value, 'dd/MM/yyyy')}
                   label="Data de início"
                   label2="Dia em que os voluntários se encontrarão."
                   autoCapitalize="none"
@@ -120,11 +150,9 @@ export const Step3: React.FC<
             <Controller
               control={control}
               name="endDate"
-              defaultValue={addDays(new Date(), 15)}
               render={({ field: { value } }) => (
                 <Input
-                  value={format(new Date(value), 'dd/MM/yyyy')}
-                  required
+                  value={!value ? value : format(value, 'dd/MM/yyyy')}
                   label="Data de término"
                   label2="Essa data é apenas uma previsão do término do evento."
                   autoCapitalize="none"

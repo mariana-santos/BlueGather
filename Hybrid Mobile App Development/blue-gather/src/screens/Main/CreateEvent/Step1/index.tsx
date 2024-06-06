@@ -6,7 +6,7 @@ import { MainNavigationRoutes } from '@routes/index';
 import { CreateEventRoutes } from '..';
 
 // Validation import
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Step1FormSchema } from '@validations/QuoteDetails';
 
@@ -22,10 +22,12 @@ import {
 // Style import
 import { ScrollableContent, Fieldset } from '@global/styles/index';
 
+// Hook import
+import { useCreateEvent } from '@hooks/useCreateEvent';
+
 interface Step1Form {
-  local: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 export const Step1: React.FC<
@@ -34,16 +36,25 @@ export const Step1: React.FC<
     NativeStackScreenProps<MainNavigationRoutes>
   >
 > = ({ navigation }) => {
+
+  const { event, setEvent } = useCreateEvent();
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<Step1Form>({
     resolver: yupResolver(Step1FormSchema),
-    defaultValues: { local: 'Praia grande' },
   });
 
-  const onSubmit = () => {
+  const onSubmit: SubmitHandler<Step1Form> = data => {
+    const { title, description } = data;
+    setEvent(prevEvent => ({ 
+      ...prevEvent, 
+      titulo: title,
+      descricao: description ?? null 
+    }));
+
     return navigation.navigate('Step2');
   };
 
@@ -52,27 +63,20 @@ export const Step1: React.FC<
       <ScrollableContent>
         <DefaultComponent
           headerProps={{ goBack: () => navigation.goBack() }}
-          highlightProps={{ title: 'Novo evento', subtitle: 'Passo 1 de 3' }}
+          highlightProps={{ 
+            title: 'Novo evento', 
+            subtitle: 'Encontrou um lugar que precisa de voluntários para ajudar na causa do oceano? Nos dê mais detalhes!' }}
         />
 
         <WavesContainer>
           <Fieldset>
-            <Controller
-              control={control}
-              name="local"
-              render={({ field: { value, onChange } }) => (
-                <Input
-                  value={value}
-                  required
-                  onChangeText={onChange}
-                  label="Local"
-                  label2="Mova o mapa para alterar este endereço."
-                  autoCapitalize="none"
-                  placeholder="Praia grande"
-                  error={errors.local?.message}
-                  editable={false}
-                />
-              )}
+            <Input
+              value={`${event.latitude}, ${event.longitude}`}
+              required
+              label="Local"
+              label2="Volte para alterar o endereço."
+              placeholder="Praia grande"
+              editable={false}
             />
           </Fieldset>
 
@@ -86,7 +90,6 @@ export const Step1: React.FC<
                   required
                   onChangeText={onChange}
                   label="Título"
-                  autoCapitalize="none"
                   placeholder="Descreve o que precisa ser feito"
                   error={errors.title?.message}
                 />
@@ -101,13 +104,12 @@ export const Step1: React.FC<
               render={({ field: { value, onChange } }) => (
                 <Input
                   value={value}
-                  required
                   onChangeText={onChange}
                   label="Descrição"
                   placeholder="Adicione informações adicionais"
                   error={errors.description?.message}
                   multiline
-                  numberOfLines={4}
+                  numberOfLines={3}
                 />
               )}
             />

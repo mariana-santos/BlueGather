@@ -8,27 +8,28 @@ export interface Event {
   titulo: string;
   latitude: string;
   longitude: string;
-  dataInicio: string;
-  dataFim: string;
-  descricao: string;
-  urgencia: number;
-  organizador: User;
+  dataInicio: string | null;
+  dataFim: string | null;
+  descricao: string | null;
+  urgencia: number | null;
+  organizador: User | null;
   tipoEvento: TipoEvento;
   status: Status;
   voluntarios: User[];
-  imagens: Image[]
+  imagens: Image[];
 }
 
 export interface EventQuery {
+  id: number;
   titulo: string;
   latitude: string;
   longitude: string;
-  dataInicio: string;
-  dataFim: string;
-  descricao: string;
-  urgencia: number;
-  organizador: User;
-  tipoEvento: TipoEvento;
-  status: Status;
-  voluntarios: User[];
+  dataInicio: string | null;
+  dataFim: string | null;
+  descricao: string | null;
+  urgencia: number | null;
+  idOrganizador: number | null;
+  idTipoEvento: number;
+  idStatus: number;
+  idsVoluntarios: number[];
 }

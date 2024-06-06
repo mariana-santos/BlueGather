@@ -4,3 +4,7 @@ import { EXPO_PUBLIC_API_URL } from '@env';
 export const api = axios.create({
   baseURL: EXPO_PUBLIC_API_URL,
 });
+
+export const mapsApi = axios.create({
+  baseURL: "http://maps.googleapis.com/maps/api/",
+});

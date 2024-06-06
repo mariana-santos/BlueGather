@@ -6,8 +6,6 @@ import {
   requestForegroundPermissionsAsync,
   getCurrentPositionAsync,
 } from 'expo-location';
-import { format, parseISO } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
 
 // Style import
 import {
@@ -40,6 +38,9 @@ import { SearchEventsInput } from './SearchEventsInput';
 import { STATUS_OPTIONS } from '@utils/statusOptions';
 import { formatDate } from '@utils/format-date';
 
+// Hook import
+import { useCreateEvent } from "@hooks/useCreateEvent"
+
 export function Home({
   navigation,
 }: CompositeScreenProps<
@@ -49,6 +50,8 @@ export function Home({
   const [currentRegion, setCurrentRegion] = useState<Region>();
   const [events, setEvents] = useState<Event[]>([]);
   const [userMarker, setUserMarker] = useState<Region>();
+
+  const { event, setEvent } = useCreateEvent();
 
   useEffect(() => {
     (async function loadInitialPosition() {
@@ -89,14 +92,34 @@ export function Home({
     fetchEvents();
   }, []);
 
-  const handleMapPress = (event: MapPressEvent) => {
-    const { latitude, longitude } = event.nativeEvent.coordinate;
+  const handleMapPress = (ev: MapPressEvent) => {
+    const { latitude, longitude } = ev.nativeEvent.coordinate;
+
+    if (!latitude || !longitude) return;
+
     setUserMarker({ 
       latitude,
       longitude,
       latitudeDelta: 5,
       longitudeDelta: 5,
     });
+  };
+
+  const handlePressNewEvent = () => {
+    if (!userMarker) return;
+
+    const { latitude, longitude } = userMarker;
+
+    const lat = String(latitude);
+    const lng = String(longitude);
+
+    setEvent(prevEvent => ({ 
+      ...prevEvent,
+      latitude: lat,
+      longitude: lng 
+    }));
+
+    navigation.navigate("CreateEvent");
   };
 
   if (!currentRegion) return;
@@ -116,9 +139,9 @@ export function Home({
             }}
           >
             <EventIcon source={defaultIcon} />
-            <EventInfo>
+            <EventInfo onPress={handlePressNewEvent}>
               <EventWrapper>
-                <EventTitle numberOfLines={1}>aaaaaaaaaa</EventTitle>
+                <EventTitle numberOfLines={1}>Novo evento</EventTitle>
               </EventWrapper>
             </EventInfo>
           </Marker>

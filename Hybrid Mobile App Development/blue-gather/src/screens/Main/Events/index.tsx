@@ -2,6 +2,7 @@ import React from 'react';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
+  NativeStackNavigationProp,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 
@@ -20,6 +21,8 @@ export type EventsRoutes = {
   EventDetails: { id: number } ;
   EventImages: { images: Image[] } ;
 };
+
+export type EventsRoutesProps = NativeStackNavigationProp<EventsRoutes>;
 
 export const Events: React.FC<
   NativeStackScreenProps<MainRoutes, 'Events'>

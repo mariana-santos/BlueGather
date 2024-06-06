@@ -1,4 +1,4 @@
-import { ImageSquare } from 'phosphor-react-native';
+import { Image } from 'phosphor-react-native';
 import * as ImagePicker from 'expo-image-picker';
 
 // Theme import
@@ -27,8 +27,13 @@ export function SelectImage({ handleSetImage }: Props) {
   }
 
   return (
-    <Container onPress={handleSelectImage} activeOpacity={0.7}>
-      <ImageSquare size={theme.FONT_SIZE.XL} color={theme.COLORS.WHITE} />
+    <Container 
+      onPress={handleSelectImage} 
+      activeOpacity={0.7}>
+      <Image 
+        size={theme.FONT_SIZE.XL} 
+        color={theme.COLORS.GRAY[50]} 
+      />
     </Container>
   );
 }

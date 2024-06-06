@@ -4,3 +4,9 @@ export interface Image {
   idMomento: number;
   urlImagem: string;
 }
+
+export interface ImageQuery {
+  idEvento: number;
+  idMomento: number;
+  urlImagem: string;
+}

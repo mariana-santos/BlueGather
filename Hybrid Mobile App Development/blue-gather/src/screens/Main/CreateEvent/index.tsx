@@ -34,12 +34,10 @@ export const CreateEvent: React.FC<
   };
 
   return (
-    <CreateEventProvider>
-      <Stack.Navigator initialRouteName="Step1" screenOptions={screenOptions}>
-        <Stack.Screen name="Step1" component={Step1} />
-        <Stack.Screen name="Step2" component={Step2} />
-        <Stack.Screen name="Step3" component={Step3} />
-      </Stack.Navigator>
-    </CreateEventProvider>
+    <Stack.Navigator initialRouteName="Step1" screenOptions={screenOptions}>
+      <Stack.Screen name="Step1" component={Step1} />
+      <Stack.Screen name="Step2" component={Step2} />
+      <Stack.Screen name="Step3" component={Step3} />
+    </Stack.Navigator>
   );
 };

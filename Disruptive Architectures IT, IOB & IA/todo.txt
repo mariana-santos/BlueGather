@@ -1,2 +1,3 @@
-- Adicionar Links do Pitch no TXT (Google Drive Kaue)
+- Editar Vídeo (Mari)
+- Adicionar Links do Pitch no word (Google Drive Kaue)
 - Gerar PDF do Word e salvar na pasta

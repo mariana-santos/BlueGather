@@ -1,0 +1,3 @@
+- Desenho da Arquitetura
+- Acrescentar Desenho no Word
+- Gerar PDF

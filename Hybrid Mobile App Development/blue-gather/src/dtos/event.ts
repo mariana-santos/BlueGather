@@ -1,5 +1,5 @@
 import { Status } from "./status";
-import { TipoEvento } from "./tipoEvento";
+import { EventType } from "./eventType";
 import { User } from "./user";
 import { Image } from "./image";
 
@@ -13,7 +13,7 @@ export interface Event {
   descricao: string | null;
   urgencia: number | null;
   organizador: User | null;
-  tipoEvento: TipoEvento;
+  tipoEvento: EventType;
   status: Status;
   voluntarios: User[];
   imagens: Image[];

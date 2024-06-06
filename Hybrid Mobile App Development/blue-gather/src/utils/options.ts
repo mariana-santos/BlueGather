@@ -3,3 +3,9 @@ export const STATUS_OPTIONS = {
   concluded: 2,
   inProgress: 1
 };
+
+export const MOMENT_OPTIONS = {
+  before: 1,
+  during: 2,
+  after: 3
+};

@@ -7,7 +7,7 @@ import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Type import
 import { EventsRoutes } from '..';
-import { Event } from '@dtos/event';
+import { Event, EventQuery } from '@dtos/event';
 import { ImageSourcePropType, Share } from 'react-native';
 
 // Component import
@@ -39,7 +39,7 @@ import { Flex, ScrollableContent } from '@global/styles';
 import theme from '@theme/index';
 
 // Utils import
-import { STATUS_OPTIONS } from '@utils/statusOptions';
+import { STATUS_OPTIONS } from '@utils/options';
 import { formatDate } from '@utils/format-date';
 
 import UpdateStatus from './UpdateStatus';
@@ -77,17 +77,32 @@ export const EventDetails: React.FC<
   const [modalTitle, setModalTitle] = useState("");
   const [modalSubtitle, setModalSubtitle] = useState("");
 
-  // const toggleUpdateModal = () => setUpdateModalVisible(modal => !modal);
-  // const toggleReviewModal = () => setReviewModalVisible(modal => !modal);
+  const toggleUpdateModal = () => setUpdateModalVisible(modal => !modal);
+  const toggleReviewModal = () => setReviewModalVisible(modal => !modal);
 
   const { id } = route.params;
 
-  // const updateQuote = async (body: QuoteQuery, id: number, goBack?: boolean) => {
-  //   handleUpdateQuote(body, id);
-  //   fetchQuotesByBuyer(user.id);
-  //   if (goBack) navigation.navigate("QuotesHistory");
-  //   toggleUpdateModal();
-  // };
+  const handleUpdateEvent = async (body: EventQuery, id: number) => {
+    try {
+      const { data } = await api.put(`/evento/${id}`, body);
+      
+      if (data.id) {
+        Toast.show({
+          type: 'success',
+          text1: 'Evento atualizado com sucesso',
+        });
+      }
+    } catch (error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Erro',
+        text2: 'Não foi possível atualizar o evento',
+      });
+    } finally {
+      navigation.navigate("EventList");
+      toggleUpdateModal();
+    }
+  };
 
   useLayoutEffect(() => {
     const fetchEvent = async () => {
@@ -122,13 +137,13 @@ export const EventDetails: React.FC<
   const handleCancel = () => {
     setModalTitle("Cancelar");
     setModalSubtitle("Tem certeza que deseja cancelar o evento?");
-    // toggleUpdateModal();
+    toggleUpdateModal();
   }
 
   const handleConfirm = () => {
     setModalTitle("Finalizar");
     setModalSubtitle("Tem certeza que deseja finalizar o evento?");
-    // toggleUpdateModal();
+    toggleUpdateModal();
   }
 
   const imageSource: ImageSourcePropType = 
@@ -234,10 +249,12 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                     <Value>{event.tipoEvento.nome}</Value>
                   </Container>
 
-                  <Container>
-                    <Label>Urgência</Label>
-                    <Value>{event.urgencia}: {priorityLabel[event.urgencia]}</Value>
-                  </Container>
+                  {event.urgencia && (
+                    <Container>
+                      <Label>Urgência</Label>
+                      <Value>{event.urgencia}: {priorityLabel[event.urgencia]}</Value>
+                    </Container>
+                  )}
 
                   <Container>
                     {event.organizador ? (
@@ -245,33 +262,32 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                     ) : (
                       <Fragment>
                         <Value>O evento ainda não possui um organizador, portanto ainda não tem participantes nem data marcada. Gostaria de marcar uma data?</Value>
-                        <Value>Isso também tornaria sua responsabilidade tirar fotos do depois para mostrar inspirar mais eventos voluntários e trazer mais visibilidade à causa!</Value>
+                        <Value>Isso também tornaria sua responsabilidade tirar fotos para inspirar mais eventos voluntários e trazer mais visibilidade à causa!</Value>
                       </Fragment>
                     )}
                   </Container>
 
-                  {/* <Actions>
-                    {retrievedQuote.status.id !== STATUS_OPTIONS.closed && 
-                     retrievedQuote.status.id !== STATUS_OPTIONS.concluded && (
-                      <Button 
-                        label="Cancelar"
-                        size="SM"
-                        backgroundColor={theme.COLORS.RED_DARK}
-                        onPress={() => handleCancel()}
-                      />
-                    )}
-                    
-                    {retrievedQuote.status.id === STATUS_OPTIONS.approved && (
+                  <Actions>
+                    {event.status.id === STATUS_OPTIONS.inProgress && (
                       <Button 
                         label="Concluir"
                         size="SM"
-                        backgroundColor={theme.COLORS.GREEN_800}
                         onPress={() => handleConfirm()}
                       />
                     )}
-                  </Actions> */}
+                    
+                    {event.status.id !== STATUS_OPTIONS.inProgress && 
+                      event.status.id !== STATUS_OPTIONS.concluded && (
+                       <Button 
+                         label="Cancelar"
+                         size="SM"
+                         backgroundColor={theme.COLORS.FEEDBACK.RED}
+                         onPress={() => handleCancel()}
+                       />
+                     )}
+                  </Actions>
 
-                  {/* {retrievedQuote.status.id === STATUS_OPTIONS.concluded && (
+                  {event.status.id === STATUS_OPTIONS.concluded && (
                     <Button 
                       label='Avaliar'
                       icon={
@@ -286,14 +302,39 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                       }}
                       onPress={() => toggleReviewModal()}
                     />
-                  )} */}
+                  )}
+
+                  {event.status.id !== STATUS_OPTIONS.concluded && 
+                   !event.organizador && (
+                    <Button 
+                      label='Quero organizar o evento'
+                      style={{
+                        marginBottom: 40
+                      }}
+                      onPress={() => toggleReviewModal()}
+                    />
+                  )}
+
+                  {event.status.id !== STATUS_OPTIONS.concluded && 
+                   event.organizador && event.organizador?.id !== user.id && (
+                    <Button 
+                      label={event.voluntarios.includes(user) ? 
+                        "Não comparecerei" :
+                        "Vou comparecer"
+                      }
+                      style={{
+                        marginBottom: 40
+                      }}
+                      onPress={() => toggleReviewModal()}
+                    />
+                  )}
                 </WavesContainer>
               </Fragment>
             )
         }
       </ScrollableContent>
 
-      {/* <CustomModal
+      <CustomModal
         modalProps={{ isVisible: isUpdateModalVisible }}
         title={`${modalTitle} cotação`}
         subtitle={modalSubtitle}
@@ -301,22 +342,22 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
       >
         <UpdateStatus 
           modalTitle={modalTitle} 
-          quote={retrievedQuote}
-          handleUpdateQuote={updateQuote}
+          event={event}
+          handleUpdateEvent={handleUpdateEvent}
         />
       </CustomModal>
 
       <CustomModal
         modalProps={{ isVisible: isReviewModalVisible }}
-        title={`O que você achou do fornecedor?`}
-        subtitle="Isso ajuda nosso sistema a escolher sempre os melhores fornecedores aos nossos usuários"
+        title={`O que você achou desse evento?`}
+        subtitle="Isso ajuda nosso sistema a escolher sempre os melhores eventos aos nossos usuários"
         onClose={toggleReviewModal}
       >
         <Review 
-          quote={retrievedQuote}
+          eventId={event.id}
           toggleReviewModal={toggleReviewModal} 
         />
-      </CustomModal> */}
+      </CustomModal>
     </WrapperPage>
   );
 }

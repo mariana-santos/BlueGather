@@ -2,7 +2,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { Switch, Keyboard } from 'react-native';
-import { addDays, format } from 'date-fns';
+import { format } from 'date-fns';
 import { useState } from 'react';
 
 // Type import
@@ -36,7 +36,7 @@ import { useCreateEvent } from '@hooks/useCreateEvent';
 import { useAuth } from '@hooks/useAuth';
 
 // Util import
-import { STATUS_OPTIONS } from '@utils/statusOptions';
+import { STATUS_OPTIONS } from '@utils/options';
 
 interface Step3Form {
   startDate?: Date;
@@ -114,11 +114,11 @@ export const Step3: React.FC<
           <Text size="lg">Organizarei o evento</Text>
           <Switch
             trackColor={{
-              false: theme.COLORS.GRAY[30],
-              true: theme.COLORS.BLUE[20],
+              false: theme.COLORS.GRAY[10],
+              true: theme.COLORS.GRAY[10],
             }}
             thumbColor={
-              isOrganizer ? theme.COLORS.BLUE[30] : theme.COLORS.GRAY[10]
+              isOrganizer ? theme.COLORS.BLUE[40] : theme.COLORS.GRAY[40]
             }
             onValueChange={() =>
               setIsOrganizer(previousState => !previousState)

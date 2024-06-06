@@ -1,17 +1,16 @@
-import { Quote } from "@dtos/quote";
 import { Fragment, useState } from "react";
 import { Label, StarButton, StarsContainer } from "./styles"
 import { Flex } from "@global/styles";
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 import theme from "@theme/index";
-import { Input } from "@components/Input";
 import { ReviewQuery } from "@dtos/review";
-import { format } from "date-fns";
 import { Button } from "@components/Button";
-import { useQuote } from "@hooks/useQuote";
+import { useAuth } from "@hooks/useAuth";
+import { api } from "@services/api";
+import Toast from "react-native-toast-message";
 
 interface ReviewProps {
-  quote: Quote;
+  eventId: number;
   toggleReviewModal: () => void;
 }
 
@@ -27,54 +26,48 @@ interface IStar {
   setRating: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function Review({ quote, toggleReviewModal }: ReviewProps) {
-  const [priceRating, setPriceRating] = useState(5);
-  const [qualityRating, setQualityRating] = useState(5);
-  const [deliveryRating, setDeliveryRating] = useState(5);
-  const [description, setDescription] = useState("");
+export default function Review({ eventId, toggleReviewModal }: ReviewProps) {
+  const [rating, setRating] = useState(5);
 
-  const { handleNewReview } = useQuote();
+  const { user } = useAuth();
 
-  const handleRegisterReview = () => {
-    const data = format(new Date(), 'dd-MM-yyyy');
+  const handleRegisterReview = async () => {
     const finalBodyData: ReviewQuery = {
-      idCotacao: quote.id,
-      data,
-      notaPreco: priceRating,
-      notaQualidade: qualityRating,
-      notaEntrega: deliveryRating,
-      descricao: description
+      idEvento: eventId,
+      idAvaliador: Number(user.id),
+      nota: rating,
     }
 
-    handleNewReview(finalBodyData);
-    toggleReviewModal();
+    try {
+      const body = finalBodyData;
+      const { data } = await api.post('/avaliacao', body);
+
+      if (data.id) {
+        Toast.show({
+          type: 'success',
+          text1: 'Avaliação registrada com sucesso!',
+        });
+      }
+    } catch (error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Erro',
+        text2: 'Não foi possível registrar sua avaliação.',
+      });
+
+      throw error;
+    } finally {
+      toggleReviewModal();
+    }
+
   };
 
   return(
     <Fragment>
       <Stars 
-        label="Preço"
-        rating={priceRating} 
-        setRating={setPriceRating} 
-      />
-      <Stars 
-        label="Qualidade"
-        rating={qualityRating} 
-        setRating={setQualityRating} 
-      />
-      <Stars 
-        label="Entrega"
-        rating={deliveryRating} 
-        setRating={setDeliveryRating} 
-      />
-      <Input 
-        label="Breve descrição" 
-        numberOfLines={2}
-        value={description}
-        onChangeText={(value: string) => setDescription(value)}
-        style={{
-          marginBottom: 30
-        }}
+        label="Avalie o evento"
+        rating={rating} 
+        setRating={setRating} 
       />
 
       <Button 
@@ -105,13 +98,12 @@ const Stars = ({ label, rating, setRating }: IStars) => {
 
 const Star = ({ rating, value, setRating }: IStar) => {
   const selected = value <= rating;
-  const color = theme.COLORS[selected ? 'YELLOW' : 'GRAY_300'];
-  const name = selected ? "star" : "star";
+  const color = selected ? theme.COLORS.FEEDBACK.YELLOW : theme.COLORS.GRAY[20];
   return (
     <StarButton
       onPress={() => setRating(value)}
     >
-      <Icon name={name} color={color} size={theme.FONT_SIZE.XXL}/>
+      <Icon name={"star"} color={color} size={theme.FONT_SIZE.XXL}/>
     </StarButton>
   )
 }

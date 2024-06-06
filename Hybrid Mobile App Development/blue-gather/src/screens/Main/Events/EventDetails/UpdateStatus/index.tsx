@@ -1,37 +1,30 @@
 import { Button } from "@components/Button";
-import { Quote, QuoteQuery } from "@dtos/quote";
 import { Fragment } from "react";
-import { STATUS_OPTIONS } from "@utils/statusOptions";
+import { STATUS_OPTIONS } from "@utils/options";
+import { EventQuery, Event } from "@dtos/event";
 
 interface UpdateStatusProps {
   modalTitle: string;
-  quote: Quote;
-  handleUpdateQuote: (body: QuoteQuery, id: number, goBack?: boolean) => Promise<void>;
+  event: Event;
+  handleUpdateEvent: (body: EventQuery, id: number) => Promise<void>;
 }
 
-export default function UpdateStatus({ modalTitle, quote, handleUpdateQuote }: UpdateStatusProps) {
-
+export default function UpdateStatus({ modalTitle, event, handleUpdateEvent }: UpdateStatusProps) {
   const handleUpdateStatus = () => {
     const idStatus = modalTitle === "Concluir" 
-    ? STATUS_OPTIONS.concluded : STATUS_OPTIONS.closed;
+    ? STATUS_OPTIONS.concluded : STATUS_OPTIONS.cancelled;
 
-    const finalBodyData: QuoteQuery = {
-      dataAbertura: quote.dataAbertura,
-      idComprador: Number(quote.comprador.id),
-      idProduto: quote.produto.id,
-      quantidadeProduto: quote.quantidadeProduto,
-      valorProduto: quote.valorProduto,
+    const idsVoluntarios = event.voluntarios.map(user => Number(user.id));
+
+    const finalBodyData: EventQuery = {
+      ...event,
       idStatus,
-      prioridadeEntrega: quote.prioridadeEntrega,
-      prioridadeQualidade: quote.prioridadeQualidade,
-      prioridadePreco: quote.prioridadePreco,
-      prazo: quote.prazo,
-      dataFechamento: quote.dataFechamento,
-    }
+      idOrganizador: Number(event.organizador?.id) ?? null, 
+      idTipoEvento: event.tipoEvento.id, 
+      idsVoluntarios,
+    };
 
-    handleUpdateQuote(finalBodyData, quote.id, true);
-
-    
+    handleUpdateEvent(finalBodyData, event.id);
   };
 
   return(

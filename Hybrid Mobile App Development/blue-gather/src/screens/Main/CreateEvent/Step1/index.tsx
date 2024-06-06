@@ -13,6 +13,7 @@ import { Step1FormSchema } from '@validations/QuoteDetails';
 // Component import
 import {
   Button,
+  CustomDropdown,
   DefaultComponent,
   Input,
   WavesContainer,
@@ -24,10 +25,13 @@ import { ScrollableContent, Fieldset } from '@global/styles/index';
 
 // Hook import
 import { useCreateEvent } from '@hooks/useCreateEvent';
+import { useLayoutEffect } from 'react';
+import { TFlatList } from 'react-native-input-select/lib/typescript/types/index.types';
 
 interface Step1Form {
   title: string;
   description?: string;
+  eventType: number;
 }
 
 export const Step1: React.FC<
@@ -37,7 +41,7 @@ export const Step1: React.FC<
   >
 > = ({ navigation }) => {
 
-  const { event, setEvent } = useCreateEvent();
+  const { event, setEvent, eventTypes, fetchEventTypes } = useCreateEvent();
 
   const {
     control,
@@ -48,15 +52,25 @@ export const Step1: React.FC<
   });
 
   const onSubmit: SubmitHandler<Step1Form> = data => {
-    const { title, description } = data;
+    const { title, description, eventType } = data;
     setEvent(prevEvent => ({ 
       ...prevEvent, 
       titulo: title,
+      idTipoEvento: eventType,
       descricao: description ?? null 
     }));
 
     return navigation.navigate('Step2');
   };
+
+  useLayoutEffect(() => {
+    fetchEventTypes();
+  }, []);
+
+  const typesOptions: TFlatList = eventTypes.map(item => ({
+    label: item.nome,
+    value: item.id,
+  }));
 
   return (
     <WrapperPage>
@@ -114,6 +128,28 @@ export const Step1: React.FC<
               )}
             />
           </Fieldset>
+
+          <Fieldset>
+            <Controller
+              control={control}
+              name="eventType"
+              render={({ field: { value, onChange } }) => (
+                <CustomDropdown
+                  isSearchable
+                  label="Tipo"
+                  placeholder="Selecione o tipo de evento"
+                  options={typesOptions}
+                  selectedValue={value}
+                  onValueChange={onChange}
+                  error={errors.eventType?.message}
+                  listControls={{
+                    emptyListMessage: 'Nenhum tipo de evento encontrado.',
+                  }}
+                />
+              )}
+            />
+          </Fieldset>
+          
         </WavesContainer>
       </ScrollableContent>
 

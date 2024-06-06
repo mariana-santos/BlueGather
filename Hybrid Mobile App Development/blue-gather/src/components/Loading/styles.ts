@@ -4,11 +4,11 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.COLORS.GRAY[10]};
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
 
 export const LoadingText = styled.Text`
-  color: ${({ theme }) => theme.COLORS.WHITE};
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
   font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
 
   max-width: 300px;
@@ -20,5 +20,5 @@ export const LoadingText = styled.Text`
 
 export const LoadIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
   size: '15px',
-  color: theme.COLORS.WHITE,
+  color: theme.COLORS.GRAY[40],
 }))``;

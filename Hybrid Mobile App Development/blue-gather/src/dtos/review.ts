@@ -1,17 +1,12 @@
 export interface ReviewQuery {
-    idCotacao: number;
-    data: string;
-    notaEntrega: number;
-    notaQualidade: number;
-    notaPreco: number;
-    descricao: string;
+    idEvento: number;
+    idAvaliador: number;
+    nota: number;
 }
 
 export interface Review {
     id: number;
-    data: string;
-    notaEntrega: number;
-    notaQualidade: number;
-    notaPreco: number;
-    descricao: string;
+    idEvento: number;
+    idAvaliador: number;
+    nota: number;
 }

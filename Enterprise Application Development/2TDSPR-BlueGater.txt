@@ -1,0 +1,20 @@
+Global Solution - 2TDSPR
+
+Grupo: BlueGather
+
+Integrantes:
+Gustavo Sanches - RM 97068
+Kaue Caponero - RM 96466
+Mariana Santos - RM 97503
+Natan Cruz - RM 97324
+Vitor Rubim - RM 97092
+
+Código Fonte do Projeto: https://github.com/mariana-santos/BlueGather
+Código Fonte da API C#: https://github.com/mariana-santos/BlueGather/tree/main/Enterprise%20Application%20Development
+
+* O Insomnia está configurado com variáveis de ambiente e token. Para funcionar de forma mais prática, acrescentar isso no Base Environment:
+{
+	"authorization": "Bearer {% response 'body', 'req_0296298979f042fda8226e5b69479541', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+}
+
+Após isso, cadastrar usuário e fazer login para geração do token e navegação entre os outros endpoints.

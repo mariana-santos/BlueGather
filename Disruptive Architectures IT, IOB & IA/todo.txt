@@ -1,0 +1,2 @@
+- Adicionar Links do Pitch no TXT (Google Drive Kaue)
+- Gerar PDF do Word e salvar na pasta

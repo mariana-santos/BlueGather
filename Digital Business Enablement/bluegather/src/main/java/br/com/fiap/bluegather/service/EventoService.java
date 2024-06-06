@@ -151,9 +151,9 @@ public class EventoService {
         return eventos.stream().map(this::convertToDto).collect(Collectors.toSet());
     }
 
-    public Set<EventoDTO> findByVoluntarioId(Long voluntarioId) {
+    public Set<EventoResponse> findEventoResponsesByVoluntarioId(Long voluntarioId) {
         Set<Evento> eventos = eventoRepository.findByVoluntariosId(voluntarioId);
-        return eventos.stream().map(this::convertToDto).collect(Collectors.toSet());
+        return eventos.stream().map(evento -> convertToEventoResponse(evento, imagemService.findByEvento(evento))).collect(Collectors.toSet());
     }
     
     public EventoDTO convertToDto(Evento entity) {

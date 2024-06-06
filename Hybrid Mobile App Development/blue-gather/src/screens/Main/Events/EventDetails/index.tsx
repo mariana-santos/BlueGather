@@ -16,7 +16,6 @@ import {
   Button,
   CustomModal,
   WavesContainer,
-  Header
 } from '@components/index';
 
 // Style import
@@ -161,6 +160,10 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
     })
   };
 
+  const isCancelled = event?.status?.id === STATUS_OPTIONS.cancelled;
+  const isInProgress = event?.status?.id === STATUS_OPTIONS.inProgress;
+  const isConcluded = event?.status?.id === STATUS_OPTIONS.concluded;
+
   return (
     <WrapperPage>
       <ScrollableContent>
@@ -184,7 +187,9 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                 <WavesContainer fullOpacityWaves>
                   <Container>
                     <Label>{event.titulo}</Label>
-                    <Value>{event.descricao}</Value>
+                    {event.descricao && (
+                      <Value>{event.descricao}</Value>
+                    )}
                   </Container>
 
                   <Container>
@@ -268,23 +273,22 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                   </Container>
 
                   <Actions>
-                    {event.status.id === STATUS_OPTIONS.inProgress && (
-                      <Button 
-                        label="Concluir"
-                        size="SM"
-                        onPress={() => handleConfirm()}
-                      />
+                    {isInProgress && (
+                      <Fragment>
+                        <Button 
+                          label="Concluir"
+                          size="MD"
+                          onPress={() => handleConfirm()}
+                        />
+
+                        <Button 
+                          label="Cancelar"
+                          size="MD"
+                          backgroundColor={theme.COLORS.FEEDBACK.RED}
+                          onPress={() => handleCancel()}
+                        />
+                       </Fragment>
                     )}
-                    
-                    {event.status.id !== STATUS_OPTIONS.inProgress && 
-                      event.status.id !== STATUS_OPTIONS.concluded && (
-                       <Button 
-                         label="Cancelar"
-                         size="SM"
-                         backgroundColor={theme.COLORS.FEEDBACK.RED}
-                         onPress={() => handleCancel()}
-                       />
-                     )}
                   </Actions>
 
                   {event.status.id === STATUS_OPTIONS.concluded && (
@@ -304,8 +308,7 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                     />
                   )}
 
-                  {event.status.id !== STATUS_OPTIONS.concluded && 
-                   !event.organizador && (
+                  {!isConcluded && !event.organizador && !isCancelled && (
                     <Button 
                       label='Quero organizar o evento'
                       style={{
@@ -315,7 +318,7 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                     />
                   )}
 
-                  {event.status.id !== STATUS_OPTIONS.concluded && 
+                  {!isConcluded && 
                    event.organizador && event.organizador?.id !== user.id && (
                     <Button 
                       label={event.voluntarios.includes(user) ? 
@@ -336,7 +339,7 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
 
       <CustomModal
         modalProps={{ isVisible: isUpdateModalVisible }}
-        title={`${modalTitle} cotação`}
+        title={`${modalTitle} evento`}
         subtitle={modalSubtitle}
         onClose={toggleUpdateModal}
       >

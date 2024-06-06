@@ -35,7 +35,7 @@ import { FloatingMenu } from '@components/FloatingMenu';
 import { SearchEventsInput } from './SearchEventsInput';
 
 // Util import
-import { STATUS_OPTIONS } from '@utils/statusOptions';
+import { STATUS_OPTIONS } from '@utils/options';
 import { formatDate } from '@utils/format-date';
 
 // Hook import

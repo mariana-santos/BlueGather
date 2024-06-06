@@ -15,7 +15,6 @@ interface ReviewProps {
 }
 
 interface IStars {
-  label: string;
   rating: number;
   setRating: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -65,7 +64,6 @@ export default function Review({ eventId, toggleReviewModal }: ReviewProps) {
   return(
     <Fragment>
       <Stars 
-        label="Avalie o evento"
         rating={rating} 
         setRating={setRating} 
       />
@@ -79,10 +77,9 @@ export default function Review({ eventId, toggleReviewModal }: ReviewProps) {
   )
 }
 
-const Stars = ({ label, rating, setRating }: IStars) => {
+const Stars = ({ rating, setRating }: IStars) => {
   return(
     <StarsContainer>
-      <Label>{label}</Label>
       <Flex style={{
         justifyContent: "flex-start"
       }}>

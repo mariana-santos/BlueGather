@@ -18,7 +18,7 @@ export const Image = styled.Image`
 export const IconPic = styled.Image`
   position: absolute;
   bottom: 10px;
-  right: -10px;
+  right: 0px;
   top: -5px;
 
   height: 50px;

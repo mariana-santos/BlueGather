@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Style import
 import { TabText } from './styles';
 

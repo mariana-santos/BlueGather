@@ -40,7 +40,6 @@ export const Step1: React.FC<
     NativeStackScreenProps<MainNavigationRoutes>
   >
 > = ({ navigation }) => {
-
   const { event, setEvent, eventTypes, fetchEventTypes } = useCreateEvent();
 
   const {
@@ -53,11 +52,11 @@ export const Step1: React.FC<
 
   const onSubmit: SubmitHandler<Step1Form> = data => {
     const { title, description, eventType } = data;
-    setEvent(prevEvent => ({ 
-      ...prevEvent, 
+    setEvent(prevEvent => ({
+      ...prevEvent,
       titulo: title,
       idTipoEvento: eventType,
-      descricao: description ?? null 
+      descricao: description ?? null,
     }));
 
     return navigation.navigate('Step2');
@@ -67,19 +66,23 @@ export const Step1: React.FC<
     fetchEventTypes();
   }, []);
 
-  const typesOptions: TFlatList = eventTypes.map(item => ({
-    label: item.nome,
-    value: item.id,
-  }));
+  const typesOptions: TFlatList =
+    eventTypes &&
+    eventTypes.map(item => ({
+      label: item.nome,
+      value: item.id,
+    }));
 
   return (
     <WrapperPage>
       <ScrollableContent>
         <DefaultComponent
           headerProps={{ goBack: () => navigation.goBack() }}
-          highlightProps={{ 
-            title: 'Novo evento', 
-            subtitle: 'Encontrou um lugar que precisa de voluntários para ajudar na causa do oceano? Nos dê mais detalhes!' }}
+          highlightProps={{
+            title: 'Novo evento',
+            subtitle:
+              'Encontrou um lugar que precisa de voluntários para ajudar na causa do oceano? Nos dê mais detalhes!',
+          }}
         />
 
         <WavesContainer>
@@ -149,7 +152,6 @@ export const Step1: React.FC<
               )}
             />
           </Fieldset>
-          
         </WavesContainer>
       </ScrollableContent>
 

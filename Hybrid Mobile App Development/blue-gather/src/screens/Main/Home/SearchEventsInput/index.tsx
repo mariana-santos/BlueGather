@@ -2,15 +2,15 @@ import Icon from '@expo/vector-icons/Feather';
 import Toast from 'react-native-toast-message';
 
 // Style import
-import { 
-  Wrapper, 
-  Title, 
+import {
+  Wrapper,
+  Title,
   Subtitle,
-  SearchContainer, 
-  Input, 
-  SearchButton, 
+  SearchContainer,
+  Input,
+  SearchButton,
   ResultsContainer,
-  Result
+  Result,
 } from './styles';
 
 // Theme import
@@ -21,61 +21,65 @@ import { Event } from '@dtos/event';
 import { useState } from 'react';
 
 type Props = {
-  events: Event[]
-}
+  events: Event[];
+};
 
 export const SearchEventsInput = ({ events }: Props) => {
-
-  const [search, setSearch] = useState(""); 
-  const [filteredEvents, setFilteredEvents] = useState<Event[]>([]); 
+  const [search, setSearch] = useState('');
+  const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
 
   const onSearch = () => {
-    if (!events || search === "" || !search) 
-      return setFilteredEvents([]);
+    if (!events || search === '' || !search) return setFilteredEvents([]);
 
     const normalizedSearch = search.trim().toLowerCase();
 
     const foundEvents = events.filter(event => {
       const { descricao, titulo, tipoEvento, organizador } = event;
       const possibleResults = [
-        descricao.trim().toLowerCase(),
+        descricao?.trim().toLowerCase(),
         titulo.trim().toLowerCase(),
         tipoEvento?.nome.trim().toLowerCase(),
-        organizador?.nome.trim().toLowerCase()
+        organizador?.nome.trim().toLowerCase(),
       ];
 
-      return possibleResults.some(result => result && result.includes(normalizedSearch));
+      return possibleResults.some(
+        result => result && result.includes(normalizedSearch),
+      );
     });
 
     setFilteredEvents(foundEvents);
-    
-    if (foundEvents.length === 0){
+
+    if (foundEvents.length === 0) {
       return Toast.show({
         type: 'info',
         text1: 'Opa!',
         text2: 'Nenhum evento encontrado.',
       });
     }
-  }
+  };
 
   return (
     <Wrapper>
       <Title>Ajude na limpeza do oceano!</Title>
-      <Subtitle>Encontre ou indique lugares que precisam de voluntários para ajudar nessa causa.</Subtitle>
+      <Subtitle>
+        Encontre ou indique lugares que precisam de voluntários para ajudar
+        nessa causa.
+      </Subtitle>
       <SearchContainer>
         <Input
-          placeholder="Buscar um evento..."
+          placeholder="Busque por um evento"
           placeholderTextColor={theme.COLORS.GRAY[30]}
-          onChangeText={text => setSearch(text)}
+          onChangeText={(text: string) => setSearch(text)}
         />
         <SearchButton onPress={onSearch}>
-          <Icon name="search" size={24} color="#FFFFFF" />
+          <Icon name="search" size={24} color={theme.COLORS.WHITE} />
         </SearchButton>
+
         {filteredEvents && filteredEvents.length > 0 && (
           <ResultsContainer>
             {filteredEvents.map((event, index) => (
-              <Result 
-                last={index === filteredEvents.length - 1} 
+              <Result
+                last={index === filteredEvents.length - 1}
                 key={event.titulo}
               >
                 {event.titulo}
@@ -84,7 +88,6 @@ export const SearchEventsInput = ({ events }: Props) => {
           </ResultsContainer>
         )}
       </SearchContainer>
-
     </Wrapper>
   );
 };

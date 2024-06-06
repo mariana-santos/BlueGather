@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { CompositeScreenProps } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
-import { Marker, Region, MapPressEvent } from 'react-native-maps';
+import { Region, MapPressEvent } from 'react-native-maps';
 import {
   requestForegroundPermissionsAsync,
   getCurrentPositionAsync,
@@ -15,6 +15,7 @@ import {
   EventTitle,
   EventWrapper,
   Map,
+  Marker,
 } from './styles';
 
 // Type import
@@ -35,11 +36,13 @@ import { FloatingMenu } from '@components/FloatingMenu';
 import { SearchEventsInput } from './SearchEventsInput';
 
 // Util import
-import { STATUS_OPTIONS } from '@utils/statusOptions';
+import { STATUS_OPTIONS } from '@utils/options';
 import { formatDate } from '@utils/format-date';
 
 // Hook import
-import { useCreateEvent } from "@hooks/useCreateEvent"
+import { useCreateEvent } from '@hooks/useCreateEvent';
+import { MapPinLine } from 'phosphor-react-native';
+import theme from '@theme/index';
 
 export function Home({
   navigation,
@@ -77,7 +80,10 @@ export function Home({
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await api.get(`/evento/status/${STATUS_OPTIONS.inProgress}`);
+        const { data } = await api.get(
+          `/evento/status/${STATUS_OPTIONS.inProgress}`,
+        );
+
         setEvents(data);
       } catch (error) {
         console.error(error);
@@ -95,9 +101,11 @@ export function Home({
   const handleMapPress = (ev: MapPressEvent) => {
     const { latitude, longitude } = ev.nativeEvent.coordinate;
 
+    console.log(latitude, longitude);
+
     if (!latitude || !longitude) return;
 
-    setUserMarker({ 
+    setUserMarker({
       latitude,
       longitude,
       latitudeDelta: 5,
@@ -113,13 +121,13 @@ export function Home({
     const lat = String(latitude);
     const lng = String(longitude);
 
-    setEvent(prevEvent => ({ 
+    setEvent(prevEvent => ({
       ...prevEvent,
       latitude: lat,
-      longitude: lng 
+      longitude: lng,
     }));
 
-    navigation.navigate("CreateEvent");
+    navigation.navigate('CreateEvent');
   };
 
   if (!currentRegion) return;
@@ -130,15 +138,20 @@ export function Home({
         onRegionChangeComplete={region => setCurrentRegion(region)}
         initialRegion={currentRegion}
         onPress={handleMapPress}
-      >        
+      >
         {userMarker && (
           <Marker
             coordinate={{
-              longitude: userMarker.latitude,
               latitude: userMarker.latitude,
+              longitude: userMarker.longitude,
             }}
           >
-            <EventIcon source={defaultIcon} />
+            <MapPinLine
+              size={32}
+              color={theme.COLORS.PURPLE[50]}
+              weight="fill"
+            />
+
             <EventInfo onPress={handlePressNewEvent}>
               <EventWrapper>
                 <EventTitle numberOfLines={1}>Novo evento</EventTitle>
@@ -147,34 +160,43 @@ export function Home({
           </Marker>
         )}
 
-        {events && events?.map(ev => {
-          const imageSource: ImageSourcePropType = ev.imagens && ev.imagens.length > 0
-            ? { uri: ev.imagens[0].urlImagem }
-            : defaultIcon;
+        {events &&
+          events?.map(ev => {
+            const imageSource: ImageSourcePropType =
+              ev.imagens && ev.imagens.length > 0
+                ? { uri: ev.imagens[0].urlImagem }
+                : defaultIcon;
 
-          const formattedDate = formatDate(ev.dataInicio, true);
+            const formattedDate = formatDate(ev.dataInicio, true);
 
-          return (
-            <Marker
-              key={ev.id}
-              coordinate={{
-                longitude: Number(ev.longitude),
-                latitude: Number(ev.latitude),
-              }}
-              onPress={() => navigation.navigate("EventDetails", { id: ev.id })}
-            >
-              <EventIcon source={imageSource} />
-              <EventInfo>
-                <EventWrapper>
-                  <EventTitle numberOfLines={1}>{ev.titulo}</EventTitle>
-                  <EventSubtitle numberOfLines={2}>
-                    {ev.descricao || formattedDate}
-                  </EventSubtitle>
-                </EventWrapper>
-              </EventInfo>
-            </Marker>
-          );
-        })}
+            return (
+              <Marker
+                key={ev.id}
+                coordinate={{
+                  longitude: Number(ev.longitude),
+                  latitude: Number(ev.latitude),
+                }}
+                onPress={() =>
+                  navigation.navigate('EventDetails', { id: ev.id })
+                }
+              >
+                <MapPinLine
+                  size={32}
+                  color={theme.COLORS.PURPLE[50]}
+                  weight="fill"
+                />
+
+                <EventInfo>
+                  <EventWrapper>
+                    <EventTitle numberOfLines={1}>{ev.titulo}</EventTitle>
+                    <EventSubtitle numberOfLines={2}>
+                      {ev.descricao || formattedDate}
+                    </EventSubtitle>
+                  </EventWrapper>
+                </EventInfo>
+              </Marker>
+            );
+          })}
       </Map>
 
       <SearchEventsInput events={events} />

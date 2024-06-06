@@ -19,16 +19,12 @@ import { Tabs } from './Tabs';
 import { StatusFilterType, tabs } from './Tabs/constants';
 
 // Style import
-import { 
-  TextIndicator,
-  Container, 
-  EventsWrapper 
-} from './styles';
+import { TextIndicator, Container, EventsWrapper } from './styles';
 import { EventItem } from './EventItem';
 import { ScrollableContent } from '@global/styles';
 
 // Utils import
-import { STATUS_OPTIONS } from '@utils/statusOptions';
+import { STATUS_OPTIONS } from '@utils/options';
 
 // Hook import
 import { useAuth } from '@hooks/useAuth';
@@ -66,8 +62,7 @@ export const EventList: React.FC<
         text1: 'Erro',
         text2: 'Não foi possível buscar seus eventos voluntários.',
       });
-    }
-    finally {
+    } finally {
       setLoading(false);
     }
   };
@@ -127,7 +122,6 @@ export const EventList: React.FC<
               </EventsWrapper>
             </Fragment>
           )}
-
         </WavesContainer>
       </ScrollableContent>
       <FloatingMenu />

@@ -1,5 +1,6 @@
 import MapView, { Callout } from 'react-native-maps';
 import styled from 'styled-components/native';
+import { Marker as RNMarker } from 'react-native-maps';
 
 export const Map = styled(MapView)`
   flex: 1;
@@ -18,10 +19,12 @@ export const EventIcon = styled.Image`
   border: solid 1px ${({ theme }) => theme.COLORS.PURPLE[50]};
 `;
 
+export const Marker = styled(RNMarker)``;
+
 export const EventInfo = styled(Callout)`
   flex: 1;
   position: relative;
-  max-width: 200px;
+  /* width: 200px; */
   display: flex;
   flex-direction: column;
 `;

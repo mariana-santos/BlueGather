@@ -26,6 +26,7 @@ import { useAuth } from '@hooks/useAuth';
 
 // Util import
 import { toMaskedCPF, unMask } from '@utils/masks';
+import theme from '@theme/index';
 
 interface SignUpForm {
   nome: string;
@@ -53,14 +54,13 @@ export const SignUp: React.FC<
       const { cpf } = data;
       const cleanCPF = unMask(cpf);
 
-      Object.assign(data, { urlImagem: "", cpf: cleanCPF })
+      Object.assign(data, { urlImagem: '', cpf: cleanCPF });
 
       await handleSignUp(data);
-      resetField("email");
-      resetField("senha");
-      resetField("nome");
-      resetField("cpf");
-      
+      resetField('email');
+      resetField('senha');
+      resetField('nome');
+      resetField('cpf');
     } catch (error) {
       console.error(error);
       Toast.show({
@@ -77,9 +77,12 @@ export const SignUp: React.FC<
         <DefaultComponent
           highlightProps={{
             title: 'Cadastre-se',
-            subtitle: 'Bem vindo! Preencha seus dados para começar a fazer a diferença na vida marinha.',
+            subtitle:
+              'Bem vindo! Preencha seus dados para começar a fazer a diferença na vida marinha.',
           }}
           key="default-component-signup"
+          headerProps={{ goBack: () => navigation.navigate('SignIn') }}
+          statusBarProps={{ backgroundColor: theme.COLORS.BLUE[0] }}
         />
 
         <WavesContainer scrollable>
@@ -165,14 +168,13 @@ export const SignUp: React.FC<
             />
           </Fieldset>
 
-          <Button style={{ paddingVertical: 50, marginBottom: 50 }}
+          <Button
+            style={{ paddingVertical: 50, marginBottom: 50 }}
             label="Continuar"
             onPress={handleSubmit(onSubmit)}
           />
-          
         </WavesContainer>
       </ScrollableContent>
-
     </WrapperPage>
   );
 };

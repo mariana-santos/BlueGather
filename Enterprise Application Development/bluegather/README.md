@@ -12,6 +12,11 @@ Com a BlueGather, as organizações e comunidades podem colaborar de forma efica
 
 ## Instruções para Executar as API's
 
+### Baixe o Arquivo Insomnia e configure o Base Environment dessa forma:
+{
+	"authorization": "Bearer {% response 'body', 'req_0296298979f042fda8226e5b69479541', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+}
+
 ### API C# (.NET)
 
 #### 1. Configurar o Ambiente
@@ -48,6 +53,9 @@ Com a BlueGather, as organizações e comunidades podem colaborar de forma efica
 #### 6. Acessar o Swagger UI
 - Abra o navegador e vá até a URL `http://localhost:61611/swagger`
 
+#### 7. Importar arquivo Insomnia
+- Após o arquivo Insomnia importado e configurado como descrito acima (Base Environment), mude o ambiente para o C#.
+
 ### API Java (Spring Boot)
 
 #### 1. Configurar o Ambiente
@@ -66,8 +74,15 @@ Com a BlueGather, as organizações e comunidades podem colaborar de forma efica
   ```sh
   ./mvnw spring-boot:run
   ```
-
 - Se estiver usando um IDE como IntelliJ IDEA ou Eclipse, você pode clicar com o botão direito do mouse na classe principal (BluegatherApplication.java) e selecionar `Run`.
+
+  #### 4. Importar arquivo Insomnia
+- Após o arquivo Insomnia importado e configurado como descrito acima (Base Environment), mude o ambiente para o Local (Ou Railway).
+
+### API em Deploy Azure (Java + Spring Boot)
+
+  #### 1. Importar arquivo Insomnia
+- Após o arquivo Insomnia importado e configurado como descrito acima (Base Environment), mude o ambiente para o Azure.
 
 ### Dicas Adicionais
 

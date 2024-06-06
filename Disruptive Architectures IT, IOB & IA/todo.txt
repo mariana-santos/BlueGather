@@ -1,3 +1,2 @@
-- Editar Vídeo (Mari)
-- Adicionar Links do Pitch no word (Google Drive Kaue)
+- Adicionar Link do Sistema no Word (Google Drive Kaue)
 - Gerar PDF do Word e salvar na pasta

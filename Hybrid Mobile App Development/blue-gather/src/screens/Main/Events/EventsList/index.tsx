@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useLayoutEffect, useState } from 'react';
+import { Fragment, useLayoutEffect, useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CompositeScreenProps } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';

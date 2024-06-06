@@ -115,9 +115,9 @@ public class EventoController {
     }
 
     @GetMapping("/voluntario/{voluntarioId}")
-    public ResponseEntity<Set<EventoDTO>> findByVoluntarioId(@PathVariable Long voluntarioId) {
+    public ResponseEntity<Set<EventoResponse>> findByVoluntarioId(@PathVariable Long voluntarioId) {
         log.info("(" + getClass().getSimpleName() + ") - Buscando eventos por ID do voluntário: " + voluntarioId);
-        Set<EventoDTO> list = eventoService.findByVoluntarioId(voluntarioId);
+        Set<EventoResponse> list = eventoService.findEventoResponsesByVoluntarioId(voluntarioId);
         return ResponseEntity.ok(list);
     }
 }

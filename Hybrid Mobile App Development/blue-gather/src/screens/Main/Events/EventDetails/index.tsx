@@ -16,7 +16,6 @@ import {
   Button,
   CustomModal,
   WavesContainer,
-  Header,
 } from '@components/index';
 
 // Style import
@@ -125,11 +124,11 @@ export const EventDetails: React.FC<
   }, []);
 
   const priorityLabel: PriorityLabel = {
-    1: 'Baixa urgência',
-    2: 'Baixa urgência',
-    3: 'Média urgência',
-    4: 'Alta urgência',
-    5: 'Alta urgência',
+    1: 'pouca urgência',
+    2: 'pouca urgência',
+    3: 'média urgência',
+    4: 'alta urgência',
+    5: 'alta urgência',
   };
 
   const handleCancel = () => {
@@ -159,6 +158,10 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
     });
   };
 
+  const isCancelled = event?.status?.id === STATUS_OPTIONS.cancelled;
+  const isInProgress = event?.status?.id === STATUS_OPTIONS.inProgress;
+  const isConcluded = event?.status?.id === STATUS_OPTIONS.concluded;
+
   return (
     <WrapperPage>
       <ScrollableContent>
@@ -181,7 +184,7 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
             <WavesContainer fullOpacityWaves>
               <Container>
                 <Label>{event.titulo}</Label>
-                <Value>{event.descricao}</Value>
+                {event.descricao && <Value>{event.descricao}</Value>}
               </Container>
 
               <Container>
@@ -281,23 +284,22 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
               </Container>
 
               <Actions>
-                {event.status.id === STATUS_OPTIONS.inProgress && (
-                  <Button
-                    label="Concluir"
-                    size="SM"
-                    onPress={() => handleConfirm()}
-                  />
-                )}
+                {isInProgress && (
+                  <Fragment>
+                    <Button
+                      label="Concluir"
+                      size="MD"
+                      onPress={() => handleConfirm()}
+                    />
 
-                {event.status.id !== STATUS_OPTIONS.inProgress &&
-                  event.status.id !== STATUS_OPTIONS.concluded && (
                     <Button
                       label="Cancelar"
-                      size="SM"
+                      size="MD"
                       backgroundColor={theme.COLORS.FEEDBACK.RED}
                       onPress={() => handleCancel()}
                     />
-                  )}
+                  </Fragment>
+                )}
               </Actions>
 
               {event.status.id === STATUS_OPTIONS.concluded && (
@@ -317,18 +319,17 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                 />
               )}
 
-              {event.status.id !== STATUS_OPTIONS.concluded &&
-                !event.organizador && (
-                  <Button
-                    label="Quero organizar o evento"
-                    style={{
-                      marginBottom: 40,
-                    }}
-                    onPress={() => toggleReviewModal()}
-                  />
-                )}
+              {!isConcluded && !event.organizador && !isCancelled && (
+                <Button
+                  label="Quero organizar o evento"
+                  style={{
+                    marginBottom: 40,
+                  }}
+                  onPress={() => toggleReviewModal()}
+                />
+              )}
 
-              {event.status.id !== STATUS_OPTIONS.concluded &&
+              {!isConcluded &&
                 event.organizador &&
                 event.organizador?.id !== user.id && (
                   <Button
@@ -350,7 +351,7 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
 
       <CustomModal
         modalProps={{ isVisible: isUpdateModalVisible }}
-        title={`${modalTitle} cotação`}
+        title={`${modalTitle} evento`}
         subtitle={modalSubtitle}
         onClose={toggleUpdateModal}
       >

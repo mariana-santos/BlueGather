@@ -1,2 +1,0 @@
-- Correção de Bugs (Mari e Vitão);
-- Fazer a Documentação (Mari e Vitão):

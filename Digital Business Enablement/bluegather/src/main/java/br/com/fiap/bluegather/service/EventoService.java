@@ -195,21 +195,27 @@ public class EventoService {
         entity.setDataFim(dto.getDataFim());
         entity.setDescricao(dto.getDescricao());
         entity.setUrgencia(dto.getUrgencia());
-        if (dto.getIdOrganizador() == null) {
-            throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ID Organizador não pode ser nulo.");
+    
+        if (dto.getIdOrganizador() != null) {
+            entity.setOrganizador(usuarioService.findEntityById(dto.getIdOrganizador()));
+        } else {
+            entity.setOrganizador(null);
         }
-        entity.setOrganizador(usuarioService.findEntityById(dto.getIdOrganizador()));
+    
         if (dto.getIdTipoEvento() == null) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ID TipoEvento não pode ser nulo.");
         }
         entity.setTipoEvento(tipoEventoService.findEntityById(dto.getIdTipoEvento()));
+    
         if (dto.getIdStatus() == null) {
             throw new IllegalArgumentException("(" + getClass().getSimpleName() + ") - ID Status não pode ser nulo.");
         }
         entity.setStatus(statusService.findEntityById(dto.getIdStatus()));
-
+    
         Set<Usuario> newUsuarios = new LinkedHashSet<>();
-        newUsuarios.add(usuarioService.findEntityById(dto.getIdOrganizador()));
+        if (dto.getIdOrganizador() != null) {
+            newUsuarios.add(usuarioService.findEntityById(dto.getIdOrganizador()));
+        }
         if (dto.getIdsVoluntarios() != null) {
             dto.getIdsVoluntarios().forEach(id -> {
                 Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado com ID: " + id));
@@ -217,8 +223,9 @@ public class EventoService {
             });
         }
         entity.setVoluntarios(newUsuarios);
+    
         return entity;
-    }
+    }    
 
     public EventoResponse convertToEventoResponse(Evento entity, Set<Imagem> imagens) {
         if (entity == null) {

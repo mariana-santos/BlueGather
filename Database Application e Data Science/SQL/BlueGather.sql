@@ -778,14 +778,46 @@ END;
 
 -- Teste para inserir_usuario_evento
 BEGIN
-    inserir_usuario_evento(1, 6);
+    inserir_usuario_evento(1, 5);
     DBMS_OUTPUT.PUT_LINE('Associacao usuario-evento inserida com sucesso.');
 EXCEPTION
     WHEN OTHERS THEN
         DBMS_OUTPUT.PUT_LINE('Erro ao inserir associacao usuario-evento: ' || SQLERRM);
 END;
 
--- Deletar Usuario Evento
+-- Atualizar Usuario_Evento
+CREATE OR REPLACE PROCEDURE atualizar_usuario_evento (
+    p_id_usuario IN NUMBER,
+    p_id_evento IN NUMBER,
+    p_novo_id_evento IN NUMBER
+) IS
+BEGIN
+    UPDATE Usuario_Evento 
+    SET id_evento = p_novo_id_evento
+    WHERE id_usuario = p_id_usuario AND id_evento = p_id_evento;
+
+    IF SQL%ROWCOUNT = 0 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Erro: Associacao usuario-evento nao encontrada.');
+    END IF;
+    
+    COMMIT;
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Erro: Associacao usuario-evento ja cadastrada.');
+    WHEN OTHERS THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Erro: ' || SQLERRM);
+END;
+
+-- Teste para atualizar_usuario_evento
+BEGIN
+    atualizar_usuario_evento(1, 5, 3);
+    DBMS_OUTPUT.PUT_LINE('Associacao usuario-evento atualizada com sucesso.');
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Erro ao atualizar associacao usuario-evento: ' || SQLERRM);
+END;
+
+-- Deletar Usuario_Evento
 CREATE OR REPLACE PROCEDURE deletar_usuario_evento (
     p_id_usuario IN NUMBER,
     p_id_evento IN NUMBER
@@ -942,7 +974,7 @@ SELECT * FROM auditoria WHERE tabela = 'evento' AND operacao = 'INSERT';
 
 --- Packages
 
--- Declara??o das procedures
+-- Declaracao das procedures
 CREATE OR REPLACE PACKAGE pacote_usuario AS
 
     -- Procedures da tabela Usuario
@@ -1089,13 +1121,19 @@ CREATE OR REPLACE PACKAGE pacote_usuario AS
         p_id_usuario IN NUMBER,
         p_id_evento IN NUMBER
     );
+    
+    PROCEDURE atualizar_usuario_evento(
+        p_id_usuario IN NUMBER,
+        p_id_evento IN NUMBER,
+        p_novo_id_evento IN NUMBER
+    );
 
     PROCEDURE deletar_usuario_evento(
         p_id_usuario IN NUMBER,
         p_id_evento IN NUMBER
     );
 
-    -- Relat?rios
+    -- Relatorios
     PROCEDURE relatorio_participacao_usuarios;
     PROCEDURE relatorio_eventos_por_status;
 
@@ -1104,7 +1142,7 @@ END pacote_usuario;
 -- Package body
 CREATE OR REPLACE PACKAGE BODY pacote_usuario AS
 
-    -- Implementa??o das Procedures da tabela Usuario
+    -- Implementacao das Procedures da tabela Usuario
     PROCEDURE inserir_usuario(
         p_id IN NUMBER,
         p_cpf IN CHAR,
@@ -1507,6 +1545,28 @@ CREATE OR REPLACE PACKAGE BODY pacote_usuario AS
         WHEN OTHERS THEN
             RAISE_APPLICATION_ERROR(-20002, 'Erro: ' || SQLERRM);
     END inserir_usuario_evento;
+    
+    PROCEDURE atualizar_usuario_evento(
+        p_id_usuario IN NUMBER,
+        p_id_evento IN NUMBER,
+        p_novo_id_evento IN NUMBER
+    ) IS
+    BEGIN
+        UPDATE Usuario_Evento 
+        SET id_evento = p_novo_id_evento
+        WHERE id_usuario = p_id_usuario AND id_evento = p_id_evento;
+
+        IF SQL%ROWCOUNT = 0 THEN
+            RAISE_APPLICATION_ERROR(-20003, 'Erro: Associação usuário-evento não encontrada.');
+        END IF;
+        
+        COMMIT;
+    EXCEPTION
+        WHEN DUP_VAL_ON_INDEX THEN
+            RAISE_APPLICATION_ERROR(-20001, 'Erro: Associação usuário-evento já cadastrada.');
+        WHEN OTHERS THEN
+            RAISE_APPLICATION_ERROR(-20002, 'Erro: ' || SQLERRM);
+    END atualizar_usuario_evento;
 
     PROCEDURE deletar_usuario_evento(
         p_id_usuario IN NUMBER,
@@ -1561,20 +1621,20 @@ END pacote_usuario;
 BEGIN
     pacote_usuario.inserir_usuario(
         p_id => 10,
-        p_cpf => '98765432100',
+        p_cpf => '98765432555',
         p_nome => 'Teste Simples',
         p_url_imagem => 'http://example.com/image10.jpg',
-        p_email => 'teste.simples@example.com',
+        p_email => 'teste.simples123@example.com',
         p_senha => 'senha123'
     );
     DBMS_OUTPUT.PUT_LINE('Usu?rio inserido com sucesso.');
 
     pacote_usuario.atualizar_usuario(
         p_id => 10,
-        p_cpf => '98765432100',
+        p_cpf => '98765432555',
         p_nome => 'Teste Simples Atualizado',
         p_url_imagem => 'http://example.com/image10_updated.jpg',
-        p_email => 'teste.simples.atualizado@example.com',
+        p_email => 'teste.simples.atualizado123@example.com',
         p_senha => 'novasenha123'
     );
     DBMS_OUTPUT.PUT_LINE('Usu?rio atualizado com sucesso.');

@@ -1,0 +1,40 @@
+[{
+  "_id": 1,
+  "cpf": "11111111111",
+  "nome": "Gustavo Sanches",
+  "url_imagem": "https://avatars.githubusercontent.com/u/111543305?v=4",
+  "email": "gustavosanches@fiap.com.br",
+  "senha": "111111"
+},
+{
+  "_id": 2,
+  "cpf": "22222222222",
+  "nome": "Kaue Caponero",
+  "url_imagem": "https://avatars.githubusercontent.com/u/111543330?v=4",
+  "email": "kauecaponero@fiap.com.br",
+  "senha": "222222"
+},
+{
+  "_id": 3,
+  "cpf": "33333333333",
+  "nome": "Mariana Santos",
+  "url_imagem": "https://avatars.githubusercontent.com/u/56116824?v=4",
+  "email": "marianasantos@fiap.com.br",
+  "senha": "333333"
+},
+{
+  "_id": 4,
+  "cpf": "44444444444",
+  "nome": "Natan Cruz",
+  "url_imagem": "https://avatars.githubusercontent.com/u/111809342?v=4",
+  "email": "natancruz@fiap.com.br",
+  "senha": "444444"
+},
+{
+  "_id": 5,
+  "cpf": "55555555555",
+  "nome": "Vitor Rubim",
+  "url_imagem": "https://avatars.githubusercontent.com/u/48107882?v=4",
+  "email": "vitorrubim@fiap.com.br",
+  "senha": "555555"
+}]

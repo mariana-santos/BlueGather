@@ -1,0 +1,81 @@
+[{
+  "_id": 1,
+  "titulo": "Limpeza da Praia da Enseada - Ubatuba",
+  "latitude": "-23.4898",
+  "longitude": "-45.0952",
+  "data_inicio": {
+    "$date": "2024-08-10T06:00:00.000Z"
+  },
+  "data_fim": {
+    "$date": "2024-08-10T10:00:00.000Z"
+  },
+  "descricao": "Vamos ajudar a praia da enseada!",
+  "urgencia": 2,
+  "id_organizador": 1,
+  "id_tipo": 1,
+  "id_status": 2
+},
+{
+  "_id": 2,
+  "titulo": "Passeata Contra a Sacola de Plásticos em Mercados",
+  "latitude": "-23.5420",
+  "longitude": "-46.6294",
+  "data_inicio": {
+    "$date": "2024-08-11T11:00:00.000Z"
+  },
+  "data_fim": {
+    "$date": "2024-08-11T14:00:00.000Z"
+  },
+  "descricao": null,
+  "urgencia": 1,
+  "id_organizador": 4,
+  "id_tipo": 2,
+  "id_status": 2
+},
+{
+  "_id": 3,
+  "titulo": "Limpeza da Praia da Enseada - Guarujá",
+  "latitude": "-23.9868",
+  "longitude": "-46.2275",
+  "data_inicio": null,
+  "data_fim": null,
+  "descricao": "Precisamos de voluntários para limpar!",
+  "urgencia": 5,
+  "id_organizador": null,
+  "id_tipo": 1,
+  "id_status": 3
+},
+{
+  "_id": 4,
+  "titulo": "Resgate de Tartarugas",
+  "latitude": "-3.84036",
+  "longitude": "-32.4113",
+  "data_inicio": {
+    "$date": "2024-08-13T08:00:00.000Z"
+  },
+  "data_fim": {
+    "$date": "2024-08-13T16:00:00.000Z"
+  },
+  "descricao": "Ajudem-nos a salvar as tartarugas",
+  "urgencia": 3,
+  "id_organizador": 1,
+  "id_tipo": 3,
+  "id_status": 2
+},
+{
+  "_id": 5,
+  "titulo": "Coleta de Lixo Reciclável da Favela da Rocinha",
+  "latitude": "-22.9879",
+  "longitude": "-43.2480",
+  "data_inicio": {
+    "$date": "2024-08-14T16:00:00.000Z"
+  },
+  "data_fim": {
+    "$date": "2024-08-14T18:00:00.000Z"
+  },
+  "descricao": "Retirada de lixo reciclável de comércios e moradias para reciclagem e limpeza da comunidade",
+  "urgencia": 4,
+  "id_organizador": 3,
+  "id_tipo": 4,
+  "id_status": 1
+}]

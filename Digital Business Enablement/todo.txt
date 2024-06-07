@@ -1,4 +1,0 @@
-- Gravar vídeo do front (Vitão);
-- Editar vídeo front e back (Natan);
-- Adicionar links dos vídeos no TXT (Kaue);
-- Gerar PDF (Kaue);

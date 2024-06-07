@@ -18,7 +18,7 @@ export const Text = styled.Text<{ size: 'sm' | 'md' | 'lg' }>`
   }}px;
 
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
-
+  max-width: 260px;
   color: ${({ theme, size }) =>
     size === 'lg' ? theme.COLORS.GRAY[50] : theme.COLORS.GRAY[40]};
 `;

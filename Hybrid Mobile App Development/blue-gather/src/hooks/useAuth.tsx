@@ -34,7 +34,7 @@ interface AuthProps {
 interface AuthContextData {
   user: User;
   handleSignIn: (data: SignInProps) => Promise<void>;
-  handleSignUp: (data: UserQuery) => Promise<void>
+  handleSignUp: (data: UserQuery) => Promise<void>;
   signInLoading: boolean;
   signUpLoading: boolean;
   handleUpdateUser: (user: User) => Promise<void>;
@@ -78,7 +78,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       setUser(data.usuario);
 
-      navigate("Main");
+      navigate('Main');
 
       await storageAuthTokenSave({ token });
       await storageUserSave(data.usuario);
@@ -98,7 +98,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setSignInLoading(false);
     }
   }, []);
-
 
   const handleSignUp = useCallback(async (userData: UserQuery) => {
     try {
@@ -120,11 +119,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       await api.post('/usuario', body);
 
-      navigate("Main");
+      navigate('SignIn');
 
       return Toast.show({
         type: 'success',
-        text1: 'Bem vindo!',
+        text1: 'Faça login!',
         text2: 'Estamos ansiosos para te ajudar a fazer a diferença. 😀',
       });
     } catch (error) {
@@ -144,7 +143,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const token = await storageAuthTokenGet();
 
     // Interceptor token
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    api.defaults.headers.Authorization = `${token}`;
   }
 
   const handleUpdateUser = useCallback(async (finalUserData: User) => {

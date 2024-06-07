@@ -24,7 +24,7 @@ export const Marker = styled(RNMarker)``;
 export const EventInfo = styled(Callout)`
   flex: 1;
   position: relative;
-  /* width: 200px; */
+  max-width: 200px;
   display: flex;
   flex-direction: column;
 `;

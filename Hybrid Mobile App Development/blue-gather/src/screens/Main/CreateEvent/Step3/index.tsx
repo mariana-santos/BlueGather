@@ -2,7 +2,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { Switch, Keyboard } from 'react-native';
-import { format } from 'date-fns';
+import { addHours, format } from 'date-fns';
 import { useState } from 'react';
 
 // Type import
@@ -62,26 +62,30 @@ export const Step3: React.FC<
   });
 
   const { user } = useAuth();
-  const { event, handleNewEvent } = useCreateEvent();
+  const { event, handleNewEvent, loading } = useCreateEvent();
 
-  const onSubmit: SubmitHandler<Step3Form> = data => {
+  const onSubmit: SubmitHandler<Step3Form> = async data => {
     const { startDate, endDate } = data;
 
-    const dataInicio = startDate ? format(startDate, 'yyyy-MM-dd HH:mm:ss') : null;
+    const dataInicio = startDate
+      ? format(startDate, 'yyyy-MM-dd HH:mm:ss')
+      : null;
     const dataFim = endDate ? format(endDate, 'yyyy-MM-dd HH:mm:ss') : null;
 
     const finalQuery: EventQuery = {
       ...event,
       dataInicio,
       dataFim,
-      idOrganizador: isOrganizer ? Number(user.id) : null,
+      idOrganizador: Number(user.id),
       idsVoluntarios: isOrganizer ? [Number(user.id)] : [],
       urgencia: 5,
       idTipoEvento: 1,
-      idStatus: STATUS_OPTIONS.inProgress
+      idStatus: STATUS_OPTIONS.inProgress,
+      latitude: event.latitude.substring(0, 12),
+      longitude: event.longitude.substring(0, 12),
     };
 
-    handleNewEvent(finalQuery);
+    await handleNewEvent(finalQuery);
   };
 
   function showDatePicker(dateType: keyof Step3Form) {
@@ -89,14 +93,13 @@ export const Step3: React.FC<
 
     DateTimePickerAndroid.open({
       value: inputValue,
-      onChange: (event, selectedDate) => {
+      onChange: (_, selectedDate) => {
         Keyboard.dismiss();
-        if (selectedDate) {
-          setValue(dateType, selectedDate);
-        }
+        if (selectedDate) setValue(dateType, addHours(selectedDate, 1));
       },
       mode: 'date',
-      minimumDate: new Date(),
+      minimumDate:
+        dateType === 'startDate' ? new Date() : getValues('startDate'),
     });
   }
 
@@ -105,9 +108,11 @@ export const Step3: React.FC<
       <ScrollableContent>
         <DefaultComponent
           headerProps={{ goBack: () => navigation.goBack() }}
-          highlightProps={{ 
-            title: 'Organização', 
-            subtitle: 'O organizador define detalhes como datas e é responsável por tirar fotos do resultado.' }}
+          highlightProps={{
+            title: 'Organização',
+            subtitle:
+              'O organizador define detalhes como datas e é responsável por tirar fotos do resultado.',
+          }}
         />
 
         <WavesContainer>
@@ -167,7 +172,11 @@ export const Step3: React.FC<
         </WavesContainer>
       </ScrollableContent>
 
-      <Button label="Continuar" size="XL" onPress={handleSubmit(onSubmit)} />
+      <Button
+        label={loading ? 'Carregando...' : 'Continuar'}
+        size="XL"
+        onPress={handleSubmit(onSubmit)}
+      />
     </WrapperPage>
   );
 };

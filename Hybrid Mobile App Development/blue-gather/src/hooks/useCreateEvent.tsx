@@ -16,7 +16,7 @@ import { api } from '@services/api';
 import { CreateEventRoutes } from '@screens/Main/CreateEvent';
 import { MainNavigationRoutes } from '@routes/index';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { EventQuery } from "@dtos/event"
+import { EventQuery } from '@dtos/event';
 import { Image, ImageQuery } from '@dtos/image';
 import { MainRoutesProps } from '@screens/Main';
 import { EventType } from '@dtos/eventType';
@@ -27,9 +27,9 @@ export type NavigationProp = StackNavigationProp<
 >;
 
 interface CreateEventContextData {
-  event: EventQuery, 
-  imagesUrl: string[],
-  loading: boolean,
+  event: EventQuery;
+  imagesUrl: string[];
+  loading: boolean;
   eventTypes: EventType[];
   setEvent: Dispatch<React.SetStateAction<EventQuery>>;
   setImagesUrl: Dispatch<React.SetStateAction<string[]>>;
@@ -55,10 +55,11 @@ const CreateEventProvider: React.FC<CreateEventProviderProps> = ({
 
   const navigation = useNavigation<MainRoutesProps>();
 
-  const handleNewImage = useCallback(async (imageData: ImageQuery) => {
+  const handleNewImage = useCallback(async (body: ImageQuery) => {
     try {
+      console.log('caiu aqui: ', body);
+
       setLoading(true);
-      const body = imageData;
       const { data } = await api.post('/imagem', body);
     } catch (error) {
       Toast.show({
@@ -73,10 +74,11 @@ const CreateEventProvider: React.FC<CreateEventProviderProps> = ({
     }
   }, []);
 
-  const handleNewEvent = useCallback(async (eventData: EventQuery) => {
+  const handleNewEvent = useCallback(async (body: EventQuery) => {
     try {
+      console.log('body: ', body);
+
       setLoading(true);
-      const body = eventData;
       const { data } = await api.post('/evento', body);
 
       if (data?.id) {
@@ -85,21 +87,17 @@ const CreateEventProvider: React.FC<CreateEventProviderProps> = ({
           text1: 'Evento criado com sucesso!',
         });
 
-        imagesUrl.forEach(img => {
-
-          const finalImageData:ImageQuery = {
+        imagesUrl.forEach(async img => {
+          const finalImageData: ImageQuery = {
             idEvento: data.id,
             idMomento: MOMENT_OPTIONS.before,
-            urlImagem: img
-          }
+            urlImagem: img,
+          };
 
-          handleNewImage(finalImageData);
+          await handleNewImage(finalImageData);
         });
 
-        // navigation.navigate("Events", {
-        //   screen: "EventDetails", 
-        //   id: data?.id 
-        // });
+        navigation.navigate('Home');
       }
     } catch (error) {
       Toast.show({
@@ -116,7 +114,7 @@ const CreateEventProvider: React.FC<CreateEventProviderProps> = ({
 
   const fetchEventTypes = async () => {
     try {
-      const { data } = await api.get("/tipoevento");
+      const { data } = await api.get('/tipoevento');
       setEventTypes(data.content);
     } catch (error) {
       Toast.show({
@@ -130,16 +128,18 @@ const CreateEventProvider: React.FC<CreateEventProviderProps> = ({
   };
 
   return (
-    <CreateEventContext.Provider value={{
-      event,
-      imagesUrl,
-      loading,
-      eventTypes,
-      setEvent,
-      setImagesUrl,
-      handleNewEvent,
-      fetchEventTypes
-    }}>
+    <CreateEventContext.Provider
+      value={{
+        event,
+        imagesUrl,
+        loading,
+        eventTypes,
+        setEvent,
+        setImagesUrl,
+        handleNewEvent,
+        fetchEventTypes,
+      }}
+    >
       {children}
     </CreateEventContext.Provider>
   );

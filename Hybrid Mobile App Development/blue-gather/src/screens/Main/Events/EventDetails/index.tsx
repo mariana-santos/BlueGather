@@ -75,6 +75,7 @@ export const EventDetails: React.FC<
   const [isReviewModalVisible, setReviewModalVisible] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [modalSubtitle, setModalSubtitle] = useState('');
+  const [changeStatusLoading, setChangeStatusLoading] = useState(false);
 
   const toggleUpdateModal = () => setUpdateModalVisible(modal => !modal);
   const toggleReviewModal = () => setReviewModalVisible(modal => !modal);
@@ -83,6 +84,7 @@ export const EventDetails: React.FC<
 
   const handleUpdateEvent = async (body: EventQuery, id: number) => {
     try {
+      setChangeStatusLoading(true);
       const { data } = await api.put(`/evento/${id}`, body);
 
       if (data.id) {
@@ -98,6 +100,7 @@ export const EventDetails: React.FC<
         text2: 'Não foi possível atualizar o evento',
       });
     } finally {
+      setChangeStatusLoading(false);
       navigation.navigate('EventList');
       toggleUpdateModal();
     }
@@ -150,11 +153,15 @@ export const EventDetails: React.FC<
       : default_image;
 
   const handleShare = () => {
-    navigation.navigate("ShareEvent", { event: event });
+    navigation.navigate('ShareEvent', { event: event });
   };
 
   const isCancelled = event?.status?.id === STATUS_OPTIONS.cancelled;
   const isInProgress = event?.status?.id === STATUS_OPTIONS.inProgress;
+
+  console.log('teste: ', event);
+
+  const isOrganizer = event?.organizador?.id === user.id;
 
   return (
     <WrapperPage>
@@ -277,22 +284,22 @@ export const EventDetails: React.FC<
                       visibilidade à causa!
                     </Value>
                   </Fragment>
-                ) : 
-                <Value>Evento cancelado</Value>
-                }
+                ) : (
+                  <Value>Evento cancelado</Value>
+                )}
               </Container>
 
               <Actions>
-                {isInProgress && (
+                {isInProgress && isOrganizer && (
                   <Fragment>
                     <Button
-                      label="Concluir"
+                      label={changeStatusLoading ? 'Carregando...' : 'Concluir'}
                       size="MD"
                       onPress={() => handleConfirm()}
                     />
 
                     <Button
-                      label="Cancelar"
+                      label={changeStatusLoading ? 'Carregando...' : 'Cancelar'}
                       size="MD"
                       backgroundColor={theme.COLORS.FEEDBACK.RED}
                       onPress={() => handleCancel()}

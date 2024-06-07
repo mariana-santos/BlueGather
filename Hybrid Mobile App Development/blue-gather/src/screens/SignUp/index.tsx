@@ -33,6 +33,7 @@ interface SignUpForm {
   email: string;
   cpf: string;
   senha: string;
+  urlImagem?: string;
 }
 
 export const SignUp: React.FC<
@@ -54,7 +55,7 @@ export const SignUp: React.FC<
       const { cpf } = data;
       const cleanCPF = unMask(cpf);
 
-      Object.assign(data, { urlImagem: '', cpf: cleanCPF });
+      Object.assign(data, { urlImagem: data.urlImagem ?? '', cpf: cleanCPF });
 
       await handleSignUp(data);
       resetField('email');
@@ -160,11 +161,17 @@ export const SignUp: React.FC<
           </Fieldset>
 
           <Fieldset>
-            <Input
-              value=""
-              label="Imagem de perfil"
-              placeholder="Selecione sua imagem de perfil"
-              autoCapitalize="none"
+            <Controller
+              control={control}
+              name="urlImagem"
+              render={({ field: { value, onChange } }) => (
+                <Input
+                  value={value}
+                  onChangeText={onChange}
+                  label="Imagem de perfil"
+                  placeholder="Selecione sua imagem de perfil"
+                />
+              )}
             />
           </Fieldset>
 

@@ -2,13 +2,18 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   align-items: center;
+
+  max-width: 150px;
 `;
 
 export const Image = styled.Image`
   position: relative;
 
   height: 80px;
+  width: 80px;
   aspect-ratio: 1;
+
+  background-color: red;
 
   border-radius: 125px;
   border-width: 3px;

@@ -20,7 +20,10 @@ export function Medal({ image, date, title }: MedalProps) {
       <Image source={{ uri: image ?? default_image }} />
       <IconPic source={waves} />
 
-      <Text size="lg">{title}</Text>
+      <Text size="lg" style={{ textAlign: 'center' }}>
+        {title}
+      </Text>
+
       <Text size="sm">{format(new Date(date), 'dd/MM/yyyy')}</Text>
     </Container>
   );

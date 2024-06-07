@@ -69,7 +69,7 @@ export function Profile() {
         <DefaultComponent key="default-component-profile" />
 
         <AvatarWrapper>
-          <UserInfo user={user}/>
+          <UserInfo user={user} />
         </AvatarWrapper>
 
         <WavesContainer>
@@ -93,7 +93,7 @@ export function Profile() {
                 events.map(event => (
                   <Medal
                     key={event.titulo}
-                    date={event.dataInicio ?? ''}
+                    date={event.dataInicio ?? new Date().toString()}
                     image={event?.imagens[0]?.urlImagem ?? null}
                     title={event.titulo}
                   />

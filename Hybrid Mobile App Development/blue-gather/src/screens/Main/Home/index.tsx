@@ -84,6 +84,8 @@ export function Home({
           `/evento/status/${STATUS_OPTIONS.inProgress}`,
         );
 
+        console.log(data);
+
         setEvents(data);
       } catch (error) {
         console.error(error);
@@ -176,9 +178,12 @@ export function Home({
                   longitude: Number(ev.longitude),
                   latitude: Number(ev.latitude),
                 }}
-                onPress={() =>
-                  navigation.navigate('EventDetails', { id: ev.id })
-                }
+                onPress={() => {
+                  navigation.navigate('Events', {
+                    screen: 'EventDetails',
+                    params: { id: ev.id },
+                  });
+                }}
               >
                 <MapPinLine
                   size={32}

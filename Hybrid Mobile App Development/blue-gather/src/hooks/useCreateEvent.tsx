@@ -117,7 +117,7 @@ const CreateEventProvider: React.FC<CreateEventProviderProps> = ({
   const fetchEventTypes = async () => {
     try {
       const { data } = await api.get("/tipoevento");
-      setEventTypes(data);
+      setEventTypes(data.content);
     } catch (error) {
       Toast.show({
         type: 'error',

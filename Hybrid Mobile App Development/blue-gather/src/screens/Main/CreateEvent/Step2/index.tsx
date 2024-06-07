@@ -17,7 +17,7 @@ import {
 
 // Style import
 import { ScrollableContent } from '@global/styles/index';
-import { SelectImage } from './SelectImage';
+import { SelectImage } from '@components/SelectImage';
 import { Image, ImageWrapper, ImagesContainer, RemoveImage } from './styles';
 import { Trash } from 'phosphor-react-native';
 

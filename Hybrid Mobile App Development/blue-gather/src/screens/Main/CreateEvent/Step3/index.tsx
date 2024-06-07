@@ -13,7 +13,7 @@ import { EventQuery } from '@dtos/event';
 // Validation import
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Step3FormSchema } from '@validations/QuoteDetails';
+import { Step3FormSchema } from '@validations/CreateEvent';
 
 // Component import
 import {

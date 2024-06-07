@@ -9,17 +9,20 @@ import {
 // Type import
 import { MainRoutes } from '..';
 import { Image } from '@dtos/image';
+import { Event } from '@dtos/event';
 
 // Pages import
 import { EventList } from '@screens/Main/Events/EventsList';
 import { EventDetails } from '@screens/Main/Events/EventDetails';
 import { EventImages } from '@screens/Main/Events/EventImages';
+import { ShareEvent } from '@screens/Main/Events/ShareEvent';
 
 // Interfaces
 export type EventsRoutes = {
   EventList: undefined;
   EventDetails: { id: number } ;
   EventImages: { images: Image[] } ;
+  ShareEvent: { event: Event } ;
 };
 
 export type EventsRoutesProps = NativeStackNavigationProp<EventsRoutes>;
@@ -40,6 +43,7 @@ export const Events: React.FC<
       <Stack.Screen name="EventList" component={EventList} />
       <Stack.Screen name="EventDetails" component={EventDetails} />
       <Stack.Screen name="EventImages" component={EventImages} />
+      <Stack.Screen name="ShareEvent" component={ShareEvent} />
     </Stack.Navigator>
   );
 };

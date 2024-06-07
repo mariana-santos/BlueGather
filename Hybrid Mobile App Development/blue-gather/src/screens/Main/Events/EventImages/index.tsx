@@ -1,40 +1,33 @@
-import { Fragment, useLayoutEffect, useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { MainNavigationRoutes } from '@routes/index';
-import Toast from 'react-native-toast-message';
-import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Type import
 import { EventsRoutes } from '..';
-import { Event } from '@dtos/event';
-import { ImageSourcePropType } from 'react-native';
+
+// Util import
+import { MOMENT_OPTIONS, STATUS_OPTIONS } from '@utils/options';
 
 // Component import
 import {
   WrapperPage,
-  Button,
-  CustomModal,
   WavesContainer,
   DefaultComponent
 } from '@components/index';
 
 // Style import
-import { 
-  TextIndicator, 
-  Container,
+import {
   Label,
-  Value,
-  Actions,
-  LabelWrapper,
-  SmallerLabel,
-  Header,
-  EventImage
 } from './styles';
-import { Flex, ScrollableContent } from '@global/styles';
+import { ScrollableContent } from '@global/styles';
 
 // Theme import
-import theme from '@theme/index';
+import { 
+  ImageWrapper, 
+  ImagesContainer, 
+  Image 
+} from '@screens/Main/CreateEvent/Step2/styles';
+import { Fragment } from 'react/jsx-runtime';
 
 export const EventImages: React.FC<
   CompositeScreenProps<
@@ -45,20 +38,69 @@ export const EventImages: React.FC<
 
   const { images } = route.params;
 
+  const before = images.filter(img => img.idMomento === MOMENT_OPTIONS.before);
+  const after = images.filter(img => img.idMomento === MOMENT_OPTIONS.after);
+  const during = images.filter(img => img.idMomento === MOMENT_OPTIONS.during);
+
   return (
     <WrapperPage>
       <ScrollableContent style={{ paddingTop: 10 }}>
         <DefaultComponent
           highlightProps={{
             title: "Galeria",
-            subtitle: "É importante mostrar imagens do evento  para dar credibilidade e atrair mais eventos voluntários!"
+            subtitle: "Veja as imagens do evento e se inspire para os próximos!"
           }}
           headerProps={{
             goBack: navigation.goBack
           }}
         />
         <WavesContainer>
-          <Value>Imagens</Value>
+          {before.length > 0 && (
+            <Fragment>
+              <Label>Antes</Label>
+              <ImagesContainer>
+                {before.map((image, index) => {
+                  return (
+                    <ImageWrapper key={image.id}>
+                      <Image source={{ uri: image.urlImagem }} />
+                    </ImageWrapper>
+                  );
+                })}
+              </ImagesContainer>
+            </Fragment>
+          )}
+          
+          {during.length > 0 && (
+            <Fragment>
+              <Label>Durante</Label>
+              <ImagesContainer>
+                {during.map((image, index) => {
+                  return (
+                    <ImageWrapper key={image.id}>
+                      <Image source={{ uri: image.urlImagem }} />
+                    </ImageWrapper>
+                  );
+                })}
+              </ImagesContainer>
+            </Fragment>
+          )}
+
+          {after.length > 0 && (
+            <Fragment>
+              <Label>Depois</Label>
+                <ImagesContainer>
+                  {after.map((image, index) => {
+                    return (
+                      <ImageWrapper key={image.id}>
+                        <Image source={{ uri: image.urlImagem }} />
+                      </ImageWrapper>
+                    );
+                  })}
+                </ImagesContainer>
+            </Fragment>
+          )}
+
+          
         </WavesContainer>
       </ScrollableContent>
     </WrapperPage>

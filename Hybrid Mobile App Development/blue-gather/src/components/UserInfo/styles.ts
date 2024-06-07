@@ -1,18 +1,16 @@
 import styled from "styled-components/native";
 
-export const CompanyWrapper = styled.View`
+export const UserWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   gap: 16px;
-
-  padding: 20px 30px;
 `;
 
-export const CompanyAvatar = styled.View`
-  flex: 2;
+export const UserIcon = styled.View`
+  flex: 1;
 `;
 
-export const CompanyData = styled.View`
+export const UserData = styled.View`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -20,17 +18,15 @@ export const CompanyData = styled.View`
   flex: 4;
 `;
 
-export const CompanyName = styled.Text`
-  color: ${({ theme }) => theme.COLORS.WHITE};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
+export const UserName = styled.Text`
+  color: ${({ theme }) => theme.COLORS.GRAY[40]};
+  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
-
-  margin-bottom: 12px;
 
   text-transform: capitalize;
 `;
 
-export const CompanyDocument = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
+export const UserDocument = styled.Text`
+  color: ${({ theme }) => theme.COLORS.GRAY[30]};
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
 `;

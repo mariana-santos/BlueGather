@@ -10,14 +10,14 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Image = styled.Image<Props>`
-  background-color: ${({ theme }) => theme.COLORS.GRAY_400};
+  background-color: ${({ theme }) => theme.COLORS.GRAY[40]};
 
-  height: ${props => (props.size === 'MD' ? '100px' : props.size === 'SM' ? '80px' : '200px')};
+  height: ${props => (props.size === 'MD' ? '80px' : props.size === 'SM' ? '60px' : '150px')};
   aspect-ratio: 1;
 
   border-radius: 125px;
   border-width: 3px;
-  border-color: ${({ theme }) => theme.COLORS.GRAY_300};
+  border-color: ${({ theme }) => theme.COLORS.GRAY[40]};
 `;
 
 export const IconPic = styled.View<Props>`
@@ -28,7 +28,7 @@ export const IconPic = styled.View<Props>`
   align-items: center;
   justify-content: center;
 
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
+  background-color: ${({ theme }) => theme.COLORS.BLUE[50]};
 
   border-radius: 35px;
 

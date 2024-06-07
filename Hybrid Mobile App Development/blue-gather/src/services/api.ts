@@ -1,9 +1,6 @@
 import axios from 'axios';
+import { EXPO_PUBLIC_API_URL } from '@env';
 
 export const api = axios.create({
-  baseURL: 'https://bluegather-production.up.railway.app',
-});
-
-export const mapsApi = axios.create({
-  baseURL: 'http://maps.googleapis.com/maps/api/',
+  baseURL: EXPO_PUBLIC_API_URL,
 });

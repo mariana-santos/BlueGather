@@ -28,11 +28,11 @@ export function CustomDropdown({ label, error, ...rest }: DropdownProps) {
         placeholderStyle={textStyle}
         selectedItemStyle={textStyle}
         dropdownErrorTextStyle={errorStyle}
-        primaryColor={theme.COLORS.PRIMARY}
+        primaryColor={theme.COLORS.BLUE[40]}
         error={error}
         dropdownIcon={
           <CaretDown
-            color={theme.COLORS.GRAY_200}
+            color={theme.COLORS.GRAY[30]}
             weight="bold"
             size={theme.FONT_SIZE.MD}
           />
@@ -45,7 +45,7 @@ export function CustomDropdown({ label, error, ...rest }: DropdownProps) {
           textInputProps: {
             placeholder: 'Pesquise uma opção',
             ...rest.searchControls?.textInputProps,
-            placeholderTextColor: theme.COLORS.GRAY_200,
+            placeholderTextColor: theme.COLORS.GRAY[30],
           },
         }}
         searchInputStyle={searchInputStyle}

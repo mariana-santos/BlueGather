@@ -20,7 +20,7 @@ export const Text = styled.Text<{ size: 'sm' | 'md' | 'lg' }>`
   font-family: ${({ theme }) => theme.FONT_FAMILY.PT_SANS_NARROW.BOLD};
 
   color: ${({ theme, size }) =>
-    size === 'lg' ? theme.COLORS.GRAY[40] : theme.COLORS.GRAY[50]};
+    size === 'lg' ? theme.COLORS.GRAY[50] : theme.COLORS.GRAY[40]};
 `;
 
 export const MedalsContainer = styled.View`
@@ -31,6 +31,7 @@ export const MedalsContainer = styled.View`
   justify-content: center;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 `;
 
 export const Content = styled.View`

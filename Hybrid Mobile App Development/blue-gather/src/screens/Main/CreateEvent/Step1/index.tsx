@@ -8,7 +8,7 @@ import { CreateEventRoutes } from '..';
 // Validation import
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Step1FormSchema } from '@validations/QuoteDetails';
+import { Step1FormSchema } from '@validations/CreateEvent';
 
 // Component import
 import {
@@ -40,7 +40,12 @@ export const Step1: React.FC<
     NativeStackScreenProps<MainNavigationRoutes>
   >
 > = ({ navigation }) => {
-  const { event, setEvent, eventTypes, fetchEventTypes } = useCreateEvent();
+  const { 
+    event, 
+    setEvent,
+    eventTypes, 
+    fetchEventTypes 
+  } = useCreateEvent();
 
   const {
     control,

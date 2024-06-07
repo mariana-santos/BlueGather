@@ -14,6 +14,7 @@ import {
   WrapperPage,
   FloatingMenu,
   Button,
+  UserInfo,
 } from '@components/index';
 
 // Style import
@@ -68,13 +69,7 @@ export function Profile() {
         <DefaultComponent key="default-component-profile" />
 
         <AvatarWrapper>
-          <UserAvatar
-            imageSource={imageSource}
-            handleSetAvatar={setAvatar}
-            size="MD"
-          />
-
-          <Text size="lg">{user.nome}</Text>
+          <UserInfo user={user}/>
         </AvatarWrapper>
 
         <WavesContainer>
@@ -97,6 +92,7 @@ export function Profile() {
               {!eventsLoading &&
                 events.map(event => (
                   <Medal
+                    key={event.titulo}
                     date={event.dataInicio ?? ''}
                     image={event?.imagens[0]?.urlImagem ?? null}
                     title={event.titulo}
@@ -106,7 +102,7 @@ export function Profile() {
 
             <Button
               backgroundColor={theme.COLORS.FEEDBACK.RED}
-              style={{ marginTop: 25 }}
+              style={{ marginTop: 25, marginBottom: 100 }}
               label="Sair"
               icon={
                 <Icon

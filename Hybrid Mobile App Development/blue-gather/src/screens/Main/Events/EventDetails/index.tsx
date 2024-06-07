@@ -16,6 +16,7 @@ import {
   Button,
   CustomModal,
   WavesContainer,
+  UserInfo,
 } from '@components/index';
 
 // Style import
@@ -149,18 +150,11 @@ export const EventDetails: React.FC<
       : default_image;
 
   const handleShare = () => {
-    Share.share({
-      title: 'Vamos fazer a diferença?',
-      message: `Oi :) queria te convidar para um evento voluntário para contribuir com a limpeza do oceano!
-${event.titulo}
-${event.descricao && event.descricao}
-${event.dataInicio && formatDate(event.dataInicio, true)}`,
-    });
+    navigation.navigate("ShareEvent", { event: event });
   };
 
   const isCancelled = event?.status?.id === STATUS_OPTIONS.cancelled;
   const isInProgress = event?.status?.id === STATUS_OPTIONS.inProgress;
-  const isConcluded = event?.status?.id === STATUS_OPTIONS.concluded;
 
   return (
     <WrapperPage>
@@ -266,8 +260,11 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
 
               <Container>
                 {event.organizador ? (
-                  <Value>Tem organizador</Value>
-                ) : (
+                  <Fragment>
+                    <Label>Organizador</Label>
+                    <UserInfo user={event.organizador} />
+                  </Fragment>
+                ) : !isCancelled ? (
                   <Fragment>
                     <Value>
                       O evento ainda não possui um organizador, portanto ainda
@@ -280,7 +277,9 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                       visibilidade à causa!
                     </Value>
                   </Fragment>
-                )}
+                ) : 
+                <Value>Evento cancelado</Value>
+                }
               </Container>
 
               <Actions>
@@ -318,32 +317,6 @@ ${event.dataInicio && formatDate(event.dataInicio, true)}`,
                   onPress={() => toggleReviewModal()}
                 />
               )}
-
-              {!isConcluded && !event.organizador && !isCancelled && (
-                <Button
-                  label="Quero organizar o evento"
-                  style={{
-                    marginBottom: 40,
-                  }}
-                  onPress={() => toggleReviewModal()}
-                />
-              )}
-
-              {!isConcluded &&
-                event.organizador &&
-                event.organizador?.id !== user.id && (
-                  <Button
-                    label={
-                      event.voluntarios.includes(user)
-                        ? 'Não comparecerei'
-                        : 'Vou comparecer'
-                    }
-                    style={{
-                      marginBottom: 40,
-                    }}
-                    onPress={() => toggleReviewModal()}
-                  />
-                )}
             </WavesContainer>
           </Fragment>
         )}

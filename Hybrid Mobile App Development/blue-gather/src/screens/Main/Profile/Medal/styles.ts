@@ -7,7 +7,7 @@ export const Container = styled.View`
 export const Image = styled.Image`
   position: relative;
 
-  height: 100px;
+  height: 80px;
   aspect-ratio: 1;
 
   border-radius: 125px;

@@ -15,7 +15,7 @@ Código Fonte da API Java: https://github.com/mariana-santos/BlueGather/tree/mai
 Link do Railway: https://bluegather-production.up.railway.app/
 
 Link do Vídeo Pitch no Youtube: https://www.youtube.com/watch?v=VczUxaQfYYU
-Link do Vídeo do Sistema no Youtube:
+Link do Vídeo do Sistema no Youtube: https://www.youtube.com/watch?v=vi2DIPlmj9E
 
 * O Insomnia está configurado com variáveis de ambiente e token. Para funcionar de forma mais prática, acrescentar isso no Base Environment:
 {

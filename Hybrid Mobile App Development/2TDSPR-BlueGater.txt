@@ -1,0 +1,32 @@
+Global Solution - 2TDSPR
+
+Grupo: BlueGather
+
+Integrantes:
+Gustavo Sanches - RM 97068
+Kaue Caponero - RM 96466
+Mariana Santos - RM 97503
+Natan Cruz - RM 97324
+Vitor Rubim - RM 97092
+
+* O readme da pasta do projeto de mobile tem a documentação completa da API.
+
+-----
+
+Código Fonte do Projeto: https://github.com/mariana-santos/BlueGather
+Código Fonte da Aplicação Mobile: https://github.com/mariana-santos/BlueGather/tree/main/Hybrid%20Mobile%20App%20Development
+
+-----
+
+Link do Vídeo Pitch no Youtube: https://www.youtube.com/watch?v=VczUxaQfYYU
+Link do Vídeo do Sistema no Youtube:
+
+-----
+
+* O Insomnia está configurado com variáveis de ambiente e token. Para funcionar de forma mais prática, acrescentar isso no Base Environment:
+
+{
+	"authorization": "Bearer {% response 'body', 'req_0296298979f042fda8226e5b69479541', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+}
+
+Após isso, cadastrar usuário e fazer login para geração do token e navegação entre os outros endpoints.

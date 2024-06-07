@@ -1,2 +1,4 @@
+- Verificação se está tudo ok (Gustavo) (Acho que falta algumas procedures, mas não vi a fundo);
+- Faltam arquivos do MongoDb (Gustavo);
+- Adicionar MongoDB na Documentação (Gustavo);
 - Fazer vídeo dos testes (Gustavo);
-- Adicionar vídeo na pasta (Gustavo);

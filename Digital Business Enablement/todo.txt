@@ -1,3 +1,4 @@
-- Fazer Pitch
-- Editar Video (Kaue + Vitão)
-- Adicionar Links dos Vídeos no TXT
+- Gravar vídeo do front (Vitão);
+- Editar vídeo front e back (Natan);
+- Adicionar links dos vídeos no TXT (Kaue);
+- Gerar PDF (Kaue);

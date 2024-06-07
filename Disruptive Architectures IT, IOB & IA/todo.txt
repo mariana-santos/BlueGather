@@ -1,2 +1,2 @@
-- Adicionar Link do Sistema no Word (Google Drive Kaue)
-- Gerar PDF do Word e salvar na pasta
+- Correção de Bugs (Mari e Vitão);
+- Fazer a Documentação (Mari e Vitão):
